@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MindMed | Online Mental Health Support in Nigeria | Book Licensed Therapists</title>
+<meta name="description" content="MindMed: Evidence-based mental health education, free GAD-7 PHQ-9 PCL-5 self-check tools + book licensed therapists online in Nigeria via Doxy.me. Confidential & secure. NDPR Compliant.">
+<link rel="canonical" href="https://mindmed-telehealth-care.netlify.app/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
+<meta property="og:title" content="MindMed | Mental Health Education & Therapy Booking Nigeria">
+<meta property="og:description" content="Free self-check tools + book online therapy sessions in 24hrs">
+<meta property="og:type" content="website">
+<style>
+:root{--primary:#1e4d3a;--accent:#f59e0b;--dark:#0f172a;--light:#f8fafc;--text:#334155}
+*{margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
+html{scroll-behavior:smooth}
+body{color:var(--text);line-height:1.6}
+header{background:#fff;border-bottom:1px solid #e2e8f0;position:sticky;top:0;z-index:50}
+nav{max-width:1200px;margin:0 auto;padding:1rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+nav a{color:var(--dark);text-decoration:none;margin-left:1rem;font-weight:500;font-size:0.9rem;white-space:nowrap}
+nav a:hover{color:var(--primary)}
+.logo{display:flex;align-items:center;gap:0.5rem;font-size:1.3rem;font-weight:700;color:var(--primary)}
+.btn-primary{background:var(--primary);color:#fff;padding:0.7rem 1.2rem;border-radius:8px;text-decoration:none;font-weight:600;display:inline-flex;align-items:center;gap:0.5rem;border:none;cursor:pointer}
+.btn-primary:hover{opacity:0.9}
+.btn-secondary{background:#10b981;color:#fff;padding:0.9rem 1.5rem;border-radius:8px;text-decoration:none;font-weight:600;display:inline-flex;align-items:center;gap:0.5rem}
+.btn-accent{background:var(--accent);color:#fff;padding:0.9rem 1.5rem;border-radius:8px;text-decoration:none;font-weight:600;display:inline-flex;align-items:center;gap:0.5rem}
+.hero{max-width:1200px;margin:0 auto;padding:4rem 1rem;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+.hero h1{font-size:2.8rem;color:var(--dark);line-height:1.2;margin-bottom:1rem}
+.hero p{font-size:1.1rem;color:#475569;margin-bottom:1rem}
+.mini-disclaimer{font-size:0.85rem;color:#64748b;display:flex;align-items:center;gap:0.5rem;margin-top:1rem;flex-wrap:wrap}
+.badge{background:#1e3a8a;color:#fff;padding:1.5rem;border-radius:12px;margin-left:2rem}
+section{max-width:1200px;margin:0 auto;padding:4rem 1rem}
+h2{text-align:center;font-size:2rem;color:var(--dark);margin-bottom:3rem}
+.grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem}
+.card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:2rem;text-align:center}
+.card h3{color:var(--dark);margin:1rem 0 0.5rem}
+.btn-small{background:var(--primary);color:#fff;padding:0.6rem 1.2rem;border-radius:6px;text-decoration:none;font-size:0.9rem;display:inline-block;margin-top:1rem}
+.btn-small:disabled{background:#94a3b8;cursor:not-allowed}
+.test-note{font-size:0.8rem;color:#64748b;margin-top:0.5rem}
+.warning{background:#fef3c7;border-left:4px solid #f59e0b;padding:1rem;border-radius:6px;font-size:0.9rem;margin:2rem 0}
+.consent-box{background:#ecfdf5;border:2px solid #10b981;border-radius:12px;padding:2rem;margin-bottom:2rem;text-align:center}
+.grid-4{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;margin-top:2rem}
+.article-card{background:#fff;border-radius:12px;overflow:hidden;border:1px solid #e2e8f0;opacity:0.7}
+.article-card img{width:100%;height:160px;object-fit:cover;background:#e2e8f0}
+.article-card div{padding:1rem}
+.tag{font-size:0.75rem;background:#dbeafe;color:#1e40af;padding:0.2rem 0.6rem;border-radius:4px;font-weight:600}
+.coming-soon{font-size:0.75rem;background:var(--accent);color:#fff;padding:0.2rem 0.6rem;border-radius:4px;font-weight:600;margin-left:0.5rem}
+.meet{background:#f8fafc;border-radius:16px;padding:3rem;display:grid;grid-template-columns:1fr;gap:2rem;text-align:center}
+.trust-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:1.5rem}
+.trust-item{text-align:center;padding:1rem}
+.legal{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:2rem;margin-top:2rem}
+.legal h3{color:var(--primary);margin-top:1.5rem;margin-bottom:0.5rem}
+footer{background:var(--dark);color:#cbd5e1;padding:3rem 1rem;margin-top:4rem}
+footer a{color:#94a3b8;text-decoration:none}
+footer a:hover{color:#fff}
+.subscribe{background:#1e293b;padding:2rem;border-radius:12px;display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
+.subscribe input{flex:1;padding:0.8rem;border-radius:6px;border:none;min-width:250px}
+@media(max-width:768px){.hero{grid-template-columns:1fr;text-align:center}.badge{margin-left:0;margin-top:2rem}.grid-3{grid-template-columns:1fr}.meet{grid-template-columns:1fr}.trust-grid{grid-template-columns:1fr}.hero h1{font-size:2rem}nav{justify-content:center}}
+</style>
+</head>
+<body>
+
+<header>
+<nav>
+<div class="logo">🧠 MindMed <span style="font-size:0.8rem;font-weight:400;color:#64748b">Mind. Health. You.</span></div>
+<div style="display:flex;align-items:center;flex-wrap:wrap">
+<a href="#">Home</a>
+<a href="#resources">Resources</a>
+<a href="#self-tests">Free Tests</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+<a href="https://doxy.me/mindmed" target="_blank" class="btn-primary">📅 Book Appointment</a>
+</div>
+</nav>
+</header>
+
+<section class="hero">
+<div>
+<h1>Online Mental Health Support in Nigeria | Book Licensed Therapists in 24hrs</h1>
+<p>Evidence-based mental health education, self-assessment tools, and access to professional therapy support.</p>
+<div style="display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0">
+<a href="#consent" class="btn-secondary">🌿 Start Self-Assessment →</a>
+<a href="https://form.jotform.com/261754301710044" target="_blank" class="btn-accent">📅 Book Appointment</a>
+</div>
+<div class="mini-disclaimer">🔒 Confidential. Secure. NDPR Compliant. SSL Secured. Educational tools only. Not a diagnosis.</div>
+</div>
+<div>
+<img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=500&h=400&fit=crop" alt="Nigerian woman using phone for therapy" style="width:100%;border-radius:16px">
+<div class="badge">
+🛡️ <strong>Your mental health matters.</strong><br>
+Get the support you deserve—anywhere, anytime.
+</div>
+</div>
+</section>
+
+<section>
+<h2>How MindMed Works</h2>
+<div class="grid-3">
+<div class="card">
+<div style="font-size:2.5rem">📝</div>
+<h3>1. Consent</h3>
+<p>Sign informed consent to protect your privacy before any assessment.</p>
+</div>
+<div class="card">
+<div style="font-size:2.5rem">📊</div>
+<h3>2. Assess</h3>
+<p>Take evidence-based screening tests for anxiety, depression & PTSD.</p>
+</div>
+<div class="card">
+<div style="font-size:2.5rem">👤</div>
+<h3>3. Connect</h3>
+<p>Book a confidential online session with a licensed therapist.</p>
+</div>
+</div>
+</section>
+
+<section id="consent">
+<div class="consent-box">
+<h2>Step 1: Informed Consent Required</h2>
+<p style="max-width:600px;margin:1rem auto">Before accessing any mental health screening tools, you must read and sign our informed consent form. This explains how your data is used and protects your rights under NDPR.</p>
+<a href="https://form.jotform.com/261755166440054" target="_blank" class="btn-primary">📋 Sign Informed Consent →</a>
+<p style="font-size:0.85rem;color:#065f46;margin-top:1rem">After submitting consent, return here to take your tests below.</p>
+</div>
+</section>
+
+<section id="self-tests">
+<h2>Step 2: Mental Health Self-Checks</h2>
+<p style="text-align:center;color:#64748b;margin-bottom:2rem">Only available after signing informed consent above</p>
+<div class="grid-3">
+<div class="card">
+<div style="font-size:3rem;color:var(--primary)">🧠</div>
+<h3>Anxiety + Depression Test</h3>
+<p>GAD-7 & PHQ-9 combined screening</p>
+<a href="https://form.jotform.com/261754681957068" target="_blank" class="btn-small">Take Test →</a>
+<p class="test-note">Results sent to email. Not a diagnosis.</p>
+</div>
+<div class="card">
+<div style="font-size:3rem;color:#059669">💚</div>
+<h3>PTSD Test (PCL-5)</h3>
+<p>Post-traumatic stress screening</p>
+<a href="https://form.jotform.com/261754298296068" target="_blank" class="btn-small">Take Test →</a>
+<p class="test-note">Results sent to email. Not a diagnosis.</p>
+</div>
+</div>
+<div class="warning">
+🛡️ <strong>Important:</strong> These are screening tools only. A high score does not mean you have a disorder. Only a licensed clinician can diagnose. If you're having thoughts of harming yourself, contact emergency services 112 or the Mental Health Helpline 081-6913-7108 immediately.
+</div>
+</section>
+
+<section id="resources">
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem;flex-wrap:wrap">
+<h2 style="margin:0;text-align:left">Explore Mental Health Resources</h2>
+<span style="color:var(--accent);font-weight:600">Articles coming soon →</span>
+</div>
+<div class="grid-4">
+<div class="article-card">
+<img src="https://images.unsplash.com/photo-1524504388940-b1c1724713e9?w=400&h=200&fit=crop" alt="Nigerian woman managing anxiety">
+<div><span class="tag">ANXIETY</span><span class="coming-soon">SOON</span><h4 style="margin:0.5rem 0">7 Evidence-Based Ways to Manage Anxiety Naturally</h4><p style="font-size:0.85rem;color:#64748b">Coming soon • 6 min read</p></div>
+</div>
+<div class="article-card">
+<img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=200&fit=crop" alt="Nigerian woman wellness">
+<div><span class="tag">DEPRESSION</span><span class="coming-soon">SOON</span><h4 style="margin:0.5rem 0">Understanding Depression: Symptoms, Causes & Help</h4><p style="font-size:0.85rem;color:#64748b">Coming soon • 7 min read</p></div>
+</div>
+<div class="article-card">
+<img src="https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=400&h=200&fit=crop" alt="Nigerian woman meditating">
+<div><span class="tag">STRESS</span><span class="coming-soon">SOON</span><h4 style="margin:0.5rem 0">10 Stress Management Strategies That Actually Work</h4><p style="font-size:0.85rem;color:#64748b">Coming soon • 6 min read</p></div>
+</div>
+<div class="article-card">
+<img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&h=200&fit=crop" alt="Nigerian woman journaling">
+<div><span class="tag">CBT TOOLS</span><span class="coming-soon">SOON</span><h4 style="margin:0.5rem 0">CBT Thought Record: A Simple Tool for Daily Use</h4><p style="font-size:0.85rem;color:#64748b">Coming soon • 5 min read</p></div>
+</div>
+</div>
+</section>
+
+<section class="meet" id="about">
+<div>
+<h3 style="margin:0 0 0.5rem;color:var(--primary)">ABOUT MINDMED</h3>
+<h2 style="text-align:center;margin:0 0 1rem">Your Partner in Mental Wellness</h2>
+<p style="max-width:700px;margin:0 auto">MindMed is a mental health education and therapist booking platform dedicated to making quality mental health support accessible to everyone in Nigeria and beyond.</p>
+</div>
+<div>
+<div class="trust-grid">
+<div class="trust-item"><div style="font-size:2rem">📊</div><strong>Evidence-Based Approach</strong></div>
+<div class="trust-item"><div style="font-size:2rem">🔒</div><strong>NDPR Compliant</strong></div>
+<div class="trust-item"><div style="font-size:2rem">👥</div><strong>Accessible Care</strong></div>
+</div>
+<div style="margin-top:2rem;padding:2rem;background:#fff;border-radius:12px">
+<h3>Ready to speak with a therapist?</h3>
+<p>Book a confidential online session today.</p>
+<div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:1rem;justify-content:center">
+<a href="https://form.jotform.com/261754301710044" target="_blank" class="btn-primary">📅 Book Appointment</a>
+<a href="https://wa.me/2347069498050" target="_blank" class="btn-secondary">💬 Chat on WhatsApp</a>
+</div>
+</div>
+</div>
+</section>
+
+<section id="contact" style="background:#f8fafc;border-radius:16px">
+<h2>Book a Session</h2>
+<p style="text-align:center;max-width:600px;margin:0 auto 2rem">Fill this form and we'll connect you with a licensed therapist within 24 hours. All sessions are online via Doxy.me and confidential.</p>
+<div style="text-align:center">
+<a href="https://form.jotform.com/261754301710044" target="_blank" class="btn-primary">Open Booking Form →</a>
+</div>
+</section>
+
+<section id="privacy" class="legal">
+<h2>Privacy Policy & NDPR Compliance</h2>
+<p><strong>Last Updated:</strong> April 25, 2026</p>
+<h3>1. NDPR Compliance</h3>
+<p>MindMed complies with the Nigeria Data Protection Regulation NDPR 2019. Your data is processed lawfully, fairly, and transparently. We are registered data controllers.</p>
+<h3>2. Information We Collect</h3>
+<p>We collect information you provide through JotForm: name, email, phone, and mental health screening responses. Data is stored securely by JotForm which is encrypted and NDPR-compliant.</p>
+<h3>3. Purpose of Data</h3>
+<p>Your data is used to: provide screening results, contact you about therapy booking, and improve services. We never sell or share your data with third parties for marketing.</p>
+<h3>4. Your Rights Under NDPR</h3>
+<p>You have the right to access, correct, delete, or restrict processing of your data. Email judithogunloye@gmail.com to exercise these rights.</p>
+<h3>5. Medical Disclaimer</h3>
+<p>MindMed provides educational content and screening tools only. This is not medical advice or diagnosis. For emergencies, call 112.</p>
+</section>
+
+<footer>
+<div style="max-width:1200px;margin:0 auto">
+<div class="subscribe">
+<div style="display:flex;align-items:center;gap:1rem;flex:1">
+<span style="font-size:2rem">✉️</span>
+<div><strong>Stay Informed. Stay Empowered.</strong><br><span style="font-size:0.9rem">Get mental health tips, resources, and updates delivered to your inbox.</span></div>
+</div>
+<div style="display:flex;gap:0.5rem;flex:1">
+<input type="email" placeholder="Enter your email address">
+<button class="btn-primary">Subscribe</button>
+</div>
+</div>
+<p style="font-size:0.8rem;margin-top:0.5rem">We respect your privacy. Unsubscribe anytime.</p>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;margin:3rem 0">
+<div>
+<div class="logo" style="color:#fff">🧠 MindMed</div>
+<p style="font-size:0.85rem;margin:1rem 0">MindMed is a mental health education and therapist booking platform dedicated to improving mental well-being in Nigeria and beyond.</p>
+</div>
+<div>
+<strong>Quick Links</strong><br>
+<a href="#">Home</a><br><a href="#resources">Resources</a><br><a href="#self-tests">Free Tests</a><br><a href="https://doxy.me/mindmed">Book Appointment</a><br><a href="#about">About</a><br><a href="#contact">Contact</a>
+</div>
+<div>
+<strong>Resources</strong><br>
+<span style="color:#64748b">Anxiety</span><br><span style="color:#64748b">Depression</span><br><span style="color:#64748b">CBT Tools</span><br><span style="color:#64748b">Stress Management</span><br><span style="color:#64748b">Relationships</span><br><span style="color:#64748b">Trauma Recovery</span>
+</div>
+<div>
+<strong>Support</strong><br>
+<a href="tel:+2347069498050">📞 +234 706 949 8050</a><br>
+<a href="mailto:judithogunloye@gmail.com">✉️ judithogunloye@gmail.com</a><br>
+<a href="https://wa.me/2347069498050">💬 Chat on WhatsApp</a><br>
+<a href="#">🔗 linkedin.com/in/judith-ogunloye-646b9b195</a>
+</div>
+</div>
+<p style="font-size:0.8rem;border-top:1px solid #334155;padding-top:1rem">© 2026 MindMed. All Rights Reserved. NDPR Compliant. <span style="float:right"><a href="#privacy">Privacy Policy</a> | <a href="#privacy">Terms of Use</a> | <a href="#privacy">Disclaimer</a></span></p>
+</div>
+</footer>
+
+</body>
+</html>
