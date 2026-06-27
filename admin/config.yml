@@ -1,4 +1,5 @@
-backend:
+   site_url: https://mindmed.com.ng
+   backend:
   name: git-gateway
   branch: main
 
