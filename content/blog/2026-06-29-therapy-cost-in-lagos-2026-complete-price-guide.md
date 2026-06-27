@@ -1,6 +1,6 @@
 ---
 title: "Therapy Cost in Lagos 2026: Complete Price Guide"
-date: 2026-06-29
+date: 2026-06-27T18:28:00.000+01:00
 slug: therapy-cost-in-lagos-2026-complete-price-guide
 pillar: "Pillar 1: Cost + Access"
 keywords: therapy Lagos price; is therapy covered NHIS; how much is therapy in
