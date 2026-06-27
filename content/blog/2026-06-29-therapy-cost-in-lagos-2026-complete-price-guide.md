@@ -1,12 +1,13 @@
 ---
 title: "Therapy Cost in Lagos 2026: Complete Price Guide"
 date: 2026-06-29
-slug: "therapy-cost-in-lagos-2026-complete-price-guide"
+slug: therapy-cost-in-lagos-2026-complete-price-guide
 pillar: "Pillar 1: Cost + Access"
-keywords: "therapy Lagos price; is therapy covered NHIS"
-author: "Licensed Therapist Name"
-image: "https://images.unsplash.com/photo-1677682693059-4aff8fcd8b16?w=1200&h=700&fit=crop"
+keywords: therapy Lagos price; is therapy covered NHIS; how much is therapy in
+  Lagos; therapy price in Nigeria 2026
+author: "Judith Ogunloye "
 draft: false
+image: https://images.unsplash.com/photo-1677682693059-4aff8fcd8b16?w=1200&h=700&fit=crop
 ---
 
 ![Two women in a calm therapy consultation in Lagos](https://images.unsplash.com/photo-1677682693059-4aff8fcd8b16?w=1200&h=700&fit=crop)
