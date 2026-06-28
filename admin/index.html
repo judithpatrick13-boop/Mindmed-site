@@ -5,6 +5,45 @@
   <title>MindMed Content Manager</title>
 </head>
 <body>
+  <script>
+    window.CMS_MANUAL_INIT = true;
+  </script>
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script>
+    CMS.init({
+      config: {
+        load_config_file: false,
+        site_url: "https://mindmed.com.ng",
+        backend: {
+          name: "github",
+          repo: "judithpatrick13-boop/Mindmed-site",
+          branch: "main",
+          base_url: "https://mindmedadmin.vercel.app"
+        },
+        media_folder: "static/images/blog",
+        public_folder: "/images/blog",
+        collections: [
+          {
+            name: "blog",
+            label: "Blog Posts",
+            folder: "content/blog",
+            create: true,
+            slug: "{{year}}-{{month}}-{{day}}-{{slug}}",
+            extension: "md",
+            fields: [
+              { label: "Title", name: "title", widget: "string" },
+              { label: "Publish Date", name: "date", widget: "datetime" },
+              { label: "Slug", name: "slug", widget: "string" },
+              { label: "Pillar", name: "pillar", widget: "select", options: ["Pillar 1: Cost + Access", "Pillar 2: Problems People Search", "Pillar 3: How Therapy Works / E-E-A-T"] },
+              { label: "Target Keywords / SEO Goal", name: "keywords", widget: "string" },
+              { label: "Author", name: "author", widget: "string", default: "Licensed Therapist Name" },
+              { label: "Draft", name: "draft", widget: "boolean", default: true },
+              { label: "Body", name: "body", widget: "markdown" }
+            ]
+          }
+        ]
+      }
+    });
+  </script>
 </body>
 </html>
