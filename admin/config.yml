@@ -1,7 +1,9 @@
 site_url: https://mindmed.com.ng
 backend:
-  name: git-gateway
+  name: github
+  repo: judithpatrick13-boop/Mindmed-site
   branch: main
+  base_url: https://mindmedadmin.vercel.app
 
 media_folder: "static/images/blog"
 public_folder: "/images/blog"
