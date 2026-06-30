@@ -7,6 +7,8 @@ const ROOT = __dirname;
 const OUT = path.join(ROOT, 'public');
 const BLOG_SRC = path.join(ROOT, 'content', 'blog');
 
+const ANALYTICS_SNIPPET = `<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "dd98414a9b0d40bfb9d5b01b63d186c2"}'></script><!-- End Cloudflare Web Analytics -->`;
+
 function escapeHtml(str) {
   return String(str || '').replace(/[&<>"']/g, (c) => ({
     '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
@@ -113,6 +115,7 @@ function postPageHtml(post) {
 <meta name="description" content="${desc}">
 <link rel="canonical" href="https://mindmed.com.ng/blog/${post.slug}/">
 <style>${SITE_HEAD_CSS}</style>
+${ANALYTICS_SNIPPET}
 </head>
 <body>
 ${siteHeader()}
@@ -156,6 +159,7 @@ ${p.image ? `<img src="${escapeHtml(p.image)}" alt="${escapeHtml(p.title)}">` : 
 <meta name="description" content="Evidence-based mental health articles for Nigerians: therapy costs, anxiety, depression, and how to get support in Lagos and beyond.">
 <link rel="canonical" href="https://mindmed.com.ng/blog/">
 <style>${SITE_HEAD_CSS}</style>
+${ANALYTICS_SNIPPET}
 </head>
 <body>
 ${siteHeader()}
@@ -260,7 +264,10 @@ function build() {
   const homepageSrc = path.join(ROOT, 'index.html');
   if (fs.existsSync(homepageSrc)) {
     const rawHomepage = fs.readFileSync(homepageSrc, 'utf8');
-    const finalHomepage = injectHomepageResources(rawHomepage, posts);
+    let finalHomepage = injectHomepageResources(rawHomepage, posts);
+    if (finalHomepage.includes('</head>') && !finalHomepage.includes('cloudflareinsights.com')) {
+      finalHomepage = finalHomepage.replace('</head>', `${ANALYTICS_SNIPPET}\n</head>`);
+    }
     fs.writeFileSync(path.join(OUT, 'index.html'), finalHomepage);
   }
 
