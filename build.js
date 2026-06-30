@@ -171,11 +171,47 @@ ${siteFooter()}
 </html>`;
 }
 
+function homepageCardHtml(p) {
+  return `<div class="article-card" style="opacity:1">
+<a href="/blog/${p.slug}/" style="text-decoration:none;color:inherit">
+${p.image ? `<img src="${escapeHtml(p.image)}" alt="${escapeHtml(p.title)}">` : ''}
+<div><span class="tag">${escapeHtml((p.pillar || 'MindMed').split(':')[0].toUpperCase())}</span><h4 style="margin:0.5rem 0">${escapeHtml(p.title)}</h4><p style="font-size:0.85rem;color:#64748b">${formatDate(p.date)}</p></div>
+</a>
+</div>`;
+}
+
+function injectHomepageResources(homepageHtml, posts) {
+  const featured = posts.slice(0, 4);
+  const gridStart = homepageHtml.indexOf('<div class="grid-4">');
+  const gridEndTag = '</div>\n</section>';
+  if (gridStart === -1) return homepageHtml;
+  const gridEnd = homepageHtml.indexOf(gridEndTag, gridStart);
+  if (gridEnd === -1) return homepageHtml;
+
+  if (featured.length === 0) {
+    return homepageHtml;
+  }
+  const newGridInner = featured.map(homepageCardHtml).join('\n');
+
+  const before = homepageHtml.slice(0, gridStart);
+  const after = homepageHtml.slice(gridEnd);
+  const newGridBlock = `<div class="grid-4">\n${newGridInner}\n</div>`;
+
+  let result = before + newGridBlock + after;
+
+  result = result.replace(
+    /<span style="color:var\(--accent\);font-weight:600">Articles coming soon[^<]*<\/span>/,
+    '<a href="/blog/" style="color:var(--accent);font-weight:600;text-decoration:none">View all articles \u2192</a>'
+  );
+
+  return result;
+}
+
 function build() {
   rmrf(OUT);
   fs.mkdirSync(OUT, { recursive: true });
 
-  for (const item of ['index.html', 'set-password.html', 'admin']) {
+  for (const item of ['set-password.html', 'admin']) {
     const src = path.join(ROOT, item);
     if (fs.existsSync(src)) {
       copyRecursive(src, path.join(OUT, item));
@@ -220,6 +256,13 @@ function build() {
 
   fs.mkdirSync(path.join(OUT, 'blog'), { recursive: true });
   fs.writeFileSync(path.join(OUT, 'blog', 'index.html'), listingPageHtml(posts));
+
+  const homepageSrc = path.join(ROOT, 'index.html');
+  if (fs.existsSync(homepageSrc)) {
+    const rawHomepage = fs.readFileSync(homepageSrc, 'utf8');
+    const finalHomepage = injectHomepageResources(rawHomepage, posts);
+    fs.writeFileSync(path.join(OUT, 'index.html'), finalHomepage);
+  }
 
   console.log(`Build complete. Generated ${posts.length} blog post page(s).`);
 }
