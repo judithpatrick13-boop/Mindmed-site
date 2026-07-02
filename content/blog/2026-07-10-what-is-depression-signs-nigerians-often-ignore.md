@@ -1,7 +1,7 @@
 ---
 title: What is Depression? Signs Nigerians often Ignore
 meta_title: What is Depression? Signs Nigerians Ignore + Free Test
-date: 2026-07-10T05:33:00.000+01:00
+date: 2026-07-02T05:33:00.000+01:00
 slug: What-is-depression-signs-nigerians-ignorewh
 meta_description: Think you’re just “stressed” or “lazy”? Learn 7 signs of
   depression Nigerians ignore + take MindMed’s free 3-min test for clarity.
@@ -10,7 +10,7 @@ pillar: "Pillar 2: Problems People Search"
 keywords: "What is depression; depression in Nigeria; signs of depression; free
   depression test Nigeria "
 author: "Judith Ogunloye "
-draft: true
+draft: false
 ---
 ![Man in the dark facing an a window ](https://images.unsplash.com/photo-1534330207526-8e81f10ec6fc?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D "Depression signs")
 
@@ -32,7 +32,7 @@ WHO estimates **over 20 million Nigerians** experience depression every year. Ma
 
 And the most important thing: **Depression ≠ laziness.** You can’t “snap out of it” the same way you can’t snap out of malaria. Your brain needs help, just like your body would.
 
-## 7 Signs Nigerians Ignore — Because They Don’t Look Like ‘Sadness’
+## 7 Signs Nigerians Ignore 
 
 ### The Heavy Body Sign
 
@@ -62,7 +62,7 @@ You have a headache that won’t go. Back pain. Stomach issues. You go to the ho
 
 You don't have a full suicide plan, not yet. Just quiet thoughts that visit at 3am: “What if I wasn’t here?” “Maybe everyone will rest.” “It would be easier if I disappeared.” Even 3 seconds of this counts. It doesn’t mean you’re weak or faithless. It means your brain is sick and needs help, fast.
 
-See 3 or more of these signs for 2+ weeks? Don’t try to diagnose yourself from Google. Take MindMed’s 2-minute Depression Test here: MindMed depression+anxiety free test to get clarity before you panic.
+See 3 or more of these signs for 2+ weeks? Don’t try to diagnose yourself from Google. Take MindMed’s 2-minute [Depression test](https://form.jotform.com/261754681957068) to get clarity before you panic.
 
 ## 3 Gentle Next Steps If This Feels Like You
 
@@ -84,10 +84,10 @@ You won’t fix them with one speech or conversation. Don’t say “man up” o
 
 ## When to Get Professional Help
 
-If these signs last more than 2 weeks, affect your work, sleep, or relationships, it’s time to talk to a therapist. Therapy isn’t for “mad people”. It’s for people who want their life back. MindMed connects you to licensed therapists in Nigeria who understand our culture, money stress, and family pressure. No judgment.  Book a session today.
+If these signs last more than 2 weeks, affect your work, sleep, or relationships, it’s time to talk to a therapist. Therapy isn’t for “mad people”. It’s for people who want their life back. MindMed connects you to licensed therapists in Nigeria who understand our culture, money stress, and family pressure. No judgment.  [Book a session](https://form.jotform.com/261754301710044) today.
 
 ## Emergency
 
 If you have thoughts of harming yourself, go to the nearest hospital or call 112 now. You can also call the MANI mental health helpline at 0800 800 8008. It’s free and confidential.
 
-Want to understand your mood better before you call anyone? Start with MindMed’s Depression Test: https://www.mindmed.com.ng/#self-tests
+Want to understand your mood better before you call anyone? Start with MindMed’s Depression Test: [MindMed depression+anxiety](https://form.jotform.com/261754681957068) test.
