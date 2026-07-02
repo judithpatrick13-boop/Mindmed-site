@@ -32,6 +32,15 @@ function copyRecursive(src, dest) {
   }
 }
 
+function stripToPlainText(md) {
+  return String(md || '')
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, '')
+    .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1')
+    .replace(/[#>*_`~-]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
 function formatDate(d) {
   try {
     return new Date(d).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
@@ -105,14 +114,19 @@ function siteFooter() {
 function postPageHtml(post) {
   const bodyHtml = marked.parse(post.body || '');
   const title = escapeHtml(post.title);
-  const desc = escapeHtml((post.keywords || '').split(';')[0] || post.title);
+  const metaTitle = escapeHtml(post.meta_title && post.meta_title.trim() ? post.meta_title.trim() : `${post.title} | MindMed`);
+  const metaDescription = escapeHtml(
+    post.meta_description && post.meta_description.trim()
+      ? post.meta_description.trim().slice(0, 160)
+      : stripToPlainText(post.body).slice(0, 155)
+  );
   return `<!doctype html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>${title} | MindMed</title>
-<meta name="description" content="${desc}">
+<title>${metaTitle}</title>
+<meta name="description" content="${metaDescription}">
 <link rel="canonical" href="https://mindmed.com.ng/blog/${post.slug}/">
 <style>${SITE_HEAD_CSS}</style>
 ${ANALYTICS_SNIPPET}
@@ -239,6 +253,8 @@ function build() {
       if (!data || data.draft === true || data.draft === 'true') continue;
       posts.push({
         title: data.title || 'Untitled',
+        meta_title: data.meta_title,
+        meta_description: data.meta_description,
         date: data.date || new Date(),
         slug: data.slug || file.replace(/\.md$/, ''),
         pillar: data.pillar,
