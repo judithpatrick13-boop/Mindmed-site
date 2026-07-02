@@ -5,12 +5,15 @@ date: 2026-07-10T05:33:00.000+01:00
 slug: What-is-depression-signs-nigerians-ignorewh
 meta_description: Think you’re just “stressed” or “lazy”? Learn 7 signs of
   depression Nigerians ignore + take MindMed’s free 3-min test for clarity.
+image: https://images.unsplash.com/photo-1534330207526-8e81f10ec6fc?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
 pillar: "Pillar 2: Problems People Search"
 keywords: "What is depression; depression in Nigeria; signs of depression; free
   depression test Nigeria "
 author: "Judith Ogunloye "
 draft: true
 ---
+![Man in the dark facing an a window ](https://images.unsplash.com/photo-1534330207526-8e81f10ec6fc?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D "Depression signs")
+
 4 min read
 
 You wake up. Your body feels heavy, like you slept with a bag of cement on your chest. You brush your teeth, go to work, laugh at your colleague’s joke. But inside, everything feels gray. 
