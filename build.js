@@ -95,7 +95,7 @@ function siteHeader() {
 <a href="/blog/">Blog</a>
 <a href="/#about">About</a>
 <a href="/#contact">Contact</a>
-<a href="https://doxy.me/mindmed" target="_blank" class="btn-primary">\u{1F4C5} Book Appointment</a>
+<a href="https://form.jotform.com/261754301710044" target="_blank" class="btn-primary">\u{1F4C5} Book Appointment</a>
 </div>
 </nav>
 </header>`;
