@@ -2,7 +2,7 @@
 title: "Mental Health Stigma in Nigeria: 7 Myths vs Facts Nigerians Need to know "
 date: 2026-07-04T13:00:00.000+01:00
 slug: Mental-health-stigma-in-Nigeria-myths-facts
-image: Unsplash
+image: https://images.unsplash.com/photo-1621887348744-6b0444f8a058?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
 pillar: "Pillar 2: Problems People Search"
 keywords: "Mental health stigma Nigeria; Depression in Nigeria; therapy only for
   mad people; anxiety in Nigeria, suicide rates Nigeria "
