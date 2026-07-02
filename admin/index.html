@@ -32,8 +32,10 @@
             extension: "md",
             fields: [
               { label: "Title", name: "title", widget: "string" },
+              { label: "Meta Title / SEO Title", name: "meta_title", widget: "string", required: false, pattern: [".{0,60}", "Must be 60 characters or less"], hint: "Optional. Max 60 characters. If left blank, the page Title will be used instead." },
               { label: "Publish Date", name: "date", widget: "datetime" },
               { label: "Slug", name: "slug", widget: "string" },
+              { label: "Meta Description / SEO Description", name: "meta_description", widget: "text", required: false, pattern: [".{0,160}", "Must be 160 characters or less"], hint: "Optional. Max 160 characters. If left blank, the first part of the Body text will be used instead." },
               { label: "Hero Image URL", name: "image", widget: "string", required: false, hint: "Paste an image URL (e.g. from Unsplash)" },
               { label: "Pillar", name: "pillar", widget: "select", options: ["Pillar 1: Cost + Access", "Pillar 2: Problems People Search", "Pillar 3: How Therapy Works / E-E-A-T"] },
               { label: "Target Keywords / SEO Goal", name: "keywords", widget: "string" },
