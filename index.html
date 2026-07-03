@@ -75,7 +75,7 @@ footer a:hover{color:#fff}
 <a href="#about">About</a>
 <a href="#pricing">Pricing</a>
 <a href="#contact">Contact</a>
-<a href="https://form.jotform.com/261754301710044" target="_blank" class="btn-primary">Book Appointment</a>
+<a href="#contact" class="btn-primary">Book Appointment</a>
 </div>
 </nav>
 </header>
@@ -86,7 +86,7 @@ footer a:hover{color:#fff}
 <p>Evidence-based mental health education, self-assessment tools, and access to professional therapy support.</p>
 <div style="display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0">
 <a href="#consent" class="btn-secondary">Start Self-Assessment →</a>
-<a href="https://form.jotform.com/261754301710044" target="_blank" class="btn-accent">Book Appointment</a>
+<a href="#contact" class="btn-accent">Book Appointment</a>
 </div>
 <div class="mini-disclaimer">Confidential. Secure. NDPR Compliant. SSL Secured. Educational tools only. Not a diagnosis.</div>
 </div>
@@ -123,9 +123,22 @@ Get the support you deserve—anywhere, anytime.
 <section id="consent">
 <div class="consent-box">
 <h2>Step 1: Informed Consent Required</h2>
-<p style="max-width:600px;margin:1rem auto">Before accessing any mental health screening tools, you must read and sign our informed consent form. This explains how your data is used and protects your rights under NDPR.</p>
-<a href="https://form.jotform.com/261755166440054" target="_blank" class="btn-primary">Sign Informed Consent →</a>
-<p style="font-size:0.85rem;color:#065f46;margin-top:1rem">After submitting consent, return here to take your tests below.</p>
+<p style="max-width:600px;margin:1rem auto">Before accessing any mental health screening tools, please read and sign below. This explains how your data is used and protects your rights under NDPR.</p>
+<form id="consentForm" style="max-width:480px;margin:1.5rem auto;text-align:left">
+<p style="font-size:0.85rem;color:#065f46;margin-bottom:1rem">By signing, you confirm you understand these are educational screening tools only, not a diagnosis, and you consent to MindMed processing your responses in accordance with our Privacy Policy.</p>
+<label style="display:block;margin-bottom:0.75rem;font-size:0.9rem">Full Name<br>
+<input type="text" id="consentName" required style="width:100%;padding:0.6rem;border-radius:6px;border:1px solid #10b981;margin-top:0.25rem">
+</label>
+<label style="display:block;margin-bottom:0.75rem;font-size:0.9rem">Email<br>
+<input type="email" id="consentEmail" required style="width:100%;padding:0.6rem;border-radius:6px;border:1px solid #10b981;margin-top:0.25rem">
+</label>
+<label style="display:flex;align-items:flex-start;gap:0.5rem;font-size:0.85rem;margin-bottom:1rem">
+<input type="checkbox" id="consentAgree" required style="margin-top:0.2rem">
+<span>I have read and agree to the informed consent terms above.</span>
+</label>
+<button type="submit" class="btn-primary" style="width:100%;justify-content:center">Sign Informed Consent →</button>
+<p id="consentStatus" style="font-size:0.85rem;margin-top:1rem"></p>
+</form>
 </div>
 </section>
 
@@ -137,20 +150,22 @@ Get the support you deserve—anywhere, anytime.
 <div style="font-size:3rem;color:var(--primary)">🧠</div>
 <h3>Anxiety + Depression Test</h3>
 <p>GAD-7 & PHQ-9 combined screening</p>
-<a href="https://form.jotform.com/261754681957068" target="_blank" class="btn-small">Take Test →</a>
-<p class="test-note">Results sent to email. Not a diagnosis.</p>
+<button type="button" id="startAnxietyTest" class="btn-small" style="border:none;cursor:pointer">Take Test →</button>
+<p class="test-note">Results shown instantly on this page. Not a diagnosis.</p>
 </div>
 <div class="card">
 <div style="font-size:3rem;color:#059669">💚</div>
 <h3>PTSD Test (PCL-5)</h3>
 <p>Post-traumatic stress screening</p>
-<a href="https://form.jotform.com/261754298296068" target="_blank" class="btn-small">Take Test →</a>
-<p class="test-note">Results sent to email. Not a diagnosis.</p>
+<button type="button" id="startPtsdTest" class="btn-small" style="border:none;cursor:pointer">Take Test →</button>
+<p class="test-note">Results shown instantly on this page. Not a diagnosis.</p>
 </div>
 </div>
 <div class="warning">
 <strong>Important:</strong> These are screening tools only. A high score does not mean you have a disorder. Only a licensed clinician can diagnose. If you're having thoughts of harming yourself, contact emergency services 112 or the Mental Health Helpline 081-6913-7108 immediately.
 </div>
+<div id="anxietyTestPanel" style="display:none;margin-top:2rem;background:#fff;border-radius:12px;padding:2rem;border:1px solid #e2e8f0;text-align:left"></div>
+<div id="ptsdTestPanel" style="display:none;margin-top:2rem;background:#fff;border-radius:12px;padding:2rem;border:1px solid #e2e8f0;text-align:left"></div>
 </section>
 
 <section id="resources">
@@ -192,7 +207,7 @@ Connect on LinkedIn
 <h3>Ready to speak with a therapist?</h3>
 <p>Book a confidential online session today.</p>
 <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:1rem;justify-content:center">
-<a href="https://form.jotform.com/261754301710044" target="_blank" class="btn-primary">Book Appointment</a>
+<a href="#contact" class="btn-primary">Book Appointment</a>
 <a href="https://wa.me/2347069498050" target="_blank" class="btn-secondary">Chat on WhatsApp</a>
 </div>
 </div>
@@ -207,13 +222,13 @@ Connect on LinkedIn
 <h3 style="margin-top:0">Individual Session</h3>
 <p style="font-size:2.5rem;font-weight:700;color:var(--primary);margin:0.5rem 0">₦7,000</p>
 <p style="color:#64748b;font-size:0.9rem">One-on-one online session via Doxy.me</p>
-<a href="https://form.jotform.com/261754301710044" target="_blank" class="btn-small">Book Now →</a>
+<a href="#contact" class="btn-small">Book Now →</a>
 </div>
 <div class="card" style="border:2px solid var(--primary)">
 <h3 style="margin-top:0">Group Session</h3>
 <p style="font-size:2.5rem;font-weight:700;color:var(--primary);margin:0.5rem 0">₦20,000</p>
 <p style="color:#64748b;font-size:0.9rem">Group of up to 5 people, one shared online session</p>
-<a href="https://form.jotform.com/261754301710044" target="_blank" class="btn-small">Book Now →</a>
+<a href="#contact" class="btn-small">Book Now →</a>
 </div>
 </div>
 </section>
@@ -224,9 +239,31 @@ Connect on LinkedIn
 <a href="https://doxy.me/v2/check-in/mindmed/" target="_blank" style="color:var(--primary);font-weight:600">Booked a session already? Don't miss your appointment, connect to your therapist.</a>
 </p>
 <p style="text-align:center;max-width:600px;margin:0 auto 2rem">Fill this form and we'll connect you with a behavioral and mental health professional within 24 hours. All sessions are online via Doxy.me and confidential.</p>
-<div style="text-align:center">
-<a href="https://form.jotform.com/261754301710044" target="_blank" class="btn-primary">Open Booking Form →</a>
-<p style="margin-top:1rem;font-size:0.9rem;color:#64748b">Prefer email? Reach our booking team at <a href="mailto:bookings@mindmed.com.ng" style="color:var(--primary);font-weight:600">bookings@mindmed.com.ng</a></p>
+<form id="bookingForm" style="max-width:480px;margin:0 auto;text-align:left;background:#fff;padding:2rem;border-radius:12px">
+<label style="display:block;margin-bottom:0.75rem;font-size:0.9rem">Full Name<br><input type="text" id="bookingName" required style="width:100%;padding:0.6rem;border-radius:6px;border:1px solid #cbd5e1;margin-top:0.25rem"></label>
+<label style="display:block;margin-bottom:0.75rem;font-size:0.9rem">Email<br><input type="email" id="bookingEmail" required style="width:100%;padding:0.6rem;border-radius:6px;border:1px solid #cbd5e1;margin-top:0.25rem"></label>
+<label style="display:block;margin-bottom:0.75rem;font-size:0.9rem">Phone<br><input type="tel" id="bookingPhone" required style="width:100%;padding:0.6rem;border-radius:6px;border:1px solid #cbd5e1;margin-top:0.25rem"></label>
+<label style="display:block;margin-bottom:0.75rem;font-size:0.9rem">Session Type<br>
+<select id="bookingType" style="width:100%;padding:0.6rem;border-radius:6px;border:1px solid #cbd5e1;margin-top:0.25rem">
+<option>Individual Session</option>
+<option>Group Session</option>
+</select>
+</label>
+<label style="display:block;margin-bottom:1rem;font-size:0.9rem">Anything you'd like us to know? (optional)<br><textarea id="bookingMessage" rows="3" style="width:100%;padding:0.6rem;border-radius:6px;border:1px solid #cbd5e1;margin-top:0.25rem"></textarea></label>
+<button type="submit" class="btn-primary" style="width:100%;justify-content:center">Submit Booking Request →</button>
+<p id="bookingStatus" style="font-size:0.85rem;margin-top:1rem"></p>
+</form>
+<p style="text-align:center;margin-top:1rem;font-size:0.9rem;color:#64748b">Prefer email? Reach our booking team at <a href="mailto:bookings@mindmed.com.ng" style="color:var(--primary);font-weight:600">bookings@mindmed.com.ng</a></p>
+
+<div style="max-width:480px;margin:3rem auto 0;text-align:left;background:#fff;padding:2rem;border-radius:12px">
+<h3 style="text-align:center;margin:0 0 1rem">General Questions? Send Us a Message</h3>
+<form id="contactForm">
+<label style="display:block;margin-bottom:0.75rem;font-size:0.9rem">Full Name<br><input type="text" id="contactName" required style="width:100%;padding:0.6rem;border-radius:6px;border:1px solid #cbd5e1;margin-top:0.25rem"></label>
+<label style="display:block;margin-bottom:0.75rem;font-size:0.9rem">Email<br><input type="email" id="contactEmail" required style="width:100%;padding:0.6rem;border-radius:6px;border:1px solid #cbd5e1;margin-top:0.25rem"></label>
+<label style="display:block;margin-bottom:1rem;font-size:0.9rem">Message<br><textarea id="contactMessage" rows="3" required style="width:100%;padding:0.6rem;border-radius:6px;border:1px solid #cbd5e1;margin-top:0.25rem"></textarea></label>
+<button type="submit" class="btn-secondary" style="width:100%;justify-content:center">Send Message →</button>
+<p id="contactStatus" style="font-size:0.85rem;margin-top:1rem"></p>
+</form>
 </div>
 </section>
 
@@ -236,7 +273,7 @@ Connect on LinkedIn
 <h3>1. NDPR Compliance</h3>
 <p>MindMed complies with the Nigeria Data Protection Regulation NDPR 2019. Your data is processed lawfully, fairly, and transparently. We are registered data controllers.</p>
 <h3>2. Information We Collect</h3>
-<p>We collect information you provide through JotForm: name, email, phone, and mental health screening responses. Data is stored securely by JotForm which is encrypted and NDPR-compliant.</p>
+<p>We collect information you provide directly through our website forms: name, email, phone, and mental health screening responses. This data is stored securely in our own encrypted database and is never sold or shared with third parties for marketing.</p>
 <h3>3. Purpose of Data</h3>
 <p>Your data is used to: provide screening results, contact you about therapy booking, and improve services. We never sell or share your data with third parties for marketing.</p>
 <h3>4. Your Rights Under NDPR</h3>
@@ -265,7 +302,7 @@ Connect on LinkedIn
 </div>
 <div>
 <strong>Quick Links</strong><br>
-<a href="#">Home</a><br><a href="#resources">Resources</a><br><a href="#self-tests">Free Tests</a><br><a href="https://form.jotform.com/261754301710044" target="_blank">Book Appointment</a><br><a href="#about">About</a><br><a href="#pricing">Pricing</a><br><a href="#contact">Contact</a>
+<a href="#">Home</a><br><a href="#resources">Resources</a><br><a href="#self-tests">Free Tests</a><br><a href="#contact">Book Appointment</a><br><a href="#about">About</a><br><a href="#pricing">Pricing</a><br><a href="#contact">Contact</a>
 </div>
 <div>
 <strong>Resources</strong><br>
@@ -281,5 +318,240 @@ Connect on LinkedIn
 </div>
 </footer>
 
+<script>
+(function(){
+  var CONSENT_KEY = 'mindmedConsentGiven';
+
+  function postJSON(url, data) {
+    return fetch(url, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(data)
+    }).then(function(r){
+      return r.json().catch(function(){ return {}; }).then(function(json){
+        return {ok: r.ok, json: json};
+      });
+    });
+  }
+
+  function wireForm(formId, statusId, url, getPayload, onSuccess) {
+    var form = document.getElementById(formId);
+    if (!form) return;
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var statusEl = document.getElementById(statusId);
+      statusEl.textContent = 'Submitting...';
+      statusEl.style.color = '#64748b';
+      postJSON(url, getPayload()).then(function(res){
+        if (res.ok) {
+          statusEl.style.color = '#065f46';
+          onSuccess(statusEl, form);
+        } else {
+          statusEl.textContent = (res.json && res.json.error) || 'Something went wrong. Please try again.';
+          statusEl.style.color = '#b91c1c';
+        }
+      }).catch(function(){
+        statusEl.textContent = 'Network error. Please try again.';
+        statusEl.style.color = '#b91c1c';
+      });
+    });
+  }
+
+  wireForm('consentForm', 'consentStatus', '/api/consent', function(){
+    return {
+      name: document.getElementById('consentName').value,
+      email: document.getElementById('consentEmail').value
+    };
+  }, function(statusEl, form){
+    localStorage.setItem(CONSENT_KEY, 'true');
+    statusEl.textContent = 'Consent recorded. You can now take your tests below.';
+    form.reset();
+  });
+
+  wireForm('bookingForm', 'bookingStatus', '/api/booking', function(){
+    return {
+      name: document.getElementById('bookingName').value,
+      email: document.getElementById('bookingEmail').value,
+      phone: document.getElementById('bookingPhone').value,
+      sessionType: document.getElementById('bookingType').value,
+      message: document.getElementById('bookingMessage').value
+    };
+  }, function(statusEl, form){
+    statusEl.textContent = "Thanks! We'll reach out within 24 hours to confirm your session.";
+    form.reset();
+  });
+
+  wireForm('contactForm', 'contactStatus', '/api/contact', function(){
+    return {
+      name: document.getElementById('contactName').value,
+      email: document.getElementById('contactEmail').value,
+      message: document.getElementById('contactMessage').value
+    };
+  }, function(statusEl, form){
+    statusEl.textContent = "Message sent. We'll get back to you soon.";
+    form.reset();
+  });
+
+  // ---- Self-tests ----
+  var SCALE4 = ['Not at all','Several days','More than half the days','Nearly every day'];
+  var GAD7 = [
+    'Feeling nervous, anxious, or on edge',
+    'Not being able to stop or control worrying',
+    'Worrying too much about different things',
+    'Trouble relaxing',
+    "Being so restless that it's hard to sit still",
+    'Becoming easily annoyed or irritable',
+    'Feeling afraid as if something awful might happen'
+  ];
+  var PHQ9 = [
+    'Little interest or pleasure in doing things',
+    'Feeling down, depressed, or hopeless',
+    'Trouble falling or staying asleep, or sleeping too much',
+    'Feeling tired or having little energy',
+    'Poor appetite or overeating',
+    'Feeling bad about yourself, or that you are a failure, or have let yourself or your family down',
+    'Trouble concentrating on things, such as reading or watching television',
+    'Moving or speaking so slowly that others could have noticed, or being so fidgety or restless that you have been moving around a lot more than usual',
+    'Thoughts that you would be better off dead, or of hurting yourself in some way'
+  ];
+  var SCALE5 = ['Not at all','A little bit','Moderately','Quite a bit','Extremely'];
+  var PCL5 = [
+    'Repeated, disturbing, and unwanted memories of a stressful experience',
+    'Repeated, disturbing dreams of a stressful experience',
+    'Suddenly feeling or acting as if a stressful experience were actually happening again',
+    'Feeling very upset when something reminded you of a stressful experience',
+    'Having strong physical reactions when something reminded you of a stressful experience (e.g. heart pounding, trouble breathing, sweating)',
+    'Avoiding memories, thoughts, or feelings related to a stressful experience',
+    'Avoiding external reminders of a stressful experience (people, places, conversations, activities, objects, or situations)',
+    'Trouble remembering important parts of a stressful experience',
+    'Strong negative beliefs about yourself, other people, or the world',
+    'Blaming yourself or someone else for a stressful experience or what happened after it',
+    'Having strong negative feelings such as fear, horror, anger, guilt, or shame',
+    'Loss of interest in activities you used to enjoy',
+    'Feeling distant or cut off from other people',
+    'Trouble experiencing positive feelings',
+    'Irritable behavior, angry outbursts, or acting aggressively',
+    'Taking too many risks or doing things that could cause you harm',
+    'Being "superalert" or watchful or on guard',
+    'Feeling jumpy or easily startled',
+    'Having difficulty concentrating',
+    'Trouble falling or staying asleep'
+  ];
+
+  function renderQuestionnaire(container, items, scaleLabels, namePrefix) {
+    var html = '';
+    items.forEach(function(text, i){
+      html += '<div style="margin-bottom:1.25rem"><p style="font-weight:600;margin-bottom:0.5rem">'+(i+1)+'. '+text+'</p>';
+      scaleLabels.forEach(function(label, val){
+        html += '<label style="display:block;font-size:0.9rem;margin-bottom:0.25rem"><input type="radio" name="'+namePrefix+i+'" value="'+val+'" required> '+label+'</label>';
+      });
+      html += '</div>';
+    });
+    container.innerHTML = html;
+  }
+
+  function getAnswers(container, items, namePrefix) {
+    var answers = [];
+    for (var i=0;i<items.length;i++){
+      var checked = container.querySelector('input[name="'+namePrefix+i+'"]:checked');
+      if (!checked) return null;
+      answers.push(parseInt(checked.value,10));
+    }
+    return answers;
+  }
+
+  function sum(arr){ return arr.reduce(function(a,b){return a+b;},0); }
+
+  function interpretGAD7(score){
+    if (score <= 4) return 'Minimal anxiety';
+    if (score <= 9) return 'Mild anxiety';
+    if (score <= 14) return 'Moderate anxiety';
+    return 'Severe anxiety';
+  }
+  function interpretPHQ9(score){
+    if (score <= 4) return 'Minimal depression';
+    if (score <= 9) return 'Mild depression';
+    if (score <= 14) return 'Moderate depression';
+    if (score <= 19) return 'Moderately severe depression';
+    return 'Severe depression';
+  }
+  function interpretPCL5(score){
+    if (score >= 31) return 'Your responses suggest symptoms consistent with clinically significant PTSD symptoms.';
+    return "Your responses don't suggest clinically significant PTSD symptoms at this time.";
+  }
+
+  var CRISIS_HTML = '<div class="warning" style="margin-top:1rem"><strong>Please reach out for support:</strong> If you are having thoughts of harming yourself, contact emergency services on 112 or the Mental Health Helpline on 081-6913-7108 right now. You do not have to go through this alone.</div>';
+
+  function requireConsent(){
+    if (localStorage.getItem(CONSENT_KEY) !== 'true') {
+      alert('Please sign the informed consent form above before taking a test.');
+      document.getElementById('consent').scrollIntoView({behavior:'smooth'});
+      return false;
+    }
+    return true;
+  }
+
+  var anxietyBtn = document.getElementById('startAnxietyTest');
+  var anxietyPanel = document.getElementById('anxietyTestPanel');
+  if (anxietyBtn) {
+    anxietyBtn.addEventListener('click', function(){
+      if (!requireConsent()) return;
+      anxietyPanel.style.display = 'block';
+      anxietyPanel.innerHTML =
+        '<h3 style="margin-bottom:0.5rem">Anxiety (GAD-7)</h3>' +
+        '<p style="color:#64748b;margin-bottom:1.5rem">Over the last 2 weeks, how often have you been bothered by the following?</p>' +
+        '<div id="gad7Questions"></div>' +
+        '<h3 style="margin:2rem 0 0.5rem">Depression (PHQ-9)</h3>' +
+        '<p style="color:#64748b;margin-bottom:1.5rem">Over the last 2 weeks, how often have you been bothered by the following?</p>' +
+        '<div id="phq9Questions"></div>' +
+        '<button type="button" id="submitAnxietyTest" class="btn-primary" style="border:none;cursor:pointer">See My Results →</button>' +
+        '<div id="anxietyResults" style="margin-top:1.5rem"></div>';
+      renderQuestionnaire(document.getElementById('gad7Questions'), GAD7, SCALE4, 'gad7_');
+      renderQuestionnaire(document.getElementById('phq9Questions'), PHQ9, SCALE4, 'phq9_');
+      anxietyPanel.scrollIntoView({behavior:'smooth'});
+      document.getElementById('submitAnxietyTest').addEventListener('click', function(){
+        var gadAnswers = getAnswers(anxietyPanel, GAD7, 'gad7_');
+        var phqAnswers = getAnswers(anxietyPanel, PHQ9, 'phq9_');
+        if (!gadAnswers || !phqAnswers) { alert('Please answer every question before seeing your results.'); return; }
+        var gadScore = sum(gadAnswers);
+        var phqScore = sum(phqAnswers);
+        var selfHarmFlag = phqAnswers[8] > 0;
+        var html = '<div class="warning"><strong>Anxiety (GAD-7):</strong> '+gadScore+'/21 — '+interpretGAD7(gadScore)+'</div>' +
+          '<div class="warning"><strong>Depression (PHQ-9):</strong> '+phqScore+'/27 — '+interpretPHQ9(phqScore)+'</div>' +
+          (selfHarmFlag ? CRISIS_HTML : '') +
+          '<p style="font-size:0.85rem;color:#64748b;margin-top:1rem">These are screening tools only, not a diagnosis. Please discuss these results with a behavioral and mental health professional.</p>';
+        document.getElementById('anxietyResults').innerHTML = html;
+        document.getElementById('anxietyResults').scrollIntoView({behavior:'smooth'});
+      });
+    });
+  }
+
+  var ptsdBtn = document.getElementById('startPtsdTest');
+  var ptsdPanel = document.getElementById('ptsdTestPanel');
+  if (ptsdBtn) {
+    ptsdBtn.addEventListener('click', function(){
+      if (!requireConsent()) return;
+      ptsdPanel.style.display = 'block';
+      ptsdPanel.innerHTML =
+        '<h3 style="margin-bottom:0.5rem">PTSD Screening (PCL-5)</h3>' +
+        '<p style="color:#64748b;margin-bottom:1.5rem">In the past month, how much were you bothered by:</p>' +
+        '<div id="pcl5Questions"></div>' +
+        '<button type="button" id="submitPtsdTest" class="btn-primary" style="border:none;cursor:pointer">See My Results →</button>' +
+        '<div id="ptsdResults" style="margin-top:1.5rem"></div>';
+      renderQuestionnaire(document.getElementById('pcl5Questions'), PCL5, SCALE5, 'pcl5_');
+      ptsdPanel.scrollIntoView({behavior:'smooth'});
+      document.getElementById('submitPtsdTest').addEventListener('click', function(){
+        var answers = getAnswers(ptsdPanel, PCL5, 'pcl5_');
+        if (!answers) { alert('Please answer every question before seeing your results.'); return; }
+        var score = sum(answers);
+        var html = '<div class="warning"><strong>PTSD Screening (PCL-5):</strong> '+score+'/80 — '+interpretPCL5(score)+'</div>' +
+          '<p style="font-size:0.85rem;color:#64748b;margin-top:1rem">This is a screening tool only, not a diagnosis. Please discuss these results with a behavioral and mental health professional.</p>';
+        document.getElementById('ptsdResults').innerHTML = html;
+        document.getElementById('ptsdResults').scrollIntoView({behavior:'smooth'});
+      });
+    });
+  }
+})();
+</script>
 </body>
 </html>
