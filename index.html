@@ -61,6 +61,18 @@ footer a:hover{color:#fff}
 .subscribe{background:#1e293b;padding:2rem;border-radius:12px;display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
 .subscribe input{flex:1;padding:0.8rem;border-radius:6px;border:none;min-width:250px}
 @media(max-width:768px){.hero{grid-template-columns:1fr;text-align:center}.badge{margin-left:0;margin-top:2rem}.grid-3{grid-template-columns:1fr}.meet{grid-template-columns:1fr}.trust-grid{grid-template-columns:1fr}.hero h1{font-size:2rem}nav{justify-content:center}}
+#mmChatBubble{position:fixed;bottom:1.5rem;right:1.5rem;width:60px;height:60px;border-radius:50%;background:var(--primary);color:#fff;border:none;cursor:pointer;font-size:1.6rem;box-shadow:0 4px 12px rgba(0,0,0,0.2);z-index:100;display:flex;align-items:center;justify-content:center}
+#mmChatPanel{position:fixed;bottom:6rem;right:1.5rem;width:min(360px,92vw);max-height:70vh;background:#fff;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,0.25);z-index:100;display:none;flex-direction:column;overflow:hidden}
+#mmChatHeader{background:var(--primary);color:#fff;padding:1rem;font-weight:700}
+#mmChatHeader span{display:block;font-weight:400;font-size:0.75rem;opacity:0.9;margin-top:0.15rem}
+#mmChatMessages{flex:1;overflow-y:auto;padding:1rem;background:#f8fafc}
+.mmMsg{margin-bottom:0.75rem;max-width:85%;padding:0.6rem 0.9rem;border-radius:10px;font-size:0.9rem;line-height:1.4}
+.mmMsgBot{background:#fff;border:1px solid #e2e8f0}
+.mmMsgUser{background:var(--primary);color:#fff;margin-left:auto}
+#mmChatInputRow{display:flex;gap:0.5rem;padding:0.75rem;border-top:1px solid #e2e8f0}
+#mmChatInput{flex:1;padding:0.6rem;border-radius:8px;border:1px solid #cbd5e1;font-size:0.9rem}
+#mmChatDisclaimer{font-size:0.7rem;color:#94a3b8;padding:0 0.75rem 0.5rem;text-align:center}
+#mmHumanCta{display:none;margin:0 0.75rem 0.75rem;text-align:center}
 </style>
 </head>
 <body>
@@ -281,6 +293,18 @@ Connect on LinkedIn
 <h3>5. Medical Disclaimer</h3>
 <p>MindMed provides educational content and screening tools only. This is not medical advice or diagnosis. For emergencies, call 112.</p>
 </section>
+
+<button id="mmChatBubble" aria-label="Open MindMed Support Assistant">💬</button>
+<div id="mmChatPanel">
+<div id="mmChatHeader">MindMed Support Assistant<span>General info only &mdash; not medical advice or a diagnosis</span></div>
+<div id="mmChatMessages"></div>
+<div id="mmHumanCta"><a href="#contact" class="btn-small" style="border:none">Talk to a MindMed professional &rarr;</a></div>
+<div id="mmChatInputRow">
+<input type="text" id="mmChatInput" placeholder="Ask a question...">
+<button id="mmChatSend" class="btn-primary" style="padding:0.6rem 1rem">Send</button>
+</div>
+<div id="mmChatDisclaimer">This assistant shares general info only. It cannot diagnose, prescribe, or replace a licensed clinician.</div>
+</div>
 
 <footer>
 <div style="max-width:1200px;margin:0 auto">
@@ -551,6 +575,129 @@ Connect on LinkedIn
       });
     });
   }
+
+  // ---- MindMed Support Assistant (rule-based FAQ chat) ----
+  var CRISIS_PATTERNS = [
+    /suicid/i, /kill(ing)? myself/i, /want(ing)? to die/i, /wanna die/i,
+    /end(ing)? my life/i, /take my (own )?life/i, /no reason to live/i,
+    /nothing to live for/i, /better off dead/i, /can'?t go on/i,
+    /can'?t take (it|this) anymore/i, /hurt(ing)? myself/i, /self.?harm/i,
+    /cutt?ing myself/i, /cut myself/i, /overdose/i, /don'?t want to (be alive|live|exist)/i,
+    /life (is|isn'?t) not worth/i, /life isn'?t worth/i
+  ];
+  var CRISIS_REPLY = "I hear you, and you deserve support right now. Please reach out immediately: call emergency services on 112, or the Mental Health Helpline on 081-6913-7108. If you're in immediate danger, please go to the nearest hospital. I've flagged this conversation so a MindMed team member can follow up too. You don't have to go through this alone.";
+
+  var FAQS = [
+    {kw:['price','cost','how much','fee','fees','charge','expensive'], a:"Individual sessions are \u20a67,000, and group sessions (up to 5 people) are \u20a620,000. All sessions are held online via Doxy.me."},
+    {kw:['book','booking','appointment','schedule','session'], a:"You can book directly on this page \u2014 scroll to 'Book a Session' and fill in the form, or message us on WhatsApp. We'll connect you with a professional within 24 hours."},
+    {kw:['confidential','privacy','private','data','secure','ndpr'], a:"Yes \u2014 everything is confidential and NDPR compliant. Your information is stored securely in our own encrypted database and never sold or shared with third parties."},
+    {kw:['group session','group therapy','group'], a:"Yes, we offer group sessions for up to 5 people at \u20a620,000 per session, alongside one-on-one individual sessions."},
+    {kw:['doxy','video call','platform','how do sessions work'], a:"Sessions are held online via Doxy.me, a secure video platform \u2014 no app download needed, just a link sent to your email."},
+    {kw:['test','assessment','gad-7','phq-9','pcl-5','anxiety test','depression test','ptsd test','screening'], a:"You can take our free Anxiety+Depression (GAD-7/PHQ-9) or PTSD (PCL-5) self-checks after signing informed consent \u2014 scroll up to 'Mental Health Self-Checks'. These are screening tools only, not a diagnosis."},
+    {kw:['contact','support email','reach you','get in touch'], a:"You can reach our team at support@mindmed.com.ng, or use the contact form further down this page."},
+    {kw:['anxiety vs stress','anxiety and stress','difference between anxiety'], a:"Stress is usually a reaction to a specific pressure (like a deadline) and tends to fade once that pressure passes. Anxiety often persists even without a clear trigger and can involve ongoing worry or physical tension. Persistent anxiety that disrupts daily life is worth discussing with a professional."},
+    {kw:['how many sessions','number of sessions','how long is therapy'], a:"It varies by person and goals \u2014 some people find a handful of sessions helpful for a specific issue, others benefit from ongoing support. Your therapist will discuss a plan tailored to you after your first session."},
+    {kw:['first session','what to expect','what happens in therapy'], a:"Your first session is mostly about getting to know each other \u2014 your therapist will ask what's bringing you in, your history, and what you're hoping to get out of therapy. There's no pressure to share everything at once."},
+    {kw:['overthinking','racing thoughts','can\'t stop thinking','overthink'], a:"A few things that can help in the moment: write the thought down to get it out of your head, set a specific 'worry time' later instead of engaging with it now, and try grounding \u2014 name 5 things you can see, 4 you can touch, 3 you can hear. These aren't a full fix, but they can take the edge off."},
+    {kw:['cbt','cognitive behavioral','cognitive behavioural'], a:"CBT (Cognitive Behavioral Therapy) is an evidence-based approach that looks at how thoughts, feelings, and behaviors influence each other, and builds healthier coping strategies. It's one of the most researched approaches for anxiety and depression."},
+    {kw:['do i need therapy','should i see a therapist','is therapy for me'], a:"Therapy isn't just for crisis moments \u2014 many people use it for everyday stress, life transitions, relationships, or simply to think out loud with someone trained to help. If you're asking, it's worth exploring."}
+  ];
+
+  var FALLBACK_REPLY = "I'm not totally sure about that one \u2014 but I can connect you with a real MindMed professional who can help further.";
+
+  function matchFAQ(text) {
+    var lower = text.toLowerCase();
+    var best = null, bestScore = 0;
+    FAQS.forEach(function(entry){
+      var score = 0;
+      entry.kw.forEach(function(k){ if (lower.indexOf(k) !== -1) score++; });
+      if (score > bestScore) { bestScore = score; best = entry; }
+    });
+    return bestScore > 0 ? best.a : null;
+  }
+
+  function isCrisis(text) {
+    return CRISIS_PATTERNS.some(function(p){ return p.test(text); });
+  }
+
+  var mmSessionId = (function(){
+    var existing = sessionStorage.getItem('mmChatSession');
+    if (existing) return existing;
+    var id = 'sess_' + Date.now() + '_' + Math.random().toString(36).slice(2,10);
+    sessionStorage.setItem('mmChatSession', id);
+    return id;
+  })();
+
+  var mmMessageCount = 0;
+
+  function logChat(userMessage, botResponse, crisisFlag) {
+    fetch('/api/chat-log', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({
+        sessionId: mmSessionId,
+        userMessage: userMessage,
+        botResponse: botResponse,
+        isCrisis: crisisFlag
+      })
+    }).catch(function(){});
+  }
+
+  function mmAddMessage(text, who) {
+    var msgs = document.getElementById('mmChatMessages');
+    var div = document.createElement('div');
+    div.className = 'mmMsg ' + (who === 'user' ? 'mmMsgUser' : 'mmMsgBot');
+    div.textContent = text;
+    msgs.appendChild(div);
+    msgs.scrollTop = msgs.scrollHeight;
+  }
+
+  var chatBubble = document.getElementById('mmChatBubble');
+  var chatPanel = document.getElementById('mmChatPanel');
+  var chatInput = document.getElementById('mmChatInput');
+  var chatSend = document.getElementById('mmChatSend');
+  var humanCta = document.getElementById('mmHumanCta');
+  var chatOpened = false;
+
+  if (chatBubble) {
+    chatBubble.addEventListener('click', function(){
+      chatPanel.style.display = chatPanel.style.display === 'flex' ? 'none' : 'flex';
+      if (!chatOpened && chatPanel.style.display === 'flex') {
+        chatOpened = true;
+        mmAddMessage("Hi! I'm the MindMed Support Assistant. I can answer questions about pricing, booking, and general mental health topics. I'm not a doctor and can't diagnose \u2014 for anything serious, please book a session with a real professional.", 'bot');
+      }
+    });
+  }
+
+  function mmHandleSend() {
+    var text = chatInput.value.trim();
+    if (!text) return;
+    mmAddMessage(text, 'user');
+    chatInput.value = '';
+    mmMessageCount++;
+
+    var reply;
+    var crisisFlag = isCrisis(text);
+    if (crisisFlag) {
+      reply = CRISIS_REPLY;
+    } else {
+      reply = matchFAQ(text) || FALLBACK_REPLY;
+    }
+
+    setTimeout(function(){
+      mmAddMessage(reply, 'bot');
+      if (crisisFlag || mmMessageCount >= 3) {
+        humanCta.style.display = 'block';
+      }
+    }, 300);
+
+    logChat(text, reply, crisisFlag);
+  }
+
+  if (chatSend) chatSend.addEventListener('click', mmHandleSend);
+  if (chatInput) chatInput.addEventListener('keydown', function(e){
+    if (e.key === 'Enter') mmHandleSend();
+  });
 })();
 </script>
 </body>
