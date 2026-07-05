@@ -1,0 +1,1 @@
+Search and replace the SVG in the About section with img tag
