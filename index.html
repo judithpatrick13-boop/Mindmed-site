@@ -1,724 +1,838 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MindMed Support Assistant</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        header {
-            text-align: center;
-            color: white;
-            margin-bottom: 40px;
-        }
-        
-        header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-        }
-        
-        header p {
-            font-size: 1.1em;
-            opacity: 0.9;
-        }
-        
-        .main-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-        
-        .tests-section {
-            background: white;
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-        
-        .chat-section {
-            background: white;
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .test-card {
-            margin-bottom: 25px;
-            padding-bottom: 25px;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .test-card:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-        
-        .test-card h3 {
-            color: #667eea;
-            margin-bottom: 15px;
-            font-size: 1.2em;
-        }
-        
-        .test-card p {
-            color: #666;
-            font-size: 0.9em;
-            margin-bottom: 15px;
-        }
-        
-        .test-questions {
-            display: none;
-            margin-bottom: 15px;
-        }
-        
-        .test-questions.active {
-            display: block;
-        }
-        
-        .question {
-            margin-bottom: 15px;
-        }
-        
-        .question label {
-            display: block;
-            margin-bottom: 8px;
-            color: #333;
-            font-weight: 500;
-        }
-        
-        .question input[type="radio"],
-        .question input[type="checkbox"] {
-            margin-right: 8px;
-        }
-        
-        .question-option {
-            margin-bottom: 8px;
-        }
-        
-        .btn {
-            background: #667eea;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 0.95em;
-            transition: background 0.3s;
-            margin-right: 10px;
-        }
-        
-        .btn:hover {
-            background: #764ba2;
-        }
-        
-        .btn-secondary {
-            background: #999;
-        }
-        
-        .btn-secondary:hover {
-            background: #777;
-        }
-        
-        .score-result {
-            display: none;
-            background: #f0f4ff;
-            border-left: 4px solid #667eea;
-            padding: 15px;
-            border-radius: 5px;
-            margin-top: 15px;
-        }
-        
-        .score-result.active {
-            display: block;
-        }
-        
-        .score-result h4 {
-            color: #667eea;
-            margin-bottom: 10px;
-        }
-        
-        .score-result p {
-            color: #333;
-            line-height: 1.6;
-        }
-        
-        .chat-widget {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .chat-widget h2 {
-            color: #667eea;
-            margin-bottom: 20px;
-        }
-        
-        .chat-messages {
-            flex: 1;
-            overflow-y: auto;
-            border: 1px solid #eee;
-            border-radius: 5px;
-            padding: 15px;
-            margin-bottom: 15px;
-            background: #f9f9f9;
-            min-height: 300px;
-        }
-        
-        .message {
-            margin-bottom: 15px;
-            padding: 10px 15px;
-            border-radius: 5px;
-            max-width: 80%;
-        }
-        
-        .message.user {
-            background: #667eea;
-            color: white;
-            margin-left: auto;
-            text-align: right;
-        }
-        
-        .message.assistant {
-            background: #e8eef7;
-            color: #333;
-            margin-right: auto;
-        }
-        
-        .chat-input-area {
-            display: flex;
-            gap: 10px;
-        }
-        
-        .chat-input-area input {
-            flex: 1;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 0.95em;
-        }
-        
-        .chat-input-area input:focus {
-            outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 5px rgba(102, 126, 234, 0.3);
-        }
-        
-        .loading {
-            display: none;
-            text-align: center;
-            color: #999;
-            font-size: 0.9em;
-        }
-        
-        .loading.active {
-            display: block;
-        }
-        
-        @media (max-width: 768px) {
-            .main-content {
-                grid-template-columns: 1fr;
-            }
-            
-            header h1 {
-                font-size: 1.8em;
-            }
-        }
-    </style>
+<script>
+  if (window.location.hash && (window.location.hash.includes('confirmation_token') || window.location.hash.includes('invite_token') || window.location.hash.includes('recovery_token') || window.location.hash.includes('email_change_token'))) {
+    window.location.href = '/admin/' + window.location.hash;
+  }
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MindMed | Online Mental Health Support in Nigeria | Book Behavioral and Mental Health Professionals</title>
+<meta name="description" content="MindMed: Evidence-based mental health education, free GAD-7 PHQ-9 PCL-5 self-check tools + book behavioral and mental health professionals online in Nigeria via Doxy.me. Confidential & secure. NDPR Compliant.">
+<link rel="canonical" href="https://mindmed.com.ng/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
+<meta property="og:title" content="MindMed | Mental Health Education & Therapy Booking Nigeria">
+<meta property="og:description" content="Free self-check tools + book online therapy sessions in 24hrs">
+<meta property="og:type" content="website">
+<style>
+:root{--primary:#1e4d3a;--accent:#f59e0b;--dark:#0f172a;--light:#f8fafc;--text:#334155}
+*{margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
+html{scroll-behavior:smooth}
+body{color:var(--text);line-height:1.6}
+header{background:#fff;border-bottom:1px solid #e2e8f0;position:sticky;top:0;z-index:50}
+nav{max-width:1200px;margin:0 auto;padding:1rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+nav a{color:var(--dark);text-decoration:none;margin-left:1rem;font-weight:500;font-size:0.9rem;white-space:nowrap}
+nav a:hover{color:var(--primary)}
+.logo{display:flex;align-items:center;gap:0.5rem;font-size:1.3rem;font-weight:700;color:var(--primary)}
+.btn-primary{background:var(--primary);color:#fff;padding:0.7rem 1.2rem;border-radius:8px;text-decoration:none;font-weight:600;display:inline-flex;align-items:center;gap:0.5rem;border:none;cursor:pointer}
+.btn-primary:hover{opacity:0.9}
+.btn-secondary{background:#10b981;color:#fff;padding:0.9rem 1.5rem;border-radius:8px;text-decoration:none;font-weight:600;display:inline-flex;align-items:center;gap:0.5rem}
+.btn-accent{background:var(--accent);color:#fff;padding:0.9rem 1.5rem;border-radius:8px;text-decoration:none;font-weight:600;display:inline-flex;align-items:center;gap:0.5rem}
+.hero{max-width:1200px;margin:0 auto;padding:4rem 1rem;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+.hero h1{font-size:2.8rem;color:var(--dark);line-height:1.2;margin-bottom:1rem}
+.hero p{font-size:1.1rem;color:#475569;margin-bottom:3rem}
+.mini-disclaimer{font-size:0.85rem;color:#64748b;display:flex;align-items:center;gap:0.5rem;margin-top:1rem;flex-wrap:wrap}
+.badge{background:#1e3a8a;color:#fff;padding:1.5rem;border-radius:12px;margin-left:2rem}
+section{max-width:1200px;margin:0 auto;padding:4rem 1rem}
+h2{text-align:center;font-size:2rem;color:var(--dark);margin-bottom:3rem}
+.grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem}
+.card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:2rem;text-align:center}
+.card h3{color:var(--dark);margin:1rem 0 0.5rem}
+.btn-small{background:var(--primary);color:#fff;padding:0.6rem 1.2rem;border-radius:6px;text-decoration:none;font-size:0.9rem;display:inline-block;margin-top:1rem}
+.btn-small:disabled{background:#94a3b8;cursor:not-allowed}
+.test-note{font-size:0.8rem;color:#64748b;margin-top:0.5rem}
+.warning{background:#fef3c7;border-left:4px solid #f59e0b;padding:1rem;border-radius:6px;font-size:0.9rem;margin:2rem 0}
+.consent-box{background:#ecfdf5;border:2px solid #10b981;border-radius:12px;padding:2rem;margin-bottom:2rem;text-align:center}
+.grid-4{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;margin-top:2rem}
+.article-card{background:#fff;border-radius:12px;overflow:hidden;border:1px solid #e2e8f0;opacity:0.7}
+.article-card img{width:100%;height:160px;object-fit:cover;background:#e2e8f0}
+.article-card div{padding:1rem}
+.tag{font-size:0.75rem;background:#dbeafe;color:#1e40af;padding:0.2rem 0.6rem;border-radius:4px;font-weight:600}
+.coming-soon{font-size:0.75rem;background:var(--accent);color:#fff;padding:0.2rem 0.6rem;border-radius:4px;font-weight:600;margin-left:0.5rem}
+.meet{background:#f8fafc;border-radius:16px;padding:3rem;display:grid;grid-template-columns:1fr;gap:2rem;text-align:center}
+.trust-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:1.5rem}
+.trust-item{text-align:center;padding:1rem}
+.legal{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:2rem;margin-top:2rem}
+.legal h3{color:var(--primary);margin-top:1.5rem;margin-bottom:0.5rem}
+footer{background:var(--dark);color:#cbd5e1;padding:3rem 1rem;margin-top:4rem}
+footer a{color:#94a3b8;text-decoration:none}
+footer a:hover{color:#fff}
+.subscribe{background:#1e293b;padding:2rem;border-radius:12px;display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
+.subscribe input{flex:1;padding:0.8rem;border-radius:6px;border:none;min-width:250px}
+@media(max-width:768px){.hero{grid-template-columns:1fr;text-align:center}.badge{margin-left:0;margin-top:2rem}.grid-3{grid-template-columns:1fr}.meet{grid-template-columns:1fr}.trust-grid{grid-template-columns:1fr}.hero h1{font-size:2rem}nav{justify-content:center}}
+#mmChatBubble{position:fixed;bottom:1.5rem;right:1.5rem;width:60px;height:60px;border-radius:50%;background:var(--primary);color:#fff;border:none;cursor:pointer;font-size:1.6rem;box-shadow:0 4px 12px rgba(0,0,0,0.2);z-index:100;display:flex;align-items:center;justify-content:center}
+#mmChatPanel{position:fixed;bottom:6rem;right:1.5rem;width:min(360px,92vw);max-height:70vh;background:#fff;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,0.25);z-index:100;display:none;flex-direction:column;overflow:hidden}
+#mmChatHeader{background:var(--primary);color:#fff;padding:1rem;font-weight:700}
+#mmChatHeader span{display:block;font-weight:400;font-size:0.75rem;opacity:0.9;margin-top:0.15rem}
+#mmChatMessages{flex:1;overflow-y:auto;padding:1rem;background:#f8fafc}
+.mmMsg{margin-bottom:0.75rem;max-width:85%;padding:0.6rem 0.9rem;border-radius:10px;font-size:0.9rem;line-height:1.4}
+.mmMsgBot{background:#fff;border:1px solid #e2e8f0}
+.mmMsgUser{background:var(--primary);color:#fff;margin-left:auto}
+#mmChatInputRow{display:flex;gap:0.5rem;padding:0.75rem;border-top:1px solid #e2e8f0}
+#mmChatInput{flex:1;padding:0.6rem;border-radius:8px;border:1px solid #cbd5e1;font-size:0.9rem}
+#mmChatDisclaimer{font-size:0.7rem;color:#94a3b8;padding:0 0.75rem 0.5rem;text-align:center}
+#mmHumanCta{display:none;margin:0 0.75rem 0.75rem;text-align:center}
+</style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>🧠 MindMed Support Assistant</h1>
-            <p>Self-assessment tools and AI-powered mental health support</p>
-        </header>
-        
-        <div class="main-content">
-            <!-- Self-Tests Section -->
-            <div class="tests-section">
-                <h2>Self-Assessment Tools</h2>
-                
-                <!-- ADHD Test -->
-                <div class="test-card">
-                    <h3>ADHD Screener (ASRS-v1.1 WHO)</h3>
-                    <p>Quick assessment based on WHO ASRS-v1.1 criteria</p>
-                    <button class="btn" onclick="toggleTest('adhd')">Start Test</button>
-                    
-                    <div id="adhd-test" class="test-questions">
-                        <div class="question">
-                            <label>How often do you have trouble wrapping up the final details of a project?</label>
-                            <div class="question-option">
-                                <input type="radio" name="adhd1" value="0"> Never or Rarely
-                            </div>
-                            <div class="question-option">
-                                <input type="radio" name="adhd1" value="1"> Sometimes
-                            </div>
-                            <div class="question-option">
-                                <input type="radio" name="adhd1" value="2"> Often
-                            </div>
-                            <div class="question-option">
-                                <input type="radio" name="adhd1" value="3"> Very Often
-                            </div>
-                        </div>
-                        
-                        <div class="question">
-                            <label>How often do you have difficulty getting things in order when you have to do a task that requires organization?</label>
-                            <div class="question-option">
-                                <input type="radio" name="adhd2" value="0"> Never or Rarely
-                            </div>
-                            <div class="question-option">
-                                <input type="radio" name="adhd2" value="1"> Sometimes
-                            </div>
-                            <div class="question-option">
-                                <input type="radio" name="adhd2" value="2"> Often
-                            </div>
-                            <div class="question-option">
-                                <input type="radio" name="adhd2" value="3"> Very Often
-                            </div>
-                        </div>
-                        
-                        <div class="question">
-                            <label>How often do you have problems remembering appointments or obligations?</label>
-                            <div class="question-option">
-                                <input type="radio" name="adhd3" value="0"> Never or Rarely
-                            </div>
-                            <div class="question-option">
-                                <input type="radio" name="adhd3" value="1"> Sometimes
-                            </div>
-                            <div class="question-option">
-                                <input type="radio" name="adhd3" value="2"> Often
-                            </div>
-                            <div class="question-option">
-                                <input type="radio" name="adhd3" value="3"> Very Often
-                            </div>
-                        </div>
-                        
-                        <div class="question">
-                            <label>When you have a task that requires a lot of thought, how often do you avoid or delay getting started?</label>
-                            <div class="question-option">
-                                <input type="radio" name="adhd4" value="0"> Never or Rarely
-                            </div>
-                            <div class="question-option">
-                                <input type="radio" name="adhd4" value="1"> Sometimes
-                            </div>
-                            <div class="question-option">
-                                <input type="radio" name="adhd4" value="2"> Often
-                            </div>
-                            <div class="question-option">
-                                <input type="radio" name="adhd4" value="3"> Very Often
-                            </div>
-                        </div>
-                        
-                        <div class="question">
-                            <label>How often do you fidget or squirm with your hands or feet when you have to sit down for a long time?</label>
-                            <div class="question-option">
-                                <input type="radio" name="adhd5" value="0"> Never or Rarely
-                            </div>
-                            <div class="question-option">
-                                <input type="radio" name="adhd5" value="1"> Sometimes
-                            </div>
-                            <div class="question-option">
-                                <input type="radio" name="adhd5" value="2"> Often
-                            </div>
-                            <div class="question-option">
-                                <input type="radio" name="adhd5" value="3"> Very Often
-                            </div>
-                        </div>
-                        
-                        <button class="btn" onclick="scoreTest('adhd', 5)">Calculate Score</button>
-                        <button class="btn btn-secondary" onclick="resetTest('adhd')">Reset</button>
-                    </div>
-                    
-                    <div id="adhd-result" class="score-result">
-                        <h4>Your ADHD Screening Score</h4>
-                        <p id="adhd-score-text"></p>
-                    </div>
-                </div>
-                
-                <!-- Burnout Test -->
-                <div class="test-card">
-                    <h3>Stress & Burnout Check</h3>
-                    <p>Assess your current stress and burnout levels</p>
-                    <button class="btn" onclick="toggleTest('burnout')">Start Test</button>
-                    
-                    <div id="burnout-test" class="test-questions">
-                        <div class="question">
-                            <label>I feel emotionally drained from my work</label>
-                            <div class="question-option">
-                                <input type="radio" name="burnout1" value="0"> Strongly Disagree
-                            </div>
-                            <div class="question-option">
-                                <input type="radio" name="burnout1" value="1"> Disagree
-                            </div>
-                            <div class="question-option">
-                                <input type="radio" name="burnout1" value="2"> Neutral
-                            </div>
-                            <div class="question-option">
-                                <input type="radio" name="burnout1" value="3"> Agree
-                            </div>
-                            <div class="question-option">
-                                <input type="radio" name="burnout1" value="4"> Strongly Agree
-                            </div>
-                        </div>
-                        
-                        <div class="question">
-                            <label>I feel fatigued when I wake up and have to face another day on the job</label>
-                            <div class="question-option">
-                                <input type="radio" name="burnout2" value="0"> Strongly Disagree
-                            </div>
-                            <div class="question-option">
-                                <input type="radio" name="burnout2" value="1"> Disagree
-                            </div>
-                            <div class="question-option">
-                                <input type="radio" name="burnout2" value="2"> Neutral
-                            </div>
-                            <div class="question-option">
-                                <input type="radio" name="burnout2" value="3"> Agree
-                            </div>
-                            <div class="question-option">
-                                <input type="radio" name="burnout2" value="4"> Strongly Agree
-                            </div>
-                        </div>
-                        
-                        <div class="question">
-                            <label>I have become more callous toward people since I took this job</label>
-                            <div class="question-option">
-                                <input type="radio" name="burnout3" value="0"> Strongly Disagree
-                            </div>
-                            <div class="question-option">
-                                <input type="radio" name="burnout3" value="1"> Disagree
-                            </div>
-                            <div class="question-option">
-                                <input type="radio" name="burnout3" value="2"> Neutral
-                            </div>
-                            <div class="question-option">
-                                <input type="radio" name="burnout3" value="3"> Agree
-                            </div>
-                            <div class="question-option">
-                                <input type="radio" name="burnout3" value="4"> Strongly Agree
-                            </div>
-                        </div>
-                        
-                        <div class="question">
-                            <label>I feel I'm working too hard on my job</label>
-                            <div class="question-option">
-                                <input type="radio" name="burnout4" value="0"> Strongly Disagree
-                            </div>
-                            <div class="question-option">
-                                <input type="radio" name="burnout4" value="1"> Disagree
-                            </div>
-                            <div class="question-option">
-                                <input type="radio" name="burnout4" value="2"> Neutral
-                            </div>
-                            <div class="question-option">
-                                <input type="radio" name="burnout4" value="3"> Agree
-                            </div>
-                            <div class="question-option">
-                                <input type="radio" name="burnout4" value="4"> Strongly Agree
-                            </div>
-                        </div>
-                        
-                        <div class="question">
-                            <label>I feel frustrated by my job</label>
-                            <div class="question-option">
-                                <input type="radio" name="burnout5" value="0"> Strongly Disagree
-                            </div>
-                            <div class="question-option">
-                                <input type="radio" name="burnout5" value="1"> Disagree
-                            </div>
-                            <div class="question-option">
-                                <input type="radio" name="burnout5" value="2"> Neutral
-                            </div>
-                            <div class="question-option">
-                                <input type="radio" name="burnout5" value="3"> Agree
-                            </div>
-                            <div class="question-option">
-                                <input type="radio" name="burnout5" value="4"> Strongly Agree
-                            </div>
-                        </div>
-                        
-                        <button class="btn" onclick="scoreTest('burnout', 5)">Calculate Score</button>
-                        <button class="btn btn-secondary" onclick="resetTest('burnout')">Reset</button>
-                    </div>
-                    
-                    <div id="burnout-result" class="score-result">
-                        <h4>Your Burnout Assessment Score</h4>
-                        <p id="burnout-score-text"></p>
-                    </div>
-                </div>
-                
-                <!-- Social Anxiety Test -->
-                <div class="test-card">
-                    <h3>Social Anxiety Check</h3>
-                    <p>Evaluate your social anxiety symptoms</p>
-                    <button class="btn" onclick="toggleTest('anxiety')">Start Test</button>
-                    
-                    <div id="anxiety-test" class="test-questions">
-                        <div class="question">
-                            <label>I am afraid of people in authority</label>
-                            <div class="question-option">
-                                <input type="radio" name="anxiety1" value="0"> Not at all
-                            </div>
-                            <div class="question-option">
-                                <input type="radio" name="anxiety1" value="1"> A little bit
-                            </div>
-                            <div class="question-option">
-                                <input type="radio" name="anxiety1" value="2"> Somewhat
-                            </div>
-                            <div class="question-option">
-                                <input type="radio" name="anxiety1" value="3"> Very much
-                            </div>
-                        </div>
-                        
-                        <div class="question">
-                            <label>I am bothered by blushing in front of people</label>
-                            <div class="question-option">
-                                <input type="radio" name="anxiety2" value="0"> Not at all
-                            </div>
-                            <div class="question-option">
-                                <input type="radio" name="anxiety2" value="1"> A little bit
-                            </div>
-                            <div class="question-option">
-                                <input type="radio" name="anxiety2" value="2"> Somewhat
-                            </div>
-                            <div class="question-option">
-                                <input type="radio" name="anxiety2" value="3"> Very much
-                            </div>
-                        </div>
-                        
-                        <div class="question">
-                            <label>Parties and social events scare me</label>
-                            <div class="question-option">
-                                <input type="radio" name="anxiety3" value="0"> Not at all
-                            </div>
-                            <div class="question-option">
-                                <input type="radio" name="anxiety3" value="1"> A little bit
-                            </div>
-                            <div class="question-option">
-                                <input type="radio" name="anxiety3" value="2"> Somewhat
-                            </div>
-                            <div class="question-option">
-                                <input type="radio" name="anxiety3" value="3"> Very much
-                            </div>
-                        </div>
-                        
-                        <div class="question">
-                            <label>I avoid talking to people unless I know them well</label>
-                            <div class="question-option">
-                                <input type="radio" name="anxiety4" value="0"> Not at all
-                            </div>
-                            <div class="question-option">
-                                <input type="radio" name="anxiety4" value="1"> A little bit
-                            </div>
-                            <div class="question-option">
-                                <input type="radio" name="anxiety4" value="2"> Somewhat
-                            </div>
-                            <div class="question-option">
-                                <input type="radio" name="anxiety4" value="3"> Very much
-                            </div>
-                        </div>
-                        
-                        <div class="question">
-                            <label>I am afraid of doing things when people might be watching</label>
-                            <div class="question-option">
-                                <input type="radio" name="anxiety5" value="0"> Not at all
-                            </div>
-                            <div class="question-option">
-                                <input type="radio" name="anxiety5" value="1"> A little bit
-                            </div>
-                            <div class="question-option">
-                                <input type="radio" name="anxiety5" value="2"> Somewhat
-                            </div>
-                            <div class="question-option">
-                                <input type="radio" name="anxiety5" value="3"> Very much
-                            </div>
-                        </div>
-                        
-                        <button class="btn" onclick="scoreTest('anxiety', 5)">Calculate Score</button>
-                        <button class="btn btn-secondary" onclick="resetTest('anxiety')">Reset</button>
-                    </div>
-                    
-                    <div id="anxiety-result" class="score-result">
-                        <h4>Your Social Anxiety Assessment Score</h4>
-                        <p id="anxiety-score-text"></p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Chat Section -->
-            <div class="chat-section">
-                <div class="chat-widget">
-                    <h2>💬 AI Support Chat</h2>
-                    <p style="color: #999; font-size: 0.9em; margin-bottom: 15px;">Powered by Gemini AI</p>
-                    
-                    <div class="chat-messages" id="chat-messages">
-                        <div class="message assistant">
-                            Hello! I'm your MindMed Support Assistant, powered by Gemini AI. How can I help you today?
-                        </div>
-                    </div>
-                    
-                    <div class="loading" id="loading">Assistant is typing...</div>
-                    
-                    <div class="chat-input-area">
-                        <input type="text" id="chat-input" placeholder="Type your message..." onkeypress="handleChatKeypress(event)">
-                        <button class="btn" onclick="sendChatMessage()">Send</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <script>
-        // Test Management Functions
-        function toggleTest(testName) {
-            const testElement = document.getElementById(testName + '-test');
-            testElement.classList.toggle('active');
+
+<header>
+<nav>
+<div class="logo"><svg width="34" height="34" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0"><path d="M9 2a5 5 0 0 0-5 5c0 .34.03.67.08 1A4 4 0 0 0 2 11.5 4 4 0 0 0 4.5 15c-.17.5-.27 1-.27 1.5A4.5 4.5 0 0 0 9 21h1V8.5A4.5 4.5 0 0 0 9 2Z" fill="#10b981"/><path d="M15 2a5 5 0 0 1 5 5c0 .34-.03.67-.08 1A4 4 0 0 1 22 11.5 4 4 0 0 1 19.5 15c.17.5.27 1 .27 1.5A4.5 4.5 0 0 1 15 21h-1V8.5A4.5 4.5 0 0 1 15 2Z" fill="#1e4d3a"/></svg><span style="display:flex;flex-direction:column;line-height:1.15"><span><span style="color:#1e4d3a">Mind</span><span style="color:#10b981">Med</span></span><span style="font-size:0.65rem;font-weight:400;color:#64748b;letter-spacing:0.02em">Mind. Health. You.</span></span></div>
+<div style="display:flex;align-items:center;flex-wrap:wrap">
+<a href="#">Home</a>
+<a href="#resources">Resources</a>
+<a href="#self-tests">Free Tests</a>
+<a href="#about">About</a>
+<a href="#pricing">Pricing</a>
+<a href="#contact">Contact</a>
+<a href="#contact" class="btn-primary">Book Appointment</a>
+</div>
+</nav>
+</header>
+
+<section class="hero">
+<div>
+<h1>Online Mental Health Support in Nigeria | Book Behavioral and Mental Health Professionals in 24hrs</h1>
+<p>Evidence-based mental health education, self-assessment tools, and access to professional therapy support.</p>
+<div style="display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0">
+<a href="#consent" class="btn-secondary">Start Self-Assessment →</a>
+<a href="#contact" class="btn-accent">Book Appointment</a>
+</div>
+<div class="mini-disclaimer">Confidential. Secure. NDPR Compliant. SSL Secured. Educational tools only. Not a diagnosis.</div>
+</div>
+<div>
+<img src="https://images.unsplash.com/photo-1649261656779-59a7e8d4c39c?w=500&h=400&fit=crop" alt="Nigerian woman using phone for therapy" style="width:100%;border-radius:16px">
+<div class="badge">
+<strong>Your mental health matters.</strong><br>
+Get the support you deserve—anywhere, anytime.
+</div>
+</div>
+</section>
+
+<section>
+<h2>How MindMed Works</h2>
+<div class="grid-3">
+<div class="card">
+<div style="font-size:2.5rem">📝</div>
+<h3>1. Consent</h3>
+<p>Sign informed consent to protect your privacy before any assessment.</p>
+</div>
+<div class="card">
+<div style="font-size:2.5rem">📊</div>
+<h3>2. Assess</h3>
+<p>Take evidence-based screening tests for anxiety, depression & PTSD.</p>
+</div>
+<div class="card">
+<div style="font-size:2.5rem">👤</div>
+<h3>3. Connect</h3>
+<p>Book a confidential online session with a behavioral and mental health professional.</p>
+</div>
+</div>
+</section>
+
+<section id="consent">
+<div class="consent-box">
+<h2>Step 1: Informed Consent Required</h2>
+<p style="max-width:600px;margin:1rem auto">Before accessing any mental health screening tools, please read and sign below. This explains how your data is used and protects your rights under NDPR.</p>
+<form id="consentForm" style="max-width:480px;margin:1.5rem auto;text-align:left">
+<p style="font-size:0.85rem;color:#065f46;margin-bottom:1rem">By signing, you confirm you understand these are educational screening tools only, not a diagnosis, and you consent to MindMed processing your responses in accordance with our Privacy Policy.</p>
+<label style="display:block;margin-bottom:0.75rem;font-size:0.9rem">Full Name<br>
+<input type="text" id="consentName" required style="width:100%;padding:0.6rem;border-radius:6px;border:1px solid #10b981;margin-top:0.25rem">
+</label>
+<label style="display:block;margin-bottom:0.75rem;font-size:0.9rem">Email<br>
+<input type="email" id="consentEmail" required style="width:100%;padding:0.6rem;border-radius:6px;border:1px solid #10b981;margin-top:0.25rem">
+</label>
+<label style="display:flex;align-items:flex-start;gap:0.5rem;font-size:0.85rem;margin-bottom:1rem">
+<input type="checkbox" id="consentAgree" required style="margin-top:0.2rem">
+<span>I have read and agree to the informed consent terms above.</span>
+</label>
+<button type="submit" class="btn-primary" style="width:100%;justify-content:center">Sign Informed Consent →</button>
+<p id="consentStatus" style="font-size:0.85rem;margin-top:1rem"></p>
+</form>
+</div>
+</section>
+
+<section id="self-tests">
+<h2>Step 2: Mental Health Self-Checks</h2>
+<p style="text-align:center;color:#64748b;margin-bottom:2rem">Only available after signing informed consent above</p>
+<div class="grid-3">
+<div class="card">
+<div style="font-size:3rem;color:var(--primary)">🧠</div>
+<h3>Anxiety + Depression Test</h3>
+<p>GAD-7 & PHQ-9 combined screening</p>
+<button type="button" id="startAnxietyTest" class="btn-small" style="border:none;cursor:pointer">Take Test →</button>
+<p class="test-note">Results shown instantly on this page. Not a diagnosis.</p>
+</div>
+<div class="card">
+<div style="font-size:3rem;color:#059669">💚</div>
+<h3>PTSD Test (PCL-5)</h3>
+<p>Post-traumatic stress screening</p>
+<button type="button" id="startPtsdTest" class="btn-small" style="border:none;cursor:pointer">Take Test →</button>
+<p class="test-note">Results shown instantly on this page. Not a diagnosis.</p>
+</div>
+<div class="card">
+<div style="font-size:3rem;color:#7c3aed">🎯</div>
+<h3>ADHD Test (ASRS-v1.1)</h3>
+<p>Adult ADHD screening (WHO)</p>
+<button type="button" id="startAdhdTest" class="btn-small" style="border:none;cursor:pointer">Take Test →</button>
+<p class="test-note">Results shown instantly on this page. Not a diagnosis.</p>
+</div>
+<div class="card">
+<div style="font-size:3rem;color:#ea580c">🔥</div>
+<h3>Stress & Burnout Check</h3>
+<p>How overloaded are you feeling?</p>
+<button type="button" id="startBurnoutTest" class="btn-small" style="border:none;cursor:pointer">Take Test →</button>
+<p class="test-note">Results shown instantly on this page. Not a diagnosis.</p>
+</div>
+<div class="card">
+<div style="font-size:3rem;color:#0891b2">👥</div>
+<h3>Social Anxiety Check</h3>
+<p>How much do social situations worry you?</p>
+<button type="button" id="startSocialTest" class="btn-small" style="border:none;cursor:pointer">Take Test →</button>
+<p class="test-note">Results shown instantly on this page. Not a diagnosis.</p>
+</div>
+</div>
+<div class="warning">
+<strong>Important:</strong> These are screening tools only. A high score does not mean you have a disorder. Only a licensed clinician can diagnose. If you're having thoughts of harming yourself, contact emergency services 112 or the Mental Health Helpline 081-6913-7108 immediately.
+</div>
+<div id="anxietyTestPanel" style="display:none;margin-top:2rem;background:#fff;border-radius:12px;padding:2rem;border:1px solid #e2e8f0;text-align:left"></div>
+<div id="ptsdTestPanel" style="display:none;margin-top:2rem;background:#fff;border-radius:12px;padding:2rem;border:1px solid #e2e8f0;text-align:left"></div>
+<div id="adhdTestPanel" style="display:none;margin-top:2rem;background:#fff;border-radius:12px;padding:2rem;border:1px solid #e2e8f0;text-align:left"></div>
+<div id="burnoutTestPanel" style="display:none;margin-top:2rem;background:#fff;border-radius:12px;padding:2rem;border:1px solid #e2e8f0;text-align:left"></div>
+<div id="socialTestPanel" style="display:none;margin-top:2rem;background:#fff;border-radius:12px;padding:2rem;border:1px solid #e2e8f0;text-align:left"></div>
+</section>
+
+<section id="resources">
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem;flex-wrap:wrap">
+<h2 style="margin:0;text-align:left">Explore Mental Health Resources</h2>
+<a href="/blog/" style="color:var(--accent);font-weight:600;text-decoration:none">View all articles →</a>
+</div>
+<div class="grid-4">
+</div>
+</section>
+
+<section class="meet" id="about">
+<div>
+<h3 style="margin:0 0 0.5rem;color:var(--primary)">ABOUT MINDMED</h3>
+<h2 style="text-align:center;margin:0 0 1rem">Your Partner in Mental Wellness</h2>
+<p style="max-width:700px;margin:0 auto">MindMed is a mental health education and therapist booking platform dedicated to making quality mental health support accessible to everyone in Nigeria and beyond.</p>
+</div>
+<div style="margin-top:2rem;padding:2rem;background:#fff;border-radius:12px;display:flex;gap:1.5rem;align-items:center;flex-wrap:wrap;text-align:left">
+<div style="width:120px;height:120px;border-radius:50%;background:#e2e8f0;flex-shrink:0;display:flex;align-items:center;justify-content:center;overflow:hidden">
+<svg width="60" height="60" viewBox="0 0 24 24" fill="#94a3b8"><path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/></svg>
+</div>
+<div>
+<h3 style="margin:0 0 0.25rem">Judith Ogunloye</h3>
+<p style="color:var(--primary);font-weight:600;margin:0 0 0.5rem">Founder, MindMed</p>
+<p style="color:#64748b;margin:0 0 1rem">B.Sc. Psychology (University of Ibadan). 6+ years in clinical intake, crisis intervention, and telehealth behavioral health support. Available for events and webinar collaborations.</p>
+<a href="https://linkedin.com/in/judith-ogunloye-6466b9195" target="_blank" style="background:#0A66C2;color:#fff;padding:0.7rem 1.2rem;border-radius:8px;text-decoration:none;font-weight:600;display:inline-flex;align-items:center;gap:0.5rem">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 1 1 8.3 6.5a1.78 1.78 0 0 1-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0 0 13 14.19a.66.66 0 0 0 0 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 0 1 2.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>
+Connect on LinkedIn
+</a>
+</div>
+</div>
+<div>
+<div class="trust-grid">
+<div class="trust-item"><div style="font-size:2rem">📊</div><strong>Evidence-Based Approach</strong></div>
+<div class="trust-item"><div style="font-size:2rem">🔒</div><strong>NDPR Compliant</strong></div>
+<div class="trust-item"><div style="font-size:2rem">👥</div><strong>Accessible Care</strong></div>
+</div>
+<div style="margin-top:2rem;padding:2rem;background:#fff;border-radius:12px">
+<h3>Ready to speak with a therapist?</h3>
+<p>Book a confidential online session today.</p>
+<div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:1rem;justify-content:center">
+<a href="#contact" class="btn-primary">Book Appointment</a>
+<a href="https://wa.me/2347069498050" target="_blank" class="btn-secondary">Chat on WhatsApp</a>
+</div>
+</div>
+</div>
+</section>
+
+<section id="pricing">
+<h2>Simple, Transparent Pricing</h2>
+<p style="text-align:center;color:#64748b;margin-top:-2rem;margin-bottom:3rem">No hidden fees. Pay only for the session you need.</p>
+<div class="grid-3" style="max-width:800px;margin:0 auto">
+<div class="card">
+<h3 style="margin-top:0">Individual Session</h3>
+<p style="font-size:2.5rem;font-weight:700;color:var(--primary);margin:0.5rem 0">₦7,000</p>
+<p style="color:#64748b;font-size:0.9rem">One-on-one online session via Doxy.me</p>
+<a href="#contact" class="btn-small">Book Now →</a>
+</div>
+<div class="card" style="border:2px solid var(--primary)">
+<h3 style="margin-top:0">Group Session</h3>
+<p style="font-size:2.5rem;font-weight:700;color:var(--primary);margin:0.5rem 0">₦20,000</p>
+<p style="color:#64748b;font-size:0.9rem">Group of up to 5 people, one shared online session</p>
+<a href="#contact" class="btn-small">Book Now →</a>
+</div>
+</div>
+</section>
+
+<section id="contact" style="background:#f8fafc;border-radius:16px">
+<h2>Book a Session</h2>
+<p style="text-align:center;max-width:600px;margin:0 auto 1rem">
+<a href="https://doxy.me/v2/check-in/mindmed/" target="_blank" style="color:var(--primary);font-weight:600">Booked a session already? Don't miss your appointment, connect to your therapist.</a>
+</p>
+<p style="text-align:center;max-width:600px;margin:0 auto 2rem">Fill this form and we'll connect you with a behavioral and mental health professional within 24 hours. All sessions are online via Doxy.me and confidential.</p>
+<form id="bookingForm" style="max-width:480px;margin:0 auto;text-align:left;background:#fff;padding:2rem;border-radius:12px">
+<label style="display:block;margin-bottom:0.75rem;font-size:0.9rem">Full Name<br><input type="text" id="bookingName" required style="width:100%;padding:0.6rem;border-radius:6px;border:1px solid #cbd5e1;margin-top:0.25rem"></label>
+<label style="display:block;margin-bottom:0.75rem;font-size:0.9rem">Email<br><input type="email" id="bookingEmail" required style="width:100%;padding:0.6rem;border-radius:6px;border:1px solid #cbd5e1;margin-top:0.25rem"></label>
+<label style="display:block;margin-bottom:0.75rem;font-size:0.9rem">Phone<br><input type="tel" id="bookingPhone" required style="width:100%;padding:0.6rem;border-radius:6px;border:1px solid #cbd5e1;margin-top:0.25rem"></label>
+<label style="display:block;margin-bottom:0.75rem;font-size:0.9rem">Session Type<br>
+<select id="bookingType" style="width:100%;padding:0.6rem;border-radius:6px;border:1px solid #cbd5e1;margin-top:0.25rem">
+<option>Individual Session</option>
+<option>Group Session</option>
+</select>
+</label>
+<label style="display:block;margin-bottom:1rem;font-size:0.9rem">Anything you'd like us to know? (optional)<br><textarea id="bookingMessage" rows="3" style="width:100%;padding:0.6rem;border-radius:6px;border:1px solid #cbd5e1;margin-top:0.25rem"></textarea></label>
+<button type="submit" class="btn-primary" style="width:100%;justify-content:center">Submit Booking Request →</button>
+<p id="bookingStatus" style="font-size:0.85rem;margin-top:1rem"></p>
+</form>
+<p style="text-align:center;margin-top:1rem;font-size:0.9rem;color:#64748b">Prefer email? Reach our booking team at <a href="mailto:bookings@mindmed.com.ng" style="color:var(--primary);font-weight:600">bookings@mindmed.com.ng</a></p>
+
+<div style="max-width:480px;margin:3rem auto 0;text-align:left;background:#fff;padding:2rem;border-radius:12px">
+<h3 style="text-align:center;margin:0 0 1rem">General Questions? Send Us a Message</h3>
+<form id="contactForm">
+<label style="display:block;margin-bottom:0.75rem;font-size:0.9rem">Full Name<br><input type="text" id="contactName" required style="width:100%;padding:0.6rem;border-radius:6px;border:1px solid #cbd5e1;margin-top:0.25rem"></label>
+<label style="display:block;margin-bottom:0.75rem;font-size:0.9rem">Email<br><input type="email" id="contactEmail" required style="width:100%;padding:0.6rem;border-radius:6px;border:1px solid #cbd5e1;margin-top:0.25rem"></label>
+<label style="display:block;margin-bottom:1rem;font-size:0.9rem">Message<br><textarea id="contactMessage" rows="3" required style="width:100%;padding:0.6rem;border-radius:6px;border:1px solid #cbd5e1;margin-top:0.25rem"></textarea></label>
+<button type="submit" class="btn-secondary" style="width:100%;justify-content:center">Send Message →</button>
+<p id="contactStatus" style="font-size:0.85rem;margin-top:1rem"></p>
+</form>
+</div>
+</section>
+
+<section id="privacy" class="legal">
+<h2>Privacy Policy & NDPR Compliance</h2>
+<p><strong>Last Updated:</strong> April 25, 2026</p>
+<h3>1. NDPR Compliance</h3>
+<p>MindMed complies with the Nigeria Data Protection Regulation NDPR 2019. Your data is processed lawfully, fairly, and transparently. We are registered data controllers.</p>
+<h3>2. Information We Collect</h3>
+<p>We collect information you provide directly through our website forms: name, email, phone, and mental health screening responses. This data is stored securely in our own encrypted database and is never sold or shared with third parties for marketing.</p>
+<h3>3. Purpose of Data</h3>
+<p>Your data is used to: provide screening results, contact you about therapy booking, and improve services. We never sell or share your data with third parties for marketing.</p>
+<h3>4. Your Rights Under NDPR</h3>
+<p>You have the right to access, correct, delete, or restrict processing of your data. Email support@mindmed.com.ng to exercise these rights.</p>
+<h3>5. Medical Disclaimer</h3>
+<p>MindMed provides educational content and screening tools only. This is not medical advice or diagnosis. For emergencies, call 112.</p>
+</section>
+
+<button id="mmChatBubble" aria-label="Open MindMed Support Assistant">💬</button>
+<div id="mmChatPanel">
+<div id="mmChatHeader">MindMed Support Assistant<span>General info only &mdash; not medical advice or a diagnosis</span></div>
+<div id="mmChatMessages"></div>
+<div id="mmHumanCta"><a href="#contact" class="btn-small" style="border:none">Talk to a MindMed professional &rarr;</a></div>
+<div id="mmChatInputRow">
+<input type="text" id="mmChatInput" placeholder="Ask a question...">
+<button id="mmChatSend" class="btn-primary" style="padding:0.6rem 1rem">Send</button>
+</div>
+<div id="mmChatDisclaimer">This assistant shares general info only. It cannot diagnose, prescribe, or replace a licensed clinician.</div>
+</div>
+
+<footer>
+<div style="max-width:1200px;margin:0 auto">
+<div class="subscribe">
+<div style="display:flex;align-items:center;gap:1rem;flex:1">
+<div><strong>Stay Informed. Stay Empowered.</strong><br><span style="font-size:0.9rem">Get mental health tips, resources, and updates delivered to your inbox.</span></div>
+</div>
+<div style="display:flex;gap:0.5rem;flex:1">
+<input type="email" placeholder="Enter your email address">
+<button class="btn-primary">Subscribe</button>
+</div>
+</div>
+<p style="font-size:0.8rem;margin-top:0.5rem">We respect your privacy. Unsubscribe anytime.</p>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;margin:3rem 0">
+<div>
+<div class="logo" style="color:#fff"><svg width="28" height="28" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0"><path d="M9 2a5 5 0 0 0-5 5c0 .34.03.67.08 1A4 4 0 0 0 2 11.5 4 4 0 0 0 4.5 15c-.17.5-.27 1-.27 1.5A4.5 4.5 0 0 0 9 21h1V8.5A4.5 4.5 0 0 0 9 2Z" fill="#10b981"/><path d="M15 2a5 5 0 0 1 5 5c0 .34-.03.67-.08 1A4 4 0 0 1 22 11.5 4 4 0 0 1 19.5 15c.17.5.27 1 .27 1.5A4.5 4.5 0 0 1 15 21h-1V8.5A4.5 4.5 0 0 1 15 2Z" fill="#a7f3d0"/></svg> MindMed</div>
+<p style="font-size:0.85rem;margin:1rem 0">MindMed is a mental health education and therapist booking platform dedicated to improving mental well-being in Nigeria and beyond.</p>
+</div>
+<div>
+<strong>Quick Links</strong><br>
+<a href="#">Home</a><br><a href="#resources">Resources</a><br><a href="#self-tests">Free Tests</a><br><a href="#contact">Book Appointment</a><br><a href="#about">About</a><br><a href="#pricing">Pricing</a><br><a href="#contact">Contact</a>
+</div>
+<div>
+<strong>Resources</strong><br>
+<a href="/blog/Anxiety-vs-stress-how-to-tell-difference/" style="color:#64748b">Anxiety</a><br><a href="/blog/What-is-depression-signs-nigerians-ignorewh/" style="color:#64748b">Depression</a><br><span style="color:#64748b">CBT Tools</span><br><span style="color:#64748b">Stress Management</span><br><span style="color:#64748b">Relationships</span><br><span style="color:#64748b">Trauma Recovery</span>
+</div>
+<div>
+<strong>Support</strong><br>
+<a href="mailto:support@mindmed.com.ng">support@mindmed.com.ng</a><br>
+<a href="https://wa.me/2347069498050">Chat on WhatsApp</a>
+</div>
+</div>
+<p style="font-size:0.8rem;border-top:1px solid #334155;padding-top:1rem">© 2026 MindMed. All Rights Reserved. NDPR Compliant. <span style="float:right"><a href="#privacy">Privacy Policy</a> | <a href="#privacy">Terms of Use</a> | <a href="#privacy">Disclaimer</a></span></p>
+</div>
+</footer>
+
+<script>
+(function(){
+  var CONSENT_KEY = 'mindmedConsentGiven';
+
+  function postJSON(url, data) {
+    return fetch(url, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(data)
+    }).then(function(r){
+      return r.json().catch(function(){ return {}; }).then(function(json){
+        return {ok: r.ok, json: json};
+      });
+    });
+  }
+
+  function wireForm(formId, statusId, url, getPayload, onSuccess) {
+    var form = document.getElementById(formId);
+    if (!form) return;
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var statusEl = document.getElementById(statusId);
+      statusEl.textContent = 'Submitting...';
+      statusEl.style.color = '#64748b';
+      postJSON(url, getPayload()).then(function(res){
+        if (res.ok) {
+          statusEl.style.color = '#065f46';
+          onSuccess(statusEl, form);
+        } else {
+          statusEl.textContent = (res.json && res.json.error) || 'Something went wrong. Please try again.';
+          statusEl.style.color = '#b91c1c';
         }
-        
-        function resetTest(testName) {
-            const testElement = document.getElementById(testName + '-test');
-            const inputs = testElement.querySelectorAll('input[type="radio"], input[type="checkbox"]');
-            inputs.forEach(input => input.checked = false);
-            
-            const resultElement = document.getElementById(testName + '-result');
-            resultElement.classList.remove('active');
-        }
-        
-        function scoreTest(testName, questionCount) {
-            let totalScore = 0;
-            
-            for (let i = 1; i <= questionCount; i++) {
-                const radios = document.querySelectorAll(`input[name="${testName}${i}"]`);
-                for (let radio of radios) {
-                    if (radio.checked) {
-                        totalScore += parseInt(radio.value);
-                        break;
-                    }
-                }
-            }
-            
-            let interpretation = '';
-            
-            if (testName === 'adhd') {
-                const maxScore = 15;
-                const percentage = (totalScore / maxScore) * 100;
-                interpretation = `Score: ${totalScore}/15 (${percentage.toFixed(0)}%)<br><br>`;
-                
-                if (totalScore <= 5) {
-                    interpretation += "<strong>Low likelihood of ADHD symptoms.</strong> Your responses suggest minimal ADHD-related concerns. Continue monitoring your symptoms.";
-                } else if (totalScore <= 10) {
-                    interpretation += "<strong>Moderate ADHD symptoms detected.</strong> Consider consulting with a healthcare professional for further evaluation.";
-                } else {
-                    interpretation += "<strong>High likelihood of ADHD symptoms.</strong> We recommend scheduling an appointment with a mental health professional for a comprehensive assessment.";
-                }
-            } else if (testName === 'burnout') {
-                const maxScore = 20;
-                const percentage = (totalScore / maxScore) * 100;
-                interpretation = `Score: ${totalScore}/20 (${percentage.toFixed(0)}%)<br><br>`;
-                
-                if (totalScore <= 6) {
-                    interpretation += "<strong>Low burnout risk.</strong> You appear to be managing stress well. Continue with healthy coping strategies.";
-                } else if (totalScore <= 12) {
-                    interpretation += "<strong>Moderate burnout risk.</strong> Consider implementing stress management techniques and work-life balance improvements.";
-                } else {
-                    interpretation += "<strong>High burnout risk.</strong> We strongly recommend seeking support from a mental health professional and making significant lifestyle changes.";
-                }
-            } else if (testName === 'anxiety') {
-                const maxScore = 15;
-                const percentage = (totalScore / maxScore) * 100;
-                interpretation = `Score: ${totalScore}/15 (${percentage.toFixed(0)}%)<br><br>`;
-                
-                if (totalScore <= 5) {
-                    interpretation += "<strong>Low social anxiety.</strong> You seem comfortable in social situations. Keep up your positive social engagement.";
-                } else if (totalScore <= 10) {
-                    interpretation += "<strong>Moderate social anxiety.</strong> Consider gradual exposure to social situations and relaxation techniques.";
-                } else {
-                    interpretation += "<strong>High social anxiety.</strong> Professional support from a therapist specializing in anxiety disorders is recommended.";
-                }
-            }
-            
-            const resultElement = document.getElementById(testName + '-result');
-            const scoreText = document.getElementById(testName + '-score-text');
-            scoreText.innerHTML = interpretation;
-            resultElement.classList.add('active');
-        }
-        
-        // Chat Functions
-        async function sendChatMessage() {
-            const input = document.getElementById('chat-input');
-            const message = input.value.trim();
-            
-            if (!message) return;
-            
-            // Add user message to chat
-            addMessageToChat(message, 'user');
-            input.value = '';
-            
-            // Show loading indicator
-            document.getElementById('loading').classList.add('active');
-            
-            try {
-                // Call the Gemini-backed /api/chat endpoint
-                const response = await fetch('/api/chat', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        message: message,
-                        context: 'mental_health_support'
-                    })
-                });
-                
-                if (!response.ok) {
-                    throw new Error('API request failed');
-                }
-                
-                const data = await response.json();
-                const assistantMessage = data.reply || 'I apologize, but I could not process your request. Please try again.';
-                
-                addMessageToChat(assistantMessage, 'assistant');
-            } catch (error) {
-                console.error('Chat error:', error);
-                addMessageToChat('I apologize, but I encountered an error. Please try again later.', 'assistant');
-            } finally {
-                document.getElementById('loading').classList.remove('active');
-            }
-        }
-        
-        function addMessageToChat(message, sender) {
-            const chatMessages = document.getElementById('chat-messages');
-            const messageDiv = document.createElement('div');
-            messageDiv.className = `message ${sender}`;
-            messageDiv.textContent = message;
-            chatMessages.appendChild(messageDiv);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        }
-        
-        function handleChatKeypress(event) {
-            if (event.key === 'Enter') {
-                sendChatMessage();
-            }
-        }
-    </script>
+      }).catch(function(){
+        statusEl.textContent = 'Network error. Please try again.';
+        statusEl.style.color = '#b91c1c';
+      });
+    });
+  }
+
+  wireForm('consentForm', 'consentStatus', '/api/consent', function(){
+    return {
+      name: document.getElementById('consentName').value,
+      email: document.getElementById('consentEmail').value
+    };
+  }, function(statusEl, form){
+    localStorage.setItem(CONSENT_KEY, 'true');
+    statusEl.textContent = 'Consent recorded. You can now take your tests below.';
+    form.reset();
+  });
+
+  wireForm('bookingForm', 'bookingStatus', '/api/booking', function(){
+    return {
+      name: document.getElementById('bookingName').value,
+      email: document.getElementById('bookingEmail').value,
+      phone: document.getElementById('bookingPhone').value,
+      sessionType: document.getElementById('bookingType').value,
+      message: document.getElementById('bookingMessage').value
+    };
+  }, function(statusEl, form){
+    statusEl.textContent = "Thanks! We'll reach out within 24 hours to confirm your session.";
+    form.reset();
+  });
+
+  wireForm('contactForm', 'contactStatus', '/api/contact', function(){
+    return {
+      name: document.getElementById('contactName').value,
+      email: document.getElementById('contactEmail').value,
+      message: document.getElementById('contactMessage').value
+    };
+  }, function(statusEl, form){
+    statusEl.textContent = "Message sent. We'll get back to you soon.";
+    form.reset();
+  });
+
+  // ---- Self-tests ----
+  var SCALE4 = ['Not at all','Several days','More than half the days','Nearly every day'];
+  var GAD7 = [
+    'Feeling nervous, anxious, or on edge',
+    'Not being able to stop or control worrying',
+    'Worrying too much about different things',
+    'Trouble relaxing',
+    "Being so restless that it's hard to sit still",
+    'Becoming easily annoyed or irritable',
+    'Feeling afraid as if something awful might happen'
+  ];
+  var PHQ9 = [
+    'Little interest or pleasure in doing things',
+    'Feeling down, depressed, or hopeless',
+    'Trouble falling or staying asleep, or sleeping too much',
+    'Feeling tired or having little energy',
+    'Poor appetite or overeating',
+    'Feeling bad about yourself, or that you are a failure, or have let yourself or your family down',
+    'Trouble concentrating on things, such as reading or watching television',
+    'Moving or speaking so slowly that others could have noticed, or being so fidgety or restless that you have been moving around a lot more than usual',
+    'Thoughts that you would be better off dead, or of hurting yourself in some way'
+  ];
+  var SCALE5 = ['Not at all','A little bit','Moderately','Quite a bit','Extremely'];
+  var PCL5 = [
+    'Repeated, disturbing, and unwanted memories of a stressful experience',
+    'Repeated, disturbing dreams of a stressful experience',
+    'Suddenly feeling or acting as if a stressful experience were actually happening again',
+    'Feeling very upset when something reminded you of a stressful experience',
+    'Having strong physical reactions when something reminded you of a stressful experience (e.g. heart pounding, trouble breathing, sweating)',
+    'Avoiding memories, thoughts, or feelings related to a stressful experience',
+    'Avoiding external reminders of a stressful experience (people, places, conversations, activities, objects, or situations)',
+    'Trouble remembering important parts of a stressful experience',
+    'Strong negative beliefs about yourself, other people, or the world',
+    'Blaming yourself or someone else for a stressful experience or what happened after it',
+    'Having strong negative feelings such as fear, horror, anger, guilt, or shame',
+    'Loss of interest in activities you used to enjoy',
+    'Feeling distant or cut off from other people',
+    'Trouble experiencing positive feelings',
+    'Irritable behavior, angry outbursts, or acting aggressively',
+    'Taking too many risks or doing things that could cause you harm',
+    'Being "superalert" or watchful or on guard',
+    'Feeling jumpy or easily startled',
+    'Having difficulty concentrating',
+    'Trouble falling or staying asleep'
+  ];
+
+  function renderQuestionnaire(container, items, scaleLabels, namePrefix) {
+    var html = '';
+    items.forEach(function(text, i){
+      html += '<div style="margin-bottom:1.25rem"><p style="font-weight:600;margin-bottom:0.5rem">'+(i+1)+'. '+text+'</p>';
+      scaleLabels.forEach(function(label, val){
+        html += '<label style="display:block;font-size:0.9rem;margin-bottom:0.25rem"><input type="radio" name="'+namePrefix+i+'" value="'+val+'" required> '+label+'</label>';
+      });
+      html += '</div>';
+    });
+    container.innerHTML = html;
+  }
+
+  function getAnswers(container, items, namePrefix) {
+    var answers = [];
+    for (var i=0;i<items.length;i++){
+      var checked = container.querySelector('input[name="'+namePrefix+i+'"]:checked');
+      if (!checked) return null;
+      answers.push(parseInt(checked.value,10));
+    }
+    return answers;
+  }
+
+  function sum(arr){ return arr.reduce(function(a,b){return a+b;},0); }
+
+  function interpretGAD7(score){
+    if (score <= 4) return 'Minimal anxiety';
+    if (score <= 9) return 'Mild anxiety';
+    if (score <= 14) return 'Moderate anxiety';
+    return 'Severe anxiety';
+  }
+  function interpretPHQ9(score){
+    if (score <= 4) return 'Minimal depression';
+    if (score <= 9) return 'Mild depression';
+    if (score <= 14) return 'Moderate depression';
+    if (score <= 19) return 'Moderately severe depression';
+    return 'Severe depression';
+  }
+  function interpretPCL5(score){
+    if (score >= 31) return 'Your responses suggest symptoms consistent with clinically significant PTSD symptoms.';
+    return "Your responses don't suggest clinically significant PTSD symptoms at this time.";
+  }
+
+  var CRISIS_HTML = '<div class="warning" style="margin-top:1rem"><strong>Please reach out for support:</strong> If you are having thoughts of harming yourself, contact emergency services on 112 or the Mental Health Helpline on 081-6913-7108 right now. You do not have to go through this alone.</div>';
+
+  function requireConsent(){
+    if (localStorage.getItem(CONSENT_KEY) !== 'true') {
+      alert('Please sign the informed consent form above before taking a test.');
+      document.getElementById('consent').scrollIntoView({behavior:'smooth'});
+      return false;
+    }
+    return true;
+  }
+
+  var anxietyBtn = document.getElementById('startAnxietyTest');
+  var anxietyPanel = document.getElementById('anxietyTestPanel');
+  if (anxietyBtn) {
+    anxietyBtn.addEventListener('click', function(){
+      if (!requireConsent()) return;
+      anxietyPanel.style.display = 'block';
+      anxietyPanel.innerHTML =
+        '<h3 style="margin-bottom:0.5rem">Anxiety (GAD-7)</h3>' +
+        '<p style="color:#64748b;margin-bottom:1.5rem">Over the last 2 weeks, how often have you been bothered by the following?</p>' +
+        '<div id="gad7Questions"></div>' +
+        '<h3 style="margin:2rem 0 0.5rem">Depression (PHQ-9)</h3>' +
+        '<p style="color:#64748b;margin-bottom:1.5rem">Over the last 2 weeks, how often have you been bothered by the following?</p>' +
+        '<div id="phq9Questions"></div>' +
+        '<button type="button" id="submitAnxietyTest" class="btn-primary" style="border:none;cursor:pointer">See My Results →</button>' +
+        '<div id="anxietyResults" style="margin-top:1.5rem"></div>';
+      renderQuestionnaire(document.getElementById('gad7Questions'), GAD7, SCALE4, 'gad7_');
+      renderQuestionnaire(document.getElementById('phq9Questions'), PHQ9, SCALE4, 'phq9_');
+      anxietyPanel.scrollIntoView({behavior:'smooth'});
+      document.getElementById('submitAnxietyTest').addEventListener('click', function(){
+        var gadAnswers = getAnswers(anxietyPanel, GAD7, 'gad7_');
+        var phqAnswers = getAnswers(anxietyPanel, PHQ9, 'phq9_');
+        if (!gadAnswers || !phqAnswers) { alert('Please answer every question before seeing your results.'); return; }
+        var gadScore = sum(gadAnswers);
+        var phqScore = sum(phqAnswers);
+        var selfHarmFlag = phqAnswers[8] > 0;
+        var html = '<div class="warning"><strong>Anxiety (GAD-7):</strong> '+gadScore+'/21 — '+interpretGAD7(gadScore)+'</div>' +
+          '<div class="warning"><strong>Depression (PHQ-9):</strong> '+phqScore+'/27 — '+interpretPHQ9(phqScore)+'</div>' +
+          (selfHarmFlag ? CRISIS_HTML : '') +
+          '<p style="font-size:0.85rem;color:#64748b;margin-top:1rem">These are screening tools only, not a diagnosis. Please discuss these results with a behavioral and mental health professional.</p>';
+        document.getElementById('anxietyResults').innerHTML = html;
+        document.getElementById('anxietyResults').scrollIntoView({behavior:'smooth'});
+      });
+    });
+  }
+
+  var ptsdBtn = document.getElementById('startPtsdTest');
+  var ptsdPanel = document.getElementById('ptsdTestPanel');
+  if (ptsdBtn) {
+    ptsdBtn.addEventListener('click', function(){
+      if (!requireConsent()) return;
+      ptsdPanel.style.display = 'block';
+      ptsdPanel.innerHTML =
+        '<h3 style="margin-bottom:0.5rem">PTSD Screening (PCL-5)</h3>' +
+        '<p style="color:#64748b;margin-bottom:1.5rem">In the past month, how much were you bothered by:</p>' +
+        '<div id="pcl5Questions"></div>' +
+        '<button type="button" id="submitPtsdTest" class="btn-primary" style="border:none;cursor:pointer">See My Results →</button>' +
+        '<div id="ptsdResults" style="margin-top:1.5rem"></div>';
+      renderQuestionnaire(document.getElementById('pcl5Questions'), PCL5, SCALE5, 'pcl5_');
+      ptsdPanel.scrollIntoView({behavior:'smooth'});
+      document.getElementById('submitPtsdTest').addEventListener('click', function(){
+        var answers = getAnswers(ptsdPanel, PCL5, 'pcl5_');
+        if (!answers) { alert('Please answer every question before seeing your results.'); return; }
+        var score = sum(answers);
+        var html = '<div class="warning"><strong>PTSD Screening (PCL-5):</strong> '+score+'/80 — '+interpretPCL5(score)+'</div>' +
+          '<p style="font-size:0.85rem;color:#64748b;margin-top:1rem">This is a screening tool only, not a diagnosis. Please discuss these results with a behavioral and mental health professional.</p>';
+        document.getElementById('ptsdResults').innerHTML = html;
+        document.getElementById('ptsdResults').scrollIntoView({behavior:'smooth'});
+      });
+    });
+  }
+
+  // ---- ADHD (ASRS v1.1 6-question WHO screener) ----
+  var ASRS_SCALE = ['Never','Rarely','Sometimes','Often','Very Often'];
+  var ASRS6 = [
+    'How often do you have trouble wrapping up the final details of a project, once the challenging parts have been done?',
+    'How often do you have difficulty getting things in order when you have to do a task that requires organization?',
+    'How often do you have problems remembering appointments or obligations?',
+    'When you have a task that requires a lot of thought, how often do you avoid or delay getting started?',
+    'How often do you fidget or squirm with your hands or feet when you have to sit down for a long time?',
+    'How often do you feel overly active and compelled to do things, like you were driven by a motor?'
+  ];
+  // Shaded-box thresholds per the official WHO/Harvard scoring key: items 0-2 count
+  // as a "hit" at Often/Very Often (index 3,4); items 3-5 count at Sometimes/Often/Very Often (index 2,3,4)
+  var ASRS_THRESHOLDS = [3,3,3,2,2,2];
+
+  function interpretASRS(hits){
+    return hits >= 4
+      ? 'Your responses fall in the range associated with adult ADHD on this screener. This suggests it may be worth discussing with a professional.'
+      : "Your responses don't fall in the range associated with adult ADHD on this screener.";
+  }
+
+  var adhdBtn = document.getElementById('startAdhdTest');
+  var adhdPanel = document.getElementById('adhdTestPanel');
+  if (adhdBtn) {
+    adhdBtn.addEventListener('click', function(){
+      if (!requireConsent()) return;
+      adhdPanel.style.display = 'block';
+      adhdPanel.innerHTML =
+        '<h3 style="margin-bottom:0.5rem">Adult ADHD Screener (ASRS-v1.1)</h3>' +
+        '<p style="color:#64748b;margin-bottom:0.5rem">Over the past 6 months, how often have you experienced the following?</p>' +
+        '<p style="font-size:0.75rem;color:#94a3b8;margin-bottom:1.5rem">ASRS-v1.1 Screener \u00a9 World Health Organization (WHO). Reprinted with permission of WHO. Kessler et al. (2005), Psychological Medicine, 35(2), 245-256.</p>' +
+        '<div id="asrsQuestions"></div>' +
+        '<button type="button" id="submitAdhdTest" class="btn-primary" style="border:none;cursor:pointer">See My Results \u2192</button>' +
+        '<div id="adhdResults" style="margin-top:1.5rem"></div>';
+      renderQuestionnaire(document.getElementById('asrsQuestions'), ASRS6, ASRS_SCALE, 'asrs_');
+      adhdPanel.scrollIntoView({behavior:'smooth'});
+      document.getElementById('submitAdhdTest').addEventListener('click', function(){
+        var answers = getAnswers(adhdPanel, ASRS6, 'asrs_');
+        if (!answers) { alert('Please answer every question before seeing your results.'); return; }
+        var hits = 0;
+        answers.forEach(function(val, i){ if (val >= ASRS_THRESHOLDS[i]) hits++; });
+        var html = '<div class="warning"><strong>ADHD Screener (ASRS-v1.1):</strong> '+hits+'/6 shaded-box responses \u2014 '+interpretASRS(hits)+'</div>' +
+          '<p style="font-size:0.85rem;color:#64748b;margin-top:1rem">This is a screening tool only, not a diagnosis. Please discuss these results with a behavioral and mental health professional.</p>';
+        document.getElementById('adhdResults').innerHTML = html;
+        document.getElementById('adhdResults').scrollIntoView({behavior:'smooth'});
+      });
+    });
+  }
+
+  // ---- Stress & Burnout Check (original MindMed screening, not a licensed instrument) ----
+  var SCALE_BURNOUT = ['Never','Sometimes','Often','Almost Always'];
+  var BURNOUT8 = [
+    'I feel emotionally drained by the end of most days',
+    'I have less patience for people than I used to',
+    'I feel physically exhausted even after resting',
+    'I find it hard to feel enthusiastic about things I used to enjoy',
+    'I feel overwhelmed by my responsibilities',
+    "I feel like I'm not accomplishing much, no matter how hard I work",
+    'I have trouble switching off from work or responsibilities, even when I try to rest',
+    'I feel disconnected from the people around me'
+  ];
+
+  function interpretBurnout(score){
+    if (score <= 6) return 'Low signs of stress or burnout right now';
+    if (score <= 13) return 'Moderate signs of stress or burnout';
+    if (score <= 20) return 'High signs of stress or burnout';
+    return 'Very high signs of stress or burnout';
+  }
+
+  var burnoutBtn = document.getElementById('startBurnoutTest');
+  var burnoutPanel = document.getElementById('burnoutTestPanel');
+  if (burnoutBtn) {
+    burnoutBtn.addEventListener('click', function(){
+      if (!requireConsent()) return;
+      burnoutPanel.style.display = 'block';
+      burnoutPanel.innerHTML =
+        '<h3 style="margin-bottom:0.5rem">Stress & Burnout Check</h3>' +
+        '<p style="color:#64748b;margin-bottom:1.5rem">Over the last 2 weeks, how often have the following been true for you?</p>' +
+        '<div id="burnoutQuestions"></div>' +
+        '<button type="button" id="submitBurnoutTest" class="btn-primary" style="border:none;cursor:pointer">See My Results \u2192</button>' +
+        '<div id="burnoutResults" style="margin-top:1.5rem"></div>';
+      renderQuestionnaire(document.getElementById('burnoutQuestions'), BURNOUT8, SCALE_BURNOUT, 'burnout_');
+      burnoutPanel.scrollIntoView({behavior:'smooth'});
+      document.getElementById('submitBurnoutTest').addEventListener('click', function(){
+        var answers = getAnswers(burnoutPanel, BURNOUT8, 'burnout_');
+        if (!answers) { alert('Please answer every question before seeing your results.'); return; }
+        var score = sum(answers);
+        var html = '<div class="warning"><strong>Stress & Burnout Check:</strong> '+score+'/24 \u2014 '+interpretBurnout(score)+'</div>' +
+          '<p style="font-size:0.85rem;color:#64748b;margin-top:1rem">This is an informal MindMed screening tool, not a validated clinical instrument or a diagnosis. Please discuss these results with a behavioral and mental health professional.</p>';
+        document.getElementById('burnoutResults').innerHTML = html;
+        document.getElementById('burnoutResults').scrollIntoView({behavior:'smooth'});
+      });
+    });
+  }
+
+  // ---- Social Anxiety Check (original MindMed screening, not a licensed instrument) ----
+  var SCALE_SOCIAL = ['Not at all','A little','Moderately','A lot'];
+  var SOCIAL8 = [
+    'I worry about being judged or embarrassed in social situations',
+    'I avoid situations where I might have to speak in front of others',
+    "I feel physically uncomfortable (racing heart, sweating, blushing) around people I don't know well",
+    'I replay social interactions afterward, worrying about what I said or did',
+    "I avoid starting conversations with people I don't know",
+    'I find it hard to eat, drink, or write in front of others',
+    'I turn down invitations because the thought of attending makes me anxious',
+    "I fear that others can tell I'm anxious"
+  ];
+
+  function interpretSocial(score){
+    if (score <= 6) return 'Minimal social anxiety symptoms';
+    if (score <= 12) return 'Mild social anxiety symptoms';
+    if (score <= 18) return 'Moderate social anxiety symptoms';
+    return 'Significant social anxiety symptoms';
+  }
+
+  var socialBtn = document.getElementById('startSocialTest');
+  var socialPanel = document.getElementById('socialTestPanel');
+  if (socialBtn) {
+    socialBtn.addEventListener('click', function(){
+      if (!requireConsent()) return;
+      socialPanel.style.display = 'block';
+      socialPanel.innerHTML =
+        '<h3 style="margin-bottom:0.5rem">Social Anxiety Check</h3>' +
+        '<p style="color:#64748b;margin-bottom:1.5rem">How much do the following apply to you?</p>' +
+        '<div id="socialQuestions"></div>' +
+        '<button type="button" id="submitSocialTest" class="btn-primary" style="border:none;cursor:pointer">See My Results \u2192</button>' +
+        '<div id="socialResults" style="margin-top:1.5rem"></div>';
+      renderQuestionnaire(document.getElementById('socialQuestions'), SOCIAL8, SCALE_SOCIAL, 'social_');
+      socialPanel.scrollIntoView({behavior:'smooth'});
+      document.getElementById('submitSocialTest').addEventListener('click', function(){
+        var answers = getAnswers(socialPanel, SOCIAL8, 'social_');
+        if (!answers) { alert('Please answer every question before seeing your results.'); return; }
+        var score = sum(answers);
+        var html = '<div class="warning"><strong>Social Anxiety Check:</strong> '+score+'/24 \u2014 '+interpretSocial(score)+'</div>' +
+          '<p style="font-size:0.85rem;color:#64748b;margin-top:1rem">This is an informal MindMed screening tool, not a validated clinical instrument or a diagnosis. Please discuss these results with a behavioral and mental health professional.</p>';
+        document.getElementById('socialResults').innerHTML = html;
+        document.getElementById('socialResults').scrollIntoView({behavior:'smooth'});
+      });
+    });
+  }
+
+  // ---- MindMed Support Assistant (Gemini-backed chat) ----
+  var FALLBACK_REPLY = "I'm having trouble responding right now, but I don't want to leave you without help. You can book a session directly on this page, or WhatsApp us for a quicker reply.";
+
+  var mmSessionId = (function(){
+    var existing = sessionStorage.getItem('mmChatSession');
+    if (existing) return existing;
+    var id = 'sess_' + Date.now() + '_' + Math.random().toString(36).slice(2,10);
+    sessionStorage.setItem('mmChatSession', id);
+    return id;
+  })();
+
+  var mmMessageCount = 0;
+
+  function mmAddMessage(text, who) {
+    var msgs = document.getElementById('mmChatMessages');
+    var div = document.createElement('div');
+    div.className = 'mmMsg ' + (who === 'user' ? 'mmMsgUser' : 'mmMsgBot');
+    div.textContent = text;
+    msgs.appendChild(div);
+    msgs.scrollTop = msgs.scrollHeight;
+  }
+
+  var chatBubble = document.getElementById('mmChatBubble');
+  var chatPanel = document.getElementById('mmChatPanel');
+  var chatInput = document.getElementById('mmChatInput');
+  var chatSend = document.getElementById('mmChatSend');
+  var humanCta = document.getElementById('mmHumanCta');
+  var chatOpened = false;
+
+  if (chatBubble) {
+    chatBubble.addEventListener('click', function(){
+      chatPanel.style.display = chatPanel.style.display === 'flex' ? 'none' : 'flex';
+      if (!chatOpened && chatPanel.style.display === 'flex') {
+        chatOpened = true;
+        mmAddMessage("Hi! I'm the MindMed Support Assistant. I can answer questions about pricing, booking, and general mental health topics. I'm not a doctor and can't diagnose \u2014 for anything serious, please book a session with a real professional.", 'bot');
+      }
+    });
+  }
+
+  function mmSetTyping(on) {
+    var existing = document.getElementById('mmTyping');
+    if (on && !existing) {
+      var msgs = document.getElementById('mmChatMessages');
+      var div = document.createElement('div');
+      div.id = 'mmTyping';
+      div.className = 'mmMsg mmMsgBot';
+      div.textContent = '...';
+      msgs.appendChild(div);
+      msgs.scrollTop = msgs.scrollHeight;
+    } else if (!on && existing) {
+      existing.remove();
+    }
+  }
+
+  var mmHistory = [];
+
+  function mmHandleSend() {
+    var text = chatInput.value.trim();
+    if (!text) return;
+    mmAddMessage(text, 'user');
+    chatInput.value = '';
+    mmMessageCount++;
+    mmHistory.push({ role: 'user', text: text });
+    mmSetTyping(true);
+
+    fetch('/api/chat', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({
+        sessionId: mmSessionId,
+        message: text,
+        history: mmHistory
+      })
+    }).then(function(r){ return r.json(); }).then(function(data){
+      mmSetTyping(false);
+      var reply = data.reply || FALLBACK_REPLY;
+      mmAddMessage(reply, 'bot');
+      mmHistory.push({ role: 'bot', text: reply });
+      if (data.isCrisis || mmMessageCount >= 3) {
+        humanCta.style.display = 'block';
+      }
+    }).catch(function(){
+      mmSetTyping(false);
+      mmAddMessage(FALLBACK_REPLY, 'bot');
+      humanCta.style.display = 'block';
+    });
+  }
+
+  if (chatSend) chatSend.addEventListener('click', mmHandleSend);
+  if (chatInput) chatInput.addEventListener('keydown', function(e){
+    if (e.key === 'Enter') mmHandleSend();
+  });
+})();
+</script>
 </body>
 </html>
