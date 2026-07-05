@@ -318,9 +318,9 @@ Connect on LinkedIn
 <p>MindMed provides educational content and screening tools only. This is not medical advice or diagnosis. For emergencies, call 112.</p>
 </section>
 
-<button id="mmChatBubble" aria-label="Open MindMed Support Assistant">💬</button>
+<button id="mmChatBubble" aria-label="Open Fade, MindMed's Support Assistant">💬</button>
 <div id="mmChatPanel">
-<div id="mmChatHeader">MindMed Support Assistant<span>General info only &mdash; not medical advice or a diagnosis</span></div>
+<div id="mmChatHeader">Fade<span>MindMed Support Assistant &mdash; general info only, not medical advice or a diagnosis</span></div>
 <div id="mmChatMessages"></div>
 <div id="mmHumanCta"><a href="#contact" class="btn-small" style="border:none">Talk to a MindMed professional &rarr;</a></div>
 <div id="mmChatInputRow">
@@ -549,7 +549,7 @@ Connect on LinkedIn
         '<h3 style="margin-bottom:0.5rem">Anxiety (GAD-7)</h3>' +
         '<p style="color:#64748b;margin-bottom:1.5rem">Over the last 2 weeks, how often have you been bothered by the following?</p>' +
         '<div id="gad7Questions"></div>' +
-        '<h3 style="margin:2rem 0 0.5rem">Depression (PHQ-9)</h3>' +
+       '<h3 style="margin:2rem 0 0.5rem">Depression (PHQ-9)</h3>' +
         '<p style="color:#64748b;margin-bottom:1.5rem">Over the last 2 weeks, how often have you been bothered by the following?</p>' +
         '<div id="phq9Questions"></div>' +
         '<button type="button" id="submitAnxietyTest" class="btn-primary" style="border:none;cursor:pointer">See My Results →</button>' +
@@ -740,7 +740,7 @@ Connect on LinkedIn
     });
   }
 
-  // ---- MindMed Support Assistant (Gemini-backed chat) ----
+  // ---- Fade, the MindMed Support Assistant (Gemini-backed chat) ----
   var FALLBACK_REPLY = "I'm having trouble responding right now, but I don't want to leave you without help. You can book a session directly on this page, or WhatsApp us for a quicker reply.";
 
   var mmSessionId = (function(){
@@ -774,7 +774,7 @@ Connect on LinkedIn
       chatPanel.style.display = chatPanel.style.display === 'flex' ? 'none' : 'flex';
       if (!chatOpened && chatPanel.style.display === 'flex') {
         chatOpened = true;
-        mmAddMessage("Hi! I'm the MindMed Support Assistant. I can answer questions about pricing, booking, and general mental health topics. I'm not a doctor and can't diagnose \u2014 for anything serious, please book a session with a real professional.", 'bot');
+        mmAddMessage("Hi, I'm Fade, MindMed's support assistant. I can answer questions about pricing, booking, and general mental health topics. I'm not a doctor and can't diagnose \u2014 for anything serious, please book a session with a real professional.", 'bot');
       }
     });
   }
