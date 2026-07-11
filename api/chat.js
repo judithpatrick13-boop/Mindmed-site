@@ -53,7 +53,7 @@ async function callGemini(userMessage, history) {
   const body = JSON.stringify({
     system_instruction: { parts: [{ text: SYSTEM_PROMPT }] },
     contents,
-    generationConfig: { maxOutputTokens: 220, temperature: 0.4 },
+    generationConfig: { maxOutputTokens: 1220, temperature: 0.4 },
   });
 
   // Try a couple of model names in case one has been renamed/retired on Google's side
