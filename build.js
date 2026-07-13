@@ -229,7 +229,7 @@ function build() {
   rmrf(OUT);
   fs.mkdirSync(OUT, { recursive: true });
 
-  for (const item of ['set-password.html', 'admin', 'images']) {
+  for (const item of ['set-password.html', 'admin', 'images', 'sitemap.xml']) {
     const src = path.join(ROOT, item);
     if (fs.existsSync(src)) {
       copyRecursive(src, path.join(OUT, item));
