@@ -1,23 +1,26 @@
 ---
 title: "Money Anxiety in Nigeria: How to Cope With Financial Stress"
-date: 2026-07-19T08:02:00.000+01:00
+date: 2026-07-16T08:22:00.000+01:00
 slug: money-anxiety-nigeria
 meta_description: >
   Money anxiety in Nigeria is real. Learn how financial stress causes anxiety,
   insomnia, and shame. 5 practical steps + free resources to cope in 2026.
+image: https://images.unsplash.com/photo-1631653645914-9325f3967f7a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
 pillar: "Pillar 2: Problems People Search"
 keywords: money anxiety nigeria; financial stress nigeria; anxiety because of
   money; how to cope when broke nigeria
 author: "Judith Ogunloye "
-draft: true
+draft: false
 ---
+![a pile of money sitting on top of a table](https://images.unsplash.com/photo-1631653645914-9325f3967f7a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D "Money Anxiety ")
+
 The alert was supposed to drop on Friday.
 
-It’s Sunday night and your account is still at ₦1,450.
+It’s Sunday night, and your account is still at ₦1,450.
 
-You have fuel to buy, data to subscribe, and your sister just sent "Pls send money my gas has finished".
+You have fuel to buy, data to subscribe to, and your sister just sent, "Pls send money, my gas has finished."
 
-You send smile emoji in the group chat, followed by "I’m good o". But inside you’re doing math that doesn’t add up.
+You send a smiley emoji in the group chat, followed by "I’m good o," but inside you’re doing math that doesn’t add up.
 
 That’s money anxiety. And in Nigeria in 2026, it’s not about being "bad with money". It’s about living in a country where one bill can wipe out your whole plan.
 
@@ -37,13 +40,13 @@ It’s not just worrying about bills. It shows up in your body, mind, and relati
 
 \- Stomach issues, grinding teeth
 
-\- Constant tiredness even after 8 hours sleep
+\- Constant tiredness even after 8 hours of sleep
 
 #### **Mental**:
 
 \- Overthinking every expense: "Should I buy meat or just garri?"
 
-\- Panic when unknown number calls: "Is it debt collector?"
+\- Panic when an unknown number calls: "Is it a debt collector?"
 
 \- Catastrophic "what if" thoughts: "What if I lose my job? What if my business fails?"
 
@@ -71,12 +74,12 @@ If 3 or more of these feel familiar, your nervous system is in survival mode. An
 
 Let’s be honest about the pressure. It’s not in your head:
 
-1. **Inflation**: Food, transport, rent all up 40-60%. Salary didn’t follow. ₦100k today feels like ₦50k in 2023.
+1. **Inflation**: Food, transport, and rent all up 40-60%. Salary didn’t follow. ₦100k today feels like ₦50k in 2023.
 2. **Family Pressure**: "You’re the one abroad/in Lagos. Send something." Even when you don’t have. "Black tax" is real and heavy.
 3. **Comparison Culture**: Twitter, IG, TikTok. Everyone looks like they’re winning. No one posts their debt.
 4. **No Safety Net**: No health insurance for most, no emergency fund, "if I fall, my family falls with me"
 5. **Hustle Shame**: The idea that if you’re struggling, you’re not praying/hustling/believing enough. So you fake it.
-6. **Business Uncertainty**: If you’re a business owner, FX, NEPA, staff salary. One bad month = panic for 3 months.
+6. **Business Uncertainty**: If you’re a business owner, Forex trader, freelancer, or staff member with a salary. One bad month means panic for 3 months.
 
 It’s not you. The system is heavy. But you can still protect your mind inside the storm.
 
@@ -100,13 +103,13 @@ Talking about it — to a therapist, to a trusted friend, even to yourself in a 
 
 You’re not weak for feeling this. You’re human.
 
-If you’re also dealing with family pressure around money, \[this guide on talking to parents](/talk-to-nigerian-parents-about-therapy) might help.
+If you want your parents, who are also dealing with family pressure around money, [this guide on talking to parents](https://mindmed.com.ng/blog/talk-to-nigerian-parents-about-therapy/) might help.
 
 ## **5 Ways to Steady Yourself When Money Is Shaking You**
 
-#### **1. Do a "Panic Audit", Not a Budget**
+#### **1. Do a Panic Audit, Not a Budget**
 
-When you’re anxious, budgeting feels impossible. Instead ask: "What’s the ONE bill that’s making me panic most?" Deal with that one. The rest can wait 24hrs.
+When you’re anxious, budgeting feels impossible. Instead, ask: "What’s the ONE bill that’s making me panic most?" Deal with that one. The rest can wait 24 hours.
 
 #### **2. Interrupt the Spiral With Your Body**
 
@@ -128,7 +131,7 @@ Bills are problems. Stories are traps. Only solve the bill.
 
 #### **5. Don’t Suffer Alone**
 
-The fastest way to make money anxiety worse is to hide it. Text one person. \[Take the 2-min screening](/test). \[Talk to a counselor](/tel:08008002000). Money problems grow in silence.
+The fastest way to make money anxiety worse is to hide it. Text one person. [Take the 2-min screening](https://mindmed.com.ng/#self-tests). Talk to a counselor, tel:[08008002000](08008002000). Money problems grow in silence.
 
 Therapy helps because it teaches you how to handle the panic before you can solve the money. A therapist won’t pay your bills. But they’ll help you stop the spiral so you can think clearly enough to make better decisions.
 
@@ -141,14 +144,14 @@ Watch for these red flags:
 3. Thoughts of "what’s the point"
 4. Using alcohol, weed, or gambling to "cope"
 
-If this is you, please don’t wait. This is beyond "motivation". This is health. \[Book a therapist](/book) or call a helpline. You deserve support.
+If this is you, please don’t wait. This is beyond "motivation". This is health. [Book a therapist](https://mindmed.com.ng/#contact) or call a helpline. You deserve support.
 
 ## **Resources That Can Help Right Now**
 
-1. **Free Screening**: \[MindMed Mental Health Test](/test) - 2 mins, confidential
-2. **Talk to a Counselor**: She Writes Woman 0800 800 2000
-3. **Crisis Line**: SURPIN 0800 078 7746
-4. **Therapy**: \[MindMed Online Therapy](/book) - Speak to a therapist from home. Payment plans available.
+1. **Free Screening**: [MindMed Mental Health Test](https://mindmed.com.ng/#self-tests) - 2 mins, confidential
+2. **Talk to a Counselor**: She Writes Woman [0800 800 2000](08008002000)
+3. **Crisis Line**: SURPIN [0800 078 7746](08000787746)
+4. **Therapy**: [MindMed Online Therapy](https://mindmed.com.ng/#contact) - Speak to a therapist from home. Payment plans available.
 
 ## **You Are Not Your Bank Balance**
 
@@ -162,4 +165,4 @@ The economy will change. Your job situation will change. But you need to be well
 
 Take one small step today. Breathe. Then act.
 
-Start with the free screening. Then forward this to someone who’s also "managing". You might save them.
+Start with the [free screening](https://mindmed.com.ng/#self-tests). Then forward this to someone who’s also "managing". You might save them.
