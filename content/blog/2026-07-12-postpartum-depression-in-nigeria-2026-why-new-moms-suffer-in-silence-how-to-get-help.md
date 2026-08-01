@@ -10,9 +10,8 @@ meta_description: Postpartum depression affects 1 in 5 Nigerian moms. Learn PPD
 image: https://images.unsplash.com/photo-1504888060547-83cbe78ccfe0?q=80&w=1259&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
 pillar: "Pillar 2: Problems People Search"
 topics:
+  - Postpartum
   - Depression
-  - Relationships
-  - Grief
 keywords: postpartum depression Nigeria, PPD signs new moms Lagos, postpartum
   therapy Nigeria, baby blues vs PPD research
 author: "Judith Ogunloye "
