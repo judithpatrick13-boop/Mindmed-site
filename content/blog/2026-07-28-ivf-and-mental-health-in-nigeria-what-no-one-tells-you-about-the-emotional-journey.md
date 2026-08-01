@@ -9,6 +9,10 @@ meta_description: >
   how to cope. You’re not alone. Support + therapy resources inside.
 image: https://images.unsplash.com/photo-1647549228195-301269c33265?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
 pillar: "Pillar 2: Problems People Search"
+topics:
+  - Grief
+  - Depression
+  - Postpartum
 keywords: IVF and mental health Nigeria; IVF Nigeria emotional support,
   infertility anxiety nigeria, coping with IVF, world ivf day nigeria
 author: "Judith Ogunloye "
