@@ -20,6 +20,7 @@ collections:
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Slug", name: "slug", widget: "string" }
       - { label: "Pillar", name: "pillar", widget: "select", options: ["Pillar 1: Cost + Access", "Pillar 2: Problems People Search", "Pillar 3: How Therapy Works / E-E-A-T"] }
+      - { label: "Topics", name: "topics", widget: "select", multiple: true, options: ["Anxiety", "Depression", "Grief", "Addiction", "Cost & Access", "Therapy Basics", "Relationships", "Postpartum", "Workplace Mental Health", "Trauma", "Self-Care"] }
       - { label: "Target Keywords / SEO Goal", name: "keywords", widget: "string" }
       - { label: "Author", name: "author", widget: "string", default: "Licensed Therapist Name" }
       - { label: "Draft", name: "draft", widget: "boolean", default: true }
