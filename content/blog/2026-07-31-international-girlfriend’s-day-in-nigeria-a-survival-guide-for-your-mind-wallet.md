@@ -8,6 +8,9 @@ meta_description: >
   Feeling pressure this Girlfriend’s Day? Read this. For singles, couples, and
   guys. Protect your peace, money, and boundaries. By MindMed.
 pillar: "Pillar 2: Problems People Search"
+topics:
+  - Relationships
+  - Anxiety
 keywords: international girlfriend day nigeria, money anxiety relationships,
   dating pressure nigeria, mental health and dating, boundaries in
   relationships, anxiety nigeria
