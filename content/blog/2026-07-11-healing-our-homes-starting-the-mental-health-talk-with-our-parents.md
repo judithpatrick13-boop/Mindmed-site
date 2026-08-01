@@ -9,6 +9,8 @@ meta_description: >
   resources inside.
 image: https://images.unsplash.com/photo-1666885181287-004f7ccfc0ae?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
 pillar: "Pillar 2: Problems People Search"
+topics:
+  - Relationships
 keywords: How to talk to parents about therapy Nigeria; therapy for parents in
   Nigeria; mental health older generation Nigeria; helping Nigerian parents with
   stress
