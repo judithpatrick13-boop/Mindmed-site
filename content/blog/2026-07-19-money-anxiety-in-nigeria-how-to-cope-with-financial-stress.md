@@ -7,6 +7,9 @@ meta_description: >
   insomnia, and shame. 5 practical steps + free resources to cope in 2026.
 image: https://images.unsplash.com/photo-1631653645914-9325f3967f7a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
 pillar: "Pillar 2: Problems People Search"
+topics:
+  - Anxiety
+  - Cost & Access
 keywords: money anxiety nigeria; financial stress nigeria; anxiety because of
   money; how to cope when broke nigeria
 author: "Judith Ogunloye "
