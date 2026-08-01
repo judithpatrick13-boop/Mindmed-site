@@ -7,6 +7,8 @@ meta_description: Panic attack vs anxiety in Nigeria 2026. Learn 7 signs of
   panic attack + 3 things to do during episode. Take Mindmed free anxiety test.
 image: https://images.unsplash.com/photo-1620326373377-1e7b0f406851?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
 pillar: "Pillar 2: Problems People Search"
+topics:
+  - Anxiety
 keywords: "Panic attack vs anxiety; panic attack symptoms Nigeria; panic attack
   treatment Nigeria "
 author: "Judith Ogunloye "
