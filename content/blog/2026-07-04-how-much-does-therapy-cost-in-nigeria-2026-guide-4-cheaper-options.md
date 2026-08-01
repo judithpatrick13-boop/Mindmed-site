@@ -8,6 +8,9 @@ meta_description: How much does therapy cost in Nigeria in 2026? See real prices
   MindMed test.
 image: https://images.unsplash.com/photo-1624953901718-e24ee7200b85?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
 pillar: "Pillar 1: Cost + Access"
+topics:
+  - Cost & Access
+  - Therapy Basics
 keywords: Therapy cost in Nigeria; price of therapy in Lagos; affordable therapy
   Nigeria; online therapy cost
 author: "Judith Ogunloye "
