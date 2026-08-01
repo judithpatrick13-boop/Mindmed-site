@@ -7,6 +7,9 @@ meta_description: Thinking one therapy session will fix everything? Learn what
   session 1 is really for, how long therapy takes, and how healing actually
   works in Nigeria.
 pillar: "Pillar 3: How Therapy Works / E-E-A-T"
+topics:
+  - Cost & Access
+  - Therapy Basics
 keywords: is one therapy session enough, how many therapy sessions do i need,
   first therapy session nigeria, therapy myths nigeria, how long does therapy
   take
