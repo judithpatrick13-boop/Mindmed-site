@@ -9,6 +9,8 @@ meta_description: >
   get therapy.
 image: https://images.unsplash.com/photo-1739287088633-5c079aa82481?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
 pillar: "Pillar 2: Problems People Search"
+topics:
+  - Relationships
 keywords: relationships and mental health nigeria; therapy for couples nigeria;
   heartbreak depression; marriage counseling lagos; dating anxiety nigeria;
   marriage counseling lagos
