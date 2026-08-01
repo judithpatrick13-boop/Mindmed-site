@@ -8,6 +8,10 @@ meta_description: >
   how to do it respectfully in Nigeria, and how to find a better fit.
 image: https://images.unsplash.com/photo-1528716321680-815a8cdb8cbe?q=80&w=1376&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
 pillar: "Pillar 3: How Therapy Works / E-E-A-T"
+topics:
+  - Therapy Basics
+  - Self-Care
+  - Cost & Access
 keywords: can you switch therapists nigeria, how to change therapist, therapist
   not a good fit, finding a therapist nigeria, switching therapist
 author: "Judith Ogunloye "
