@@ -6,6 +6,10 @@ slug: ptsd-after-sexual-assault-nigeria
 meta_description: PTSD after sexual assault is real. Learn signs, why healing is
   hard in Nigeria, and safe resources + therapy options for women and girls.
 pillar: "Pillar 2: Problems People Search"
+topics:
+  - Trauma
+  - Depression
+  - Anxiety
 keywords: ptsd after sexual assault nigeria; trauma after rape nigeria; signs of
   ptsd after molestation; therapy for sexual trauma nigeria; flashbacks after
   assault; can you get ptsd from sexual assault
