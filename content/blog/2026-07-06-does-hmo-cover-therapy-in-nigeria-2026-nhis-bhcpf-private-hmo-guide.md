@@ -7,6 +7,10 @@ meta_description: Can HMO cover therapy Nigeria 2026? NHIS BHCPF covers mental
   health + AXA, Hygeia, Reliance HMO coverage. 3 workarounds if not covered.
 image: https://images.unsplash.com/photo-1721329567449-b4ed38b849da?q=80&w=1214&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
 pillar: "Pillar 1: Cost + Access"
+topics:
+  - Cost & Access
+  - Therapy Basics
+  - Workplace Mental Health
 keywords: does HMO cover therapy Nigeria, NHIS mental health coverage BHCPF, AXA
   Mansard therapy coverage, Hygeia HMO counseling
 author: Judith Ogunloye
