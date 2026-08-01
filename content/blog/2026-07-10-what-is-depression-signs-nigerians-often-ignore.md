@@ -7,6 +7,9 @@ meta_description: Think you’re just “stressed” or “lazy”? Learn 7 sign
   depression Nigerians ignore + take MindMed’s free 3-min test for clarity.
 image: https://images.unsplash.com/photo-1534330207526-8e81f10ec6fc?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
 pillar: "Pillar 2: Problems People Search"
+topics:
+  - Depression
+  - Self-Care
 keywords: "What is depression; depression in Nigeria; signs of depression; free
   depression test Nigeria "
 author: "Judith Ogunloye "
