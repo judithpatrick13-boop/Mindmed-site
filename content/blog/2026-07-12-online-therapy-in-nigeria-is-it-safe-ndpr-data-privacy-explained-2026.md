@@ -7,6 +7,9 @@ meta_description: Worried online therapy isn’t private? See how MindMed websit
   uses Doxy.me, NDPR compliance + own servers for encrypted, safe sessions.
 image: https://images.unsplash.com/photo-1616587894289-86480e533129?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
 pillar: "Pillar 3: How Therapy Works / E-E-A-T"
+topics:
+  - Cost & Access
+  - Therapy Basics
 keywords: is online therapy safe Nigeria, NDPR mental health data, Doxy.me
   therapy Nigeria, MindMed data privacy
 author: "Judith Ogunloye "
