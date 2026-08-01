@@ -50,21 +50,24 @@ function formatDate(d) {
 }
 
 const SITE_HEAD_CSS = `
-:root{--primary:#1e4d3a;--accent:#f59e0b;--dark:#0f172a;--light:#f8fafc;--text:#334155}
+:root{--primary:#1e4d3a;--primary-light:#2d6b52;--accent:#f59e0b;--dark:#0f172a;--light:#f8fafc;--text:#334155;--card-radius:16px}
 *{margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
 html{scroll-behavior:smooth}
-body{color:var(--text);line-height:1.6}
-header{background:#fff;border-bottom:1px solid #e2e8f0;position:sticky;top:0;z-index:50}
+body{color:var(--text);line-height:1.6;overflow-x:hidden}
+header{background:rgba(255,255,255,0.85);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid #e2e8f0;position:sticky;top:0;z-index:50}
 nav{max-width:1200px;margin:0 auto;padding:1rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
-nav a{color:var(--dark);text-decoration:none;margin-left:1rem;font-weight:500;font-size:0.9rem;white-space:nowrap}
+nav a{color:var(--dark);text-decoration:none;margin-left:1rem;font-weight:500;font-size:0.9rem;white-space:nowrap;transition:color 0.2s ease}
 nav a:hover{color:var(--primary)}
-.logo{display:flex;align-items:center;gap:0.5rem;font-size:1.3rem;font-weight:700;color:var(--primary);text-decoration:none}
-.btn-primary{background:var(--primary);color:#fff;padding:0.7rem 1.2rem;border-radius:8px;text-decoration:none;font-weight:600;display:inline-flex;align-items:center;gap:0.5rem;border:none;cursor:pointer}
-.btn-primary:hover{opacity:0.9}
-.post{max-width:760px;margin:0 auto;padding:3rem 1.5rem}
-.post img.hero{width:100%;border-radius:16px;margin-bottom:2rem}
+.logo-wrap{display:flex;align-items:center;gap:0.5rem;text-decoration:none}
+.logo-icon{animation:floatLogo 4s ease-in-out infinite;flex-shrink:0}
+@keyframes floatLogo{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-4px) rotate(-3deg)}}
+.logo-text{font-size:1.2rem;font-weight:700;color:var(--primary)}
+.btn-primary{background:var(--primary);color:#fff;padding:0.7rem 1.2rem;border-radius:8px;text-decoration:none;font-weight:600;display:inline-flex;align-items:center;gap:0.5rem;border:none;cursor:pointer;transition:transform 0.2s ease, box-shadow 0.2s ease}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(30,77,58,0.3)}
+.post{max-width:760px;margin:0 auto;padding:3rem 1.5rem;position:relative}
+.post img.hero{width:100%;border-radius:18px;margin-bottom:2rem;box-shadow:0 12px 32px rgba(15,23,42,0.12)}
 .post .tag{font-size:0.75rem;background:#dbeafe;color:#1e40af;padding:0.25rem 0.6rem;border-radius:4px;font-weight:600}
-.post h1{font-size:2.2rem;color:var(--dark);margin:1rem 0;line-height:1.25}
+.post h1{font-size:2.2rem;color:var(--dark);margin:1rem 0;line-height:1.25;letter-spacing:-0.01em}
 .post .meta{color:#64748b;font-size:0.9rem;margin-bottom:2rem}
 .post-body h2{color:var(--dark);margin:2rem 0 1rem;font-size:1.5rem}
 .post-body h3{color:var(--dark);margin:1.5rem 0 0.75rem;font-size:1.2rem}
@@ -73,29 +76,60 @@ nav a:hover{color:var(--primary)}
 .post-body li{margin-bottom:0.5rem}
 .post-body img{width:100%;border-radius:12px;margin:1.5rem 0}
 .post-body strong{color:var(--dark)}
-.post-cta{background:#f8fafc;border-radius:16px;padding:2rem;text-align:center;margin-top:3rem}
+.post-cta{background:linear-gradient(180deg,#f8fafc 0%,#eef2f0 100%);border-radius:18px;padding:2.2rem;text-align:center;margin-top:3rem}
 .back-link{display:inline-block;margin-bottom:2rem;color:var(--primary);text-decoration:none;font-weight:600}
-.blog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;max-width:1200px;margin:0 auto;padding:3rem 1.5rem}
-.blog-card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;text-decoration:none;color:inherit;display:block}
+.blog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;max-width:1200px;margin:0 auto;padding:3rem 1.5rem;perspective:1200px}
+.blog-card{background:linear-gradient(180deg,#ffffff 0%,#fbfdfc 100%);border:1px solid #e6ebe8;border-radius:var(--card-radius);overflow:hidden;text-decoration:none;color:inherit;display:block;box-shadow:0 4px 16px rgba(15,23,42,0.05);transition:transform 0.3s ease, box-shadow 0.3s ease}
+.blog-card:hover{transform:perspective(1200px) rotateX(2deg) rotateY(-2deg) translateY(-6px);box-shadow:0 20px 40px rgba(15,23,42,0.14)}
 .blog-card img{width:100%;height:180px;object-fit:cover;background:#e2e8f0}
 .blog-card .pad{padding:1.2rem}
 .blog-card h3{color:var(--dark);margin:0.75rem 0 0.5rem;font-size:1.1rem}
 .blog-card .excerpt{font-size:0.9rem;color:#64748b}
+.reveal{opacity:1;transform:none;transition:opacity 0.7s ease, transform 0.7s ease}
+body.js-ready .reveal{opacity:0;transform:translateY(24px)}
+body.js-ready .reveal.in-view{opacity:1;transform:none}
+.orb{position:absolute;border-radius:50%;filter:blur(50px);opacity:0.25;z-index:0;animation:driftOrb 12s ease-in-out infinite;pointer-events:none}
+@keyframes driftOrb{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(20px,-20px) scale(1.08)}}
 footer{background:var(--dark);color:#cbd5e1;padding:3rem 1rem;margin-top:4rem;text-align:center}
-footer a{color:#94a3b8;text-decoration:none}
+footer a{color:#94a3b8;text-decoration:none;transition:color 0.2s ease}
 footer a:hover{color:#fff}
+@media(max-width:768px){.blog-card:hover{transform:translateY(-4px)}}
 `;
+
+const REVEAL_SCRIPT = `<script>
+(function() {
+  try {
+    document.body.classList.add('js-ready');
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) { entry.target.classList.add('in-view'); io.unobserve(entry.target); }
+        });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('.reveal').forEach(function(el) { io.observe(el); });
+    } else {
+      document.querySelectorAll('.reveal').forEach(function(el) { el.classList.add('in-view'); });
+    }
+  } catch (err) {
+    document.querySelectorAll('.reveal').forEach(function(el) { el.classList.add('in-view'); });
+  }
+})();
+</script>`;
 
 function siteHeader() {
   return `<header>
 <nav>
-<a class="logo" href="/">\u{1F9E0} MindMed</a>
+<a class="logo-wrap" href="/"><svg class="logo-icon" width="30" height="30" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 2a5 5 0 0 0-5 5c0 .34.03.67.08 1A4 4 0 0 0 2 11.5 4 4 0 0 0 4.5 15c-.17.5-.27 1-.27 1.5A4.5 4.5 0 0 0 9 21h1V8.5A4.5 4.5 0 0 0 9 2Z" fill="#10b981"/><path d="M15 2a5 5 0 0 1 5 5c0 .34-.03.67-.08 1A4 4 0 0 1 22 11.5 4 4 0 0 1 19.5 15c.17.5.27 1 .27 1.5A4.5 4.5 0 0 1 15 21h-1V8.5A4.5 4.5 0 0 1 15 2Z" fill="#1e4d3a"/></svg><span class="logo-text">MindMed</span></a>
 <div style="display:flex;align-items:center;flex-wrap:wrap">
 <a href="/">Home</a>
 <a href="/blog/">Blog</a>
+<a href="/#resources">Resources</a>
+<a href="/#self-tests">Free Tests</a>
 <a href="/#about">About</a>
+<a href="/#pricing">Pricing</a>
+<a href="/store.html">Store</a>
 <a href="/#contact">Contact</a>
-<a href="https://form.jotform.com/261754301710044" target="_blank" class="btn-primary">\u{1F4C5} Book Appointment</a>
+<a href="/#contact" class="btn-primary">Book Appointment</a>
 </div>
 </nav>
 </header>`;
@@ -103,11 +137,15 @@ function siteHeader() {
 
 function siteFooter() {
   return `<footer>
-<p>\u00A9 2026 MindMed. All Rights Reserved. NDPR Compliant.</p>
-<p style="margin-top:0.5rem">
-<a href="mailto:support@mindmed.com.ng">\u2709\uFE0F support@mindmed.com.ng</a> &nbsp;|&nbsp;
-<a href="https://wa.me/2347069498050">\u{1F4AC} Chat on WhatsApp</a>
+<p><span style="color:#10b981;font-weight:700">Mind</span><span style="font-weight:700">Med</span> &nbsp;\u00B7&nbsp; Mind. Health. You.</p>
+<p style="margin-top:0.8rem;font-size:0.9rem">
+<a href="/">Home</a> &nbsp;\u00B7&nbsp;
+<a href="/store.html">Store</a> &nbsp;\u00B7&nbsp;
+<a href="/#contact">Contact</a> &nbsp;\u00B7&nbsp;
+<a href="mailto:support@mindmed.com.ng">support@mindmed.com.ng</a> &nbsp;\u00B7&nbsp;
+<a href="https://wa.me/2347069498050">WhatsApp</a>
 </p>
+<p style="margin-top:1rem;font-size:0.8rem;color:#64748b">\u00A9 2026 MindMed. All Rights Reserved. NDPA Compliant.</p>
 </footer>`;
 }
 
@@ -133,7 +171,7 @@ ${ANALYTICS_SNIPPET}
 </head>
 <body>
 ${siteHeader()}
-<article class="post">
+<article class="post reveal">
 <a class="back-link" href="/blog/">\u2190 Back to all articles</a>
 ${post.image ? `<img class="hero" src="${escapeHtml(post.image)}" alt="${title}">` : ''}
 <span class="tag">${escapeHtml(post.pillar || 'MindMed')}</span>
@@ -144,18 +182,19 @@ ${post.image ? `<img class="hero" src="${escapeHtml(post.image)}" alt="${title}"
 <h3>Ready to speak with a therapist?</h3>
 <p>Book a confidential online session today.</p>
 <div style="margin-top:1rem">
-<a href="https://form.jotform.com/261754301710044" target="_blank" class="btn-primary">\u{1F4C5} Book Appointment</a>
+<a href="/#contact" class="btn-primary">Book Appointment</a>
 </div>
 </div>
 </article>
 ${siteFooter()}
+${REVEAL_SCRIPT}
 </body>
 </html>`;
 }
 
 function listingPageHtml(posts) {
   const cards = posts.map((p) => `
-<a class="blog-card" href="/blog/${p.slug}/">
+<a class="blog-card reveal" href="/blog/${p.slug}/">
 ${p.image ? `<img src="${escapeHtml(p.image)}" alt="${escapeHtml(p.title)}">` : ''}
 <div class="pad">
 <span class="tag">${escapeHtml(p.pillar || 'MindMed')}</span>
@@ -177,14 +216,17 @@ ${ANALYTICS_SNIPPET}
 </head>
 <body>
 ${siteHeader()}
-<section style="max-width:1200px;margin:0 auto;padding:3rem 1.5rem 0;text-align:center">
-<h1 style="color:var(--dark);font-size:2.2rem">Mental Health Resources & Articles</h1>
-<p style="color:#64748b;margin-top:0.5rem">Evidence-based guidance for navigating mental health in Nigeria.</p>
+<section style="max-width:1200px;margin:0 auto;padding:3rem 1.5rem 0;text-align:center;position:relative">
+<div class="orb" style="width:220px;height:220px;background:radial-gradient(circle,var(--primary-light),transparent 70%);top:-40px;left:-40px"></div>
+<div class="orb" style="width:180px;height:180px;background:radial-gradient(circle,var(--accent),transparent 70%);top:0;right:-20px"></div>
+<h1 class="reveal" style="color:var(--dark);font-size:2.2rem;position:relative;z-index:1">Mental Health Resources & Articles</h1>
+<p class="reveal" style="color:#64748b;margin-top:0.5rem;position:relative;z-index:1">Evidence-based guidance for navigating mental health in Nigeria.</p>
 </section>
 <div class="blog-grid">
 ${cards || '<p style="color:#64748b">New articles coming soon.</p>'}
 </div>
 ${siteFooter()}
+${REVEAL_SCRIPT}
 </body>
 </html>`;
 }
@@ -224,52 +266,12 @@ function injectHomepageResources(homepageHtml, posts) {
 
   return result;
 }
-function slugifyTopic(t) {
-  return String(t || '').toLowerCase().trim().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-}
-
-function topicListingPageHtml(topicName, posts) {
-  const cards = posts.map((p) => `
-<a class="blog-card" href="/blog/${p.slug}/">
-${p.image ? `<img src="${escapeHtml(p.image)}" alt="${escapeHtml(p.title)}">` : ''}
-<div class="pad">
-<span class="tag">${escapeHtml(topicName)}</span>
-<h3>${escapeHtml(p.title)}</h3>
-<div class="excerpt">${formatDate(p.date)}</div>
-</div>
-</a>`).join('\n');
-
-  return `<!doctype html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>${escapeHtml(topicName)} Articles | MindMed Blog</title>
-<meta name="description" content="Articles about ${escapeHtml(topicName)} from MindMed, evidence-based mental health guidance for Nigerians.">
-<link rel="canonical" href="https://mindmed.com.ng/blog/topic/${slugifyTopic(topicName)}/">
-<style>${SITE_HEAD_CSS}</style>
-${ANALYTICS_SNIPPET}
-</head>
-<body>
-${siteHeader()}
-<section style="max-width:1200px;margin:0 auto;padding:3rem 1.5rem 0;text-align:center">
-<a class="back-link" href="/blog/">\u2190 Back to all articles</a>
-<h1 style="color:var(--dark);font-size:2.2rem">${escapeHtml(topicName)}</h1>
-<p style="color:#64748b;margin-top:0.5rem">${posts.length} article${posts.length === 1 ? '' : 's'} on this topic.</p>
-</section>
-<div class="blog-grid">
-${cards}
-</div>
-${siteFooter()}
-</body>
-</html>`;
-}
 
 function build() {
   rmrf(OUT);
   fs.mkdirSync(OUT, { recursive: true });
 
-  for (const item of ['set-password.html', 'admin', 'images', 'sitemap.xml', 'store.html']) {
+  for (const item of ['set-password.html', 'admin', 'images', 'sitemap.xml']) {
     const src = path.join(ROOT, item);
     if (fs.existsSync(src)) {
       copyRecursive(src, path.join(OUT, item));
@@ -301,7 +303,6 @@ function build() {
         keywords: data.keywords,
         author: data.author,
         image: data.image,
-        topics: Array.isArray(data.topics) ? data.topics : (data.topics ? [data.topics] : []),
         body: match[2],
       });
     }
@@ -317,18 +318,6 @@ function build() {
 
   fs.mkdirSync(path.join(OUT, 'blog'), { recursive: true });
   fs.writeFileSync(path.join(OUT, 'blog', 'index.html'), listingPageHtml(posts));
-  const topicMap = {};
-  posts.forEach((post) => {
-    (post.topics || []).forEach((topic) => {
-      if (!topicMap[topic]) topicMap[topic] = [];
-      topicMap[topic].push(post);
-    });
-  });
-  for (const topicName of Object.keys(topicMap)) {
-    const dir = path.join(OUT, 'blog', 'topic', slugifyTopic(topicName));
-    fs.mkdirSync(dir, { recursive: true });
-    fs.writeFileSync(path.join(dir, 'index.html'), topicListingPageHtml(topicName, topicMap[topicName]));
-  }
 
   const homepageSrc = path.join(ROOT, 'index.html');
   if (fs.existsSync(homepageSrc)) {
@@ -344,3 +333,4 @@ function build() {
 }
 
 build();
+
