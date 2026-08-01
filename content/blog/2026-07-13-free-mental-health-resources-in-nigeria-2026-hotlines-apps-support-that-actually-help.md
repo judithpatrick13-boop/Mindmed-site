@@ -9,6 +9,8 @@ meta_description: Can’t afford therapy yet? Here are 9 free mental health
   + support groups.
 image: https://images.unsplash.com/photo-1570634060021-3e9db4ee5fe6?q=80&w=1402&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
 pillar: "Pillar 1: Cost + Access"
+topics:
+  - Cost & Access
 keywords: Free mental health help Nigeria; mental health helpline Nigeria; free
   therapy Nigeria 2026
 author: "Judith Ogunloye "
