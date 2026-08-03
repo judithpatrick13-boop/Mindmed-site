@@ -16,52 +16,68 @@
 <meta property="og:description" content="Free self-check tools + book online therapy sessions in 24hrs">
 <meta property="og:type" content="website">
 <style>
-:root{--primary:#1e4d3a;--accent:#f59e0b;--dark:#0f172a;--light:#f8fafc;--text:#334155}
+:root{--primary:#1e4d3a;--primary-light:#2d6b52;--accent:#f59e0b;--dark:#0f172a;--light:#f8fafc;--text:#334155;--card-radius:16px}
 *{margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
 html{scroll-behavior:smooth}
-body{color:var(--text);line-height:1.6}
-header{background:#fff;border-bottom:1px solid #e2e8f0;position:sticky;top:0;z-index:50}
+body{color:var(--text);line-height:1.6;overflow-x:hidden}
+header{background:rgba(255,255,255,0.85);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid #e2e8f0;position:sticky;top:0;z-index:50}
 nav{max-width:1200px;margin:0 auto;padding:1rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
-nav a{color:var(--dark);text-decoration:none;margin-left:1rem;font-weight:500;font-size:0.9rem;white-space:nowrap}
+nav a{color:var(--dark);text-decoration:none;margin-left:1rem;font-weight:500;font-size:0.9rem;white-space:nowrap;transition:color 0.2s ease}
 nav a:hover{color:var(--primary)}
 .logo{display:flex;align-items:center;gap:0.5rem;font-size:1.3rem;font-weight:700;color:var(--primary)}
-.btn-primary{background:var(--primary);color:#fff;padding:0.7rem 1.2rem;border-radius:8px;text-decoration:none;font-weight:600;display:inline-flex;align-items:center;gap:0.5rem;border:none;cursor:pointer}
-.btn-primary:hover{opacity:0.9}
-.btn-secondary{background:#10b981;color:#fff;padding:0.9rem 1.5rem;border-radius:8px;text-decoration:none;font-weight:600;display:inline-flex;align-items:center;gap:0.5rem}
-.btn-accent{background:var(--accent);color:#fff;padding:0.9rem 1.5rem;border-radius:8px;text-decoration:none;font-weight:600;display:inline-flex;align-items:center;gap:0.5rem}
-.hero{max-width:1200px;margin:0 auto;padding:4rem 1rem;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
-.hero h1{font-size:2.8rem;color:var(--dark);line-height:1.2;margin-bottom:1rem}
+.logo-icon{animation:floatLogo 4s ease-in-out infinite;flex-shrink:0}
+@keyframes floatLogo{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-4px) rotate(-3deg)}}
+.btn-primary{background:var(--primary);color:#fff;padding:0.7rem 1.2rem;border-radius:8px;text-decoration:none;font-weight:600;display:inline-flex;align-items:center;gap:0.5rem;border:none;cursor:pointer;transition:transform 0.2s ease, box-shadow 0.2s ease}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(30,77,58,0.3)}
+.btn-secondary{background:#10b981;color:#fff;padding:0.9rem 1.5rem;border-radius:8px;text-decoration:none;font-weight:600;display:inline-flex;align-items:center;gap:0.5rem;transition:transform 0.2s ease, box-shadow 0.2s ease}
+.btn-secondary:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(16,185,129,0.3)}
+.btn-accent{background:var(--accent);color:#fff;padding:0.9rem 1.5rem;border-radius:8px;text-decoration:none;font-weight:600;display:inline-flex;align-items:center;gap:0.5rem;transition:transform 0.2s ease, box-shadow 0.2s ease}
+.btn-accent:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(245,158,11,0.35)}
+.hero{position:relative;max-width:1200px;margin:0 auto;padding:4rem 1rem;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;overflow:hidden}
+.orb{position:absolute;border-radius:50%;filter:blur(55px);opacity:0.3;z-index:0;animation:driftOrb 12s ease-in-out infinite;pointer-events:none}
+@keyframes driftOrb{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(20px,-20px) scale(1.08)}}
+.hero>div{position:relative;z-index:1}
+.hero h1{font-size:2.8rem;color:var(--dark);line-height:1.2;margin-bottom:1rem;letter-spacing:-0.01em}
 .hero p{font-size:1.1rem;color:#475569;margin-bottom:3rem}
 .mini-disclaimer{font-size:0.85rem;color:#64748b;display:flex;align-items:center;gap:0.5rem;margin-top:1rem;flex-wrap:wrap}
-.badge{background:#1e3a8a;color:#fff;padding:1.5rem;border-radius:12px;margin-left:2rem}
+.badge{background:linear-gradient(135deg,#1e3a8a,#1e4d8a);color:#fff;padding:1.5rem;border-radius:12px;margin-left:2rem;box-shadow:0 12px 28px rgba(30,58,138,0.25)}
 section{max-width:1200px;margin:0 auto;padding:4rem 1rem}
-h2{text-align:center;font-size:2rem;color:var(--dark);margin-bottom:3rem}
-.grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem}
-.card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:2rem;text-align:center}
+h2{text-align:center;font-size:2rem;color:var(--dark);margin-bottom:3rem;letter-spacing:-0.01em}
+.grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;perspective:1200px}
+.card{background:linear-gradient(180deg,#ffffff 0%,#fbfdfc 100%);border:1px solid #e6ebe8;border-radius:var(--card-radius);padding:2rem;text-align:center;box-shadow:0 4px 16px rgba(15,23,42,0.05);transition:transform 0.35s ease, box-shadow 0.35s ease}
+.card:hover{transform:perspective(1200px) rotateX(3deg) rotateY(-3deg) translateY(-6px);box-shadow:0 20px 40px rgba(15,23,42,0.13)}
 .card h3{color:var(--dark);margin:1rem 0 0.5rem}
-.btn-small{background:var(--primary);color:#fff;padding:0.6rem 1.2rem;border-radius:6px;text-decoration:none;font-size:0.9rem;display:inline-block;margin-top:1rem}
+.btn-small{background:var(--primary);color:#fff;padding:0.6rem 1.2rem;border-radius:6px;text-decoration:none;font-size:0.9rem;display:inline-block;margin-top:1rem;transition:transform 0.2s ease, box-shadow 0.2s ease}
+.btn-small:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(30,77,58,0.28)}
 .btn-small:disabled{background:#94a3b8;cursor:not-allowed}
 .test-note{font-size:0.8rem;color:#64748b;margin-top:0.5rem}
 .warning{background:#fef3c7;border-left:4px solid #f59e0b;padding:1rem;border-radius:6px;font-size:0.9rem;margin:2rem 0}
-.consent-box{background:#ecfdf5;border:2px solid #10b981;border-radius:12px;padding:2rem;margin-bottom:2rem;text-align:center}
-.grid-4{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;margin-top:2rem}
-.article-card{background:#fff;border-radius:12px;overflow:hidden;border:1px solid #e2e8f0;opacity:0.7}
+.consent-box{background:linear-gradient(180deg,#ecfdf5 0%,#e3faf0 100%);border:2px solid #10b981;border-radius:16px;padding:2rem;margin-bottom:2rem;text-align:center}
+.grid-4{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;margin-top:2rem;perspective:1200px}
+.article-card{background:#fff;border-radius:12px;overflow:hidden;border:1px solid #e2e8f0;opacity:0.7;transition:transform 0.3s ease, box-shadow 0.3s ease}
+.article-card:hover{transform:translateY(-6px);box-shadow:0 16px 32px rgba(15,23,42,0.1)}
 .article-card img{width:100%;height:160px;object-fit:cover;background:#e2e8f0}
 .article-card div{padding:1rem}
 .tag{font-size:0.75rem;background:#dbeafe;color:#1e40af;padding:0.2rem 0.6rem;border-radius:4px;font-weight:600}
 .coming-soon{font-size:0.75rem;background:var(--accent);color:#fff;padding:0.2rem 0.6rem;border-radius:4px;font-weight:600;margin-left:0.5rem}
-.meet{background:#f8fafc;border-radius:16px;padding:3rem;display:grid;grid-template-columns:1fr;gap:2rem;text-align:center}
+.meet{background:linear-gradient(180deg,#f8fafc 0%,#eef2f0 100%);border-radius:24px;padding:3rem;display:grid;grid-template-columns:1fr;gap:2rem;text-align:center}
 .trust-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:1.5rem}
-.trust-item{text-align:center;padding:1rem}
+.trust-item{text-align:center;padding:1rem;transition:transform 0.25s ease}
+.trust-item:hover{transform:translateY(-4px)}
 .legal{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:2rem;margin-top:2rem}
 .legal h3{color:var(--primary);margin-top:1.5rem;margin-bottom:0.5rem}
 footer{background:var(--dark);color:#cbd5e1;padding:3rem 1rem;margin-top:4rem}
-footer a{color:#94a3b8;text-decoration:none}
+footer a{color:#94a3b8;text-decoration:none;transition:color 0.2s ease}
 footer a:hover{color:#fff}
 .subscribe{background:#1e293b;padding:2rem;border-radius:12px;display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
 .subscribe input{flex:1;padding:0.8rem;border-radius:6px;border:none;min-width:250px}
-@media(max-width:768px){.hero{grid-template-columns:1fr;text-align:center}.badge{margin-left:0;margin-top:2rem}.grid-3{grid-template-columns:1fr}.meet{grid-template-columns:1fr}.trust-grid{grid-template-columns:1fr}.hero h1{font-size:2rem}nav{justify-content:center}}
-#mmChatBubble{position:fixed;bottom:1.5rem;right:1.5rem;width:60px;height:60px;border-radius:50%;background:var(--primary);color:#fff;border:none;cursor:pointer;font-size:1.6rem;box-shadow:0 4px 12px rgba(0,0,0,0.2);z-index:100;display:flex;align-items:center;justify-content:center}
+.reveal{opacity:1;transform:none;transition:opacity 0.7s ease, transform 0.7s ease}
+body.js-ready .reveal{opacity:0;transform:translateY(24px)}
+body.js-ready .reveal.in-view{opacity:1;transform:none}
+@media(max-width:768px){.hero{grid-template-columns:1fr;text-align:center}.badge{margin-left:0;margin-top:2rem}.grid-3{grid-template-columns:1fr}.meet{grid-template-columns:1fr}.trust-grid{grid-template-columns:1fr}.hero h1{font-size:2rem}nav{justify-content:center}.card:hover{transform:translateY(-4px)}}
+#mmChatBubble{position:fixed;bottom:1.5rem;right:1.5rem;width:60px;height:60px;border-radius:50%;background:var(--primary);color:#fff;border:none;cursor:pointer;font-size:1.6rem;box-shadow:0 4px 12px rgba(0,0,0,0.2);z-index:100;display:flex;align-items:center;justify-content:center;transition:transform 0.25s ease, box-shadow 0.25s ease;animation:pulseChat 3s ease-in-out infinite}
+#mmChatBubble:hover{transform:scale(1.08);box-shadow:0 8px 24px rgba(30,77,58,0.4)}
+@keyframes pulseChat{0%,100%{box-shadow:0 4px 12px rgba(0,0,0,0.2)}50%{box-shadow:0 4px 20px rgba(30,77,58,0.35)}}
 #mmChatPanel{position:fixed;bottom:6rem;right:1.5rem;width:min(360px,92vw);max-height:70vh;background:#fff;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,0.25);z-index:100;display:none;flex-direction:column;border:1px solid #e2e8f0}
 #mmChatHeader{background:var(--primary);color:#fff;padding:1rem;font-weight:700}
 #mmChatHeader span{display:block;font-weight:400;font-size:0.75rem;opacity:0.9;margin-top:0.15rem}
@@ -79,7 +95,7 @@ footer a:hover{color:#fff}
 
 <header>
 <nav>
-<div class="logo"><svg width="34" height="34" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0"><path d="M9 2a5 5 0 0 0-5 5c0 .34.03.67.08 1A4 4 0 0 0 2 11.5 4 4 0 0 0 4.5 15c-.17.5-.27 1-.27 1.5A4.5 4.5 0 0 0 9 21h1V8.5A4.5 4.5 0 0 0 9 2Z" fill="#10b981"/><path d="M15 2a5 5 0 0 1 5 5c0 .34-.03.67-.08 1A4 4 0 0 1 22 11.5 4 4 0 0 1 19.5 15c.17.5.27 1 .27 1.5A4.5 4.5 0 0 1 15 21h-1V8.5A4.5 4.5 0 0 1 15 2Z" fill="#1e4d3a"/></svg><span style="display:flex;flex-direction:column;line-height:1.15"><span><span style="color:#1e4d3a">Mind</span><span style="color:#10b981">Med</span></span><span style="font-size:0.65rem;font-weight:400;color:#64748b;letter-spacing:0.02em">Mind. Health. You.</span></span></div>
+<div class="logo"><svg class="logo-icon" width="34" height="34" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0"><path d="M9 2a5 5 0 0 0-5 5c0 .34.03.67.08 1A4 4 0 0 0 2 11.5 4 4 0 0 0 4.5 15c-.17.5-.27 1-.27 1.5A4.5 4.5 0 0 0 9 21h1V8.5A4.5 4.5 0 0 0 9 2Z" fill="#10b981"/><path d="M15 2a5 5 0 0 1 5 5c0 .34-.03.67-.08 1A4 4 0 0 1 22 11.5 4 4 0 0 1 19.5 15c.17.5.27 1 .27 1.5A4.5 4.5 0 0 1 15 21h-1V8.5A4.5 4.5 0 0 1 15 2Z" fill="#1e4d3a"/></svg><span style="display:flex;flex-direction:column;line-height:1.15"><span><span style="color:#1e4d3a">Mind</span><span style="color:#10b981">Med</span></span><span style="font-size:0.65rem;font-weight:400;color:#64748b;letter-spacing:0.02em">Mind. Health. You.</span></span></div>
 <div style="display:flex;align-items:center;flex-wrap:wrap">
 <a href="#">Home</a>
 <a href="#resources">Resources</a>
@@ -93,7 +109,9 @@ footer a:hover{color:#fff}
 </header>
 
 <section class="hero">
-<div>
+<div class="orb" style="width:260px;height:260px;background:radial-gradient(circle,var(--primary-light),transparent 70%);top:-60px;left:-60px"></div>
+<div class="orb" style="width:200px;height:200px;background:radial-gradient(circle,var(--accent),transparent 70%);bottom:-40px;right:10%"></div>
+<div class="reveal">
 <h1>Your Therapist Is Online. Book in 24 Hours.</h1>
 <p>Evidence-based mental health education, self-assessment tools, and access to professional therapy support.</p>
 <div style="display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0">
@@ -102,7 +120,7 @@ footer a:hover{color:#fff}
 </div>
 <div class="mini-disclaimer">Confidential. Secure. NDPA Compliant. SSL Secured. Educational tools only. Not a diagnosis.</div>
 </div>
-<div>
+<div class="reveal">
 <img src="https://images.unsplash.com/photo-1649261656779-59a7e8d4c39c?w=500&h=400&fit=crop" alt="Nigerian woman using phone for therapy" style="width:100%;border-radius:16px">
 <div class="badge">
 <strong>Your mental health matters.</strong><br>
@@ -112,7 +130,7 @@ Get the support you deserve—anywhere, anytime.
 </section>
 
 <section>
-<h2>How MindMed Works</h2>
+<h2 class="reveal">How MindMed Works</h2>
 <div class="grid-3">
 <div class="card">
 <div style="font-size:2.5rem">📝</div>
@@ -134,7 +152,7 @@ Get the support you deserve—anywhere, anytime.
 
 <section id="consent">
 <div class="consent-box">
-<h2>Step 1: Informed Consent Required</h2>
+<h2 class="reveal">Step 1: Informed Consent Required</h2>
 <p style="max-width:600px;margin:1rem auto">Before accessing any mental health screening tools, please read and sign below. This explains how your data is used and protects your rights under NDPR.</p>
 <form id="consentForm" style="max-width:480px;margin:1.5rem auto;text-align:left">
 <p style="font-size:0.85rem;color:#065f46;margin-bottom:1rem">By signing, you confirm you understand these are educational screening tools only, not a diagnosis, and you consent to MindMed processing your name and email.</p>
@@ -155,7 +173,7 @@ Get the support you deserve—anywhere, anytime.
 </section>
 
 <section id="self-tests">
-<h2>Step 2: Mental Health Self-Checks</h2>
+<h2 class="reveal">Step 2: Mental Health Self-Checks</h2>
 <p style="text-align:center;color:#64748b;margin-bottom:2rem">Only available after signing informed consent above</p>
 <div class="grid-3">
 <div class="card">
@@ -206,7 +224,7 @@ Get the support you deserve—anywhere, anytime.
 
 <section id="resources">
 <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem;flex-wrap:wrap">
-<h2 style="margin:0;text-align:left">Explore Mental Health Resources</h2>
+<h2 class="reveal" style="margin:0;text-align:left">Explore Mental Health Resources</h2>
 <a href="/blog/" style="color:var(--accent);font-weight:600;text-decoration:none">View all articles →</a>
 </div>
 <div class="grid-4">
@@ -216,7 +234,7 @@ Get the support you deserve—anywhere, anytime.
 <section class="meet" id="about">
 <div>
 <h3 style="margin:0 0 0.5rem;color:var(--primary)">ABOUT MINDMED</h3>
-<h2 style="text-align:center;margin:0 0 1rem">Your Partner in Mental Wellness</h2>
+<h2 class="reveal" style="text-align:center;margin:0 0 1rem">Your Partner in Mental Wellness</h2>
 <p style="max-width:700px;margin:0 auto">MindMed is a mental health education and therapist booking platform dedicated to making quality mental health support accessible to everyone in Nigeria and beyond.</p>
 </div>
 <div style="margin-top:2rem;padding:2rem;background:#fff;border-radius:12px;display:flex;gap:1.5rem;align-items:center;flex-wrap:wrap;text-align:left">
@@ -259,7 +277,7 @@ Connect on LinkedIn
 </section>
 
 <section id="pricing">
-<h2>Simple, Transparent Pricing</h2>
+<h2 class="reveal">Simple, Transparent Pricing</h2>
 <p style="text-align:center;color:#64748b;margin-top:-2rem;margin-bottom:3rem">No hidden fees. Pay only for the session you need.</p>
 <div class="grid-3" style="max-width:1100px;margin:0 auto">
 <div class="card">
@@ -285,7 +303,7 @@ Connect on LinkedIn
 
 
 <section id="contact" style="background:#f8fafc;border-radius:16px">
-<h2>Book a Session</h2>
+<h2 class="reveal">Book a Session</h2>
 <p style="text-align:center;max-width:600px;margin:0 auto 1rem">
 <a href="https://doxy.me/v2/check-in/mindmed/" target="_blank" style="color:var(--primary);font-weight:600">Booked a session already? Don't miss your appointment, connect to your therapist.</a>
 </p>
@@ -319,7 +337,7 @@ Connect on LinkedIn
 </section>
 
 <section id="privacy" class="legal">
-<h2>Privacy Policy & NDPA Compliance</h2>
+<h2 class="reveal">Privacy Policy & NDPA Compliance</h2>
 <p><strong>Last Updated:</strong> July 25, 2026</p>
 <h3>1. NDPA Compliance</h3>
 <p>MindMed complies with the Nigeria Data Protection Act (NDPA) 2023. Your data is processed lawfully, fairly, and transparently, under the oversight of the Nigeria Data Protection Commission (NDPC).</p>
@@ -360,7 +378,7 @@ Connect on LinkedIn
 
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;margin:3rem 0">
 <div>
-<div class="logo" style="color:#fff"><svg width="28" height="28" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0"><path d="M9 2a5 5 0 0 0-5 5c0 .34.03.67.08 1A4 4 0 0 0 2 11.5 4 4 0 0 0 4.5 15H9v7h6v-7h2.5a4 4 0 0 0 4-4V11a5 5 0 0 0-5-5H9z" fill="currentColor"/></svg> MindMed</div>
+<div class="logo" style="color:#fff"><svg class="logo-icon" width="28" height="28" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0"><path d="M9 2a5 5 0 0 0-5 5c0 .34.03.67.08 1A4 4 0 0 0 2 11.5 4 4 0 0 0 4.5 15H9v7h6v-7h2.5a4 4 0 0 0 4-4V11a5 5 0 0 0-5-5H9z" fill="currentColor"/></svg> MindMed</div>
 <p style="font-size:0.85rem;margin:1rem 0">MindMed is a mental health education and therapist booking platform dedicated to improving mental well-being in Nigeria and beyond.</p>
 </div>
 <div>
@@ -846,6 +864,26 @@ Connect on LinkedIn
   if (chatInput) chatInput.addEventListener('keydown', function(e){
     if (e.key === 'Enter') mmHandleSend();
   });
+})();
+</script>
+
+<script>
+(function() {
+  try {
+    document.body.classList.add('js-ready');
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) { entry.target.classList.add('in-view'); io.unobserve(entry.target); }
+        });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('.reveal').forEach(function(el) { io.observe(el); });
+    } else {
+      document.querySelectorAll('.reveal').forEach(function(el) { el.classList.add('in-view'); });
+    }
+  } catch (err) {
+    document.querySelectorAll('.reveal').forEach(function(el) { el.classList.add('in-view'); });
+  }
 })();
 </script>
 </body>
