@@ -33,10 +33,7 @@ nav a:hover{color:var(--primary)}
 .btn-secondary:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(16,185,129,0.3)}
 .btn-accent{background:var(--accent);color:#fff;padding:0.9rem 1.5rem;border-radius:8px;text-decoration:none;font-weight:600;display:inline-flex;align-items:center;gap:0.5rem;transition:transform 0.2s ease, box-shadow 0.2s ease}
 .btn-accent:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(245,158,11,0.35)}
-.hero{position:relative;max-width:1200px;margin:0 auto;padding:4rem 1rem;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;overflow:hidden}
-.orb{position:absolute;border-radius:50%;filter:blur(55px);opacity:0.3;z-index:0;animation:driftOrb 12s ease-in-out infinite;pointer-events:none}
-@keyframes driftOrb{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(20px,-20px) scale(1.08)}}
-.hero>div{position:relative;z-index:1}
+.hero{position:relative;max-width:1200px;margin:0 auto;padding:4rem 1rem;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;overflow:hidden;background-image:radial-gradient(circle at 0% 10%, rgba(45,107,82,0.16), transparent 40%),radial-gradient(circle at 95% 90%, rgba(245,158,11,0.14), transparent 35%)}
 .hero h1{font-size:2.8rem;color:var(--dark);line-height:1.2;margin-bottom:1rem;letter-spacing:-0.01em}
 .hero p{font-size:1.1rem;color:#475569;margin-bottom:3rem}
 .mini-disclaimer{font-size:0.85rem;color:#64748b;display:flex;align-items:center;gap:0.5rem;margin-top:1rem;flex-wrap:wrap}
@@ -71,9 +68,6 @@ footer a{color:#94a3b8;text-decoration:none;transition:color 0.2s ease}
 footer a:hover{color:#fff}
 .subscribe{background:#1e293b;padding:2rem;border-radius:12px;display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
 .subscribe input{flex:1;padding:0.8rem;border-radius:6px;border:none;min-width:250px}
-.reveal{opacity:1;transform:none;transition:opacity 0.7s ease, transform 0.7s ease}
-body.js-ready .reveal{opacity:0;transform:translateY(24px)}
-body.js-ready .reveal.in-view{opacity:1;transform:none}
 @media(max-width:768px){.hero{grid-template-columns:1fr;text-align:center}.badge{margin-left:0;margin-top:2rem}.grid-3{grid-template-columns:1fr}.meet{grid-template-columns:1fr}.trust-grid{grid-template-columns:1fr}.hero h1{font-size:2rem}nav{justify-content:center}.card:hover{transform:translateY(-4px)}}
 #mmChatBubble{position:fixed;bottom:1.5rem;right:1.5rem;width:60px;height:60px;border-radius:50%;background:var(--primary);color:#fff;border:none;cursor:pointer;font-size:1.6rem;box-shadow:0 4px 12px rgba(0,0,0,0.2);z-index:100;display:flex;align-items:center;justify-content:center;transition:transform 0.25s ease, box-shadow 0.25s ease;animation:pulseChat 3s ease-in-out infinite}
 #mmChatBubble:hover{transform:scale(1.08);box-shadow:0 8px 24px rgba(30,77,58,0.4)}
@@ -109,9 +103,7 @@ body.js-ready .reveal.in-view{opacity:1;transform:none}
 </header>
 
 <section class="hero">
-<div class="orb" style="width:260px;height:260px;background:radial-gradient(circle,var(--primary-light),transparent 70%);top:-60px;left:-60px"></div>
-<div class="orb" style="width:200px;height:200px;background:radial-gradient(circle,var(--accent),transparent 70%);bottom:-40px;right:10%"></div>
-<div class="reveal">
+<div>
 <h1>Your Therapist Is Online. Book in 24 Hours.</h1>
 <p>Evidence-based mental health education, self-assessment tools, and access to professional therapy support.</p>
 <div style="display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0">
@@ -120,7 +112,7 @@ body.js-ready .reveal.in-view{opacity:1;transform:none}
 </div>
 <div class="mini-disclaimer">Confidential. Secure. NDPA Compliant. SSL Secured. Educational tools only. Not a diagnosis.</div>
 </div>
-<div class="reveal">
+<div>
 <img src="https://images.unsplash.com/photo-1649261656779-59a7e8d4c39c?w=500&h=400&fit=crop" alt="Nigerian woman using phone for therapy" style="width:100%;border-radius:16px">
 <div class="badge">
 <strong>Your mental health matters.</strong><br>
@@ -130,7 +122,7 @@ Get the support you deserve—anywhere, anytime.
 </section>
 
 <section>
-<h2 class="reveal">How MindMed Works</h2>
+<h2>How MindMed Works</h2>
 <div class="grid-3">
 <div class="card">
 <div style="font-size:2.5rem">📝</div>
@@ -152,7 +144,7 @@ Get the support you deserve—anywhere, anytime.
 
 <section id="consent">
 <div class="consent-box">
-<h2 class="reveal">Step 1: Informed Consent Required</h2>
+<h2>Step 1: Informed Consent Required</h2>
 <p style="max-width:600px;margin:1rem auto">Before accessing any mental health screening tools, please read and sign below. This explains how your data is used and protects your rights under NDPR.</p>
 <form id="consentForm" style="max-width:480px;margin:1.5rem auto;text-align:left">
 <p style="font-size:0.85rem;color:#065f46;margin-bottom:1rem">By signing, you confirm you understand these are educational screening tools only, not a diagnosis, and you consent to MindMed processing your name and email.</p>
@@ -173,7 +165,7 @@ Get the support you deserve—anywhere, anytime.
 </section>
 
 <section id="self-tests">
-<h2 class="reveal">Step 2: Mental Health Self-Checks</h2>
+<h2>Step 2: Mental Health Self-Checks</h2>
 <p style="text-align:center;color:#64748b;margin-bottom:2rem">Only available after signing informed consent above</p>
 <div class="grid-3">
 <div class="card">
@@ -224,7 +216,7 @@ Get the support you deserve—anywhere, anytime.
 
 <section id="resources">
 <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem;flex-wrap:wrap">
-<h2 class="reveal" style="margin:0;text-align:left">Explore Mental Health Resources</h2>
+<h2 style="margin:0;text-align:left">Explore Mental Health Resources</h2>
 <a href="/blog/" style="color:var(--accent);font-weight:600;text-decoration:none">View all articles →</a>
 </div>
 <div class="grid-4">
@@ -234,7 +226,7 @@ Get the support you deserve—anywhere, anytime.
 <section class="meet" id="about">
 <div>
 <h3 style="margin:0 0 0.5rem;color:var(--primary)">ABOUT MINDMED</h3>
-<h2 class="reveal" style="text-align:center;margin:0 0 1rem">Your Partner in Mental Wellness</h2>
+<h2 style="text-align:center;margin:0 0 1rem">Your Partner in Mental Wellness</h2>
 <p style="max-width:700px;margin:0 auto">MindMed is a mental health education and therapist booking platform dedicated to making quality mental health support accessible to everyone in Nigeria and beyond.</p>
 </div>
 <div style="margin-top:2rem;padding:2rem;background:#fff;border-radius:12px;display:flex;gap:1.5rem;align-items:center;flex-wrap:wrap;text-align:left">
@@ -277,7 +269,7 @@ Connect on LinkedIn
 </section>
 
 <section id="pricing">
-<h2 class="reveal">Simple, Transparent Pricing</h2>
+<h2>Simple, Transparent Pricing</h2>
 <p style="text-align:center;color:#64748b;margin-top:-2rem;margin-bottom:3rem">No hidden fees. Pay only for the session you need.</p>
 <div class="grid-3" style="max-width:1100px;margin:0 auto">
 <div class="card">
@@ -303,7 +295,7 @@ Connect on LinkedIn
 
 
 <section id="contact" style="background:#f8fafc;border-radius:16px">
-<h2 class="reveal">Book a Session</h2>
+<h2>Book a Session</h2>
 <p style="text-align:center;max-width:600px;margin:0 auto 1rem">
 <a href="https://doxy.me/v2/check-in/mindmed/" target="_blank" style="color:var(--primary);font-weight:600">Booked a session already? Don't miss your appointment, connect to your therapist.</a>
 </p>
@@ -337,7 +329,7 @@ Connect on LinkedIn
 </section>
 
 <section id="privacy" class="legal">
-<h2 class="reveal">Privacy Policy & NDPA Compliance</h2>
+<h2>Privacy Policy & NDPA Compliance</h2>
 <p><strong>Last Updated:</strong> July 25, 2026</p>
 <h3>1. NDPA Compliance</h3>
 <p>MindMed complies with the Nigeria Data Protection Act (NDPA) 2023. Your data is processed lawfully, fairly, and transparently, under the oversight of the Nigeria Data Protection Commission (NDPC).</p>
@@ -864,26 +856,6 @@ Connect on LinkedIn
   if (chatInput) chatInput.addEventListener('keydown', function(e){
     if (e.key === 'Enter') mmHandleSend();
   });
-})();
-</script>
-
-<script>
-(function() {
-  try {
-    document.body.classList.add('js-ready');
-    if ('IntersectionObserver' in window) {
-      var io = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-          if (entry.isIntersecting) { entry.target.classList.add('in-view'); io.unobserve(entry.target); }
-        });
-      }, { threshold: 0.1 });
-      document.querySelectorAll('.reveal').forEach(function(el) { io.observe(el); });
-    } else {
-      document.querySelectorAll('.reveal').forEach(function(el) { el.classList.add('in-view'); });
-    }
-  } catch (err) {
-    document.querySelectorAll('.reveal').forEach(function(el) { el.classList.add('in-view'); });
-  }
 })();
 </script>
 </body>
