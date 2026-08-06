@@ -85,9 +85,6 @@ nav a:hover{color:var(--primary)}
 .blog-card .pad{padding:1.2rem}
 .blog-card h3{color:var(--dark);margin:0.75rem 0 0.5rem;font-size:1.1rem}
 .blog-card .excerpt{font-size:0.9rem;color:#64748b}
-.reveal{opacity:1;transform:none;transition:opacity 0.7s ease, transform 0.7s ease}
-body.js-ready .reveal{opacity:0;transform:translateY(24px)}
-body.js-ready .reveal.in-view{opacity:1;transform:none}
 .orb{position:absolute;border-radius:50%;filter:blur(50px);opacity:0.25;z-index:0;animation:driftOrb 12s ease-in-out infinite;pointer-events:none}
 @keyframes driftOrb{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(20px,-20px) scale(1.08)}}
 footer{background:var(--dark);color:#cbd5e1;padding:3rem 1rem;margin-top:4rem;text-align:center}
@@ -95,26 +92,6 @@ footer a{color:#94a3b8;text-decoration:none;transition:color 0.2s ease}
 footer a:hover{color:#fff}
 @media(max-width:768px){.blog-card:hover{transform:translateY(-4px)}}
 `;
-
-const REVEAL_SCRIPT = `<script>
-(function() {
-  try {
-    document.body.classList.add('js-ready');
-    if ('IntersectionObserver' in window) {
-      var io = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-          if (entry.isIntersecting) { entry.target.classList.add('in-view'); io.unobserve(entry.target); }
-        });
-      }, { threshold: 0.1 });
-      document.querySelectorAll('.reveal').forEach(function(el) { io.observe(el); });
-    } else {
-      document.querySelectorAll('.reveal').forEach(function(el) { el.classList.add('in-view'); });
-    }
-  } catch (err) {
-    document.querySelectorAll('.reveal').forEach(function(el) { el.classList.add('in-view'); });
-  }
-})();
-</script>`;
 
 function siteHeader() {
   return `<header>
@@ -149,15 +126,36 @@ function siteFooter() {
 </footer>`;
 }
 
+function articleSchema(post, metaDescriptionPlain) {
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": post.title,
+    "description": metaDescriptionPlain,
+    "author": {
+      "@type": "Person",
+      "name": post.author || "MindMed Team"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "MindMed",
+      "url": "https://mindmed.com.ng/"
+    },
+    "datePublished": new Date(post.date).toISOString(),
+    "mainEntityOfPage": `https://mindmed.com.ng/blog/${post.slug}/`
+  };
+  if (post.image) data.image = post.image;
+  return `<script type="application/ld+json">${JSON.stringify(data)}</script>`;
+}
+
 function postPageHtml(post) {
   const bodyHtml = marked.parse(post.body || '');
   const title = escapeHtml(post.title);
   const metaTitle = escapeHtml(post.meta_title && post.meta_title.trim() ? post.meta_title.trim() : `${post.title} | MindMed`);
-  const metaDescription = escapeHtml(
-    post.meta_description && post.meta_description.trim()
-      ? post.meta_description.trim().slice(0, 160)
-      : stripToPlainText(post.body).slice(0, 155)
-  );
+  const metaDescriptionPlain = post.meta_description && post.meta_description.trim()
+    ? post.meta_description.trim().slice(0, 160)
+    : stripToPlainText(post.body).slice(0, 155);
+  const metaDescription = escapeHtml(metaDescriptionPlain);
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -167,11 +165,12 @@ function postPageHtml(post) {
 <meta name="description" content="${metaDescription}">
 <link rel="canonical" href="https://mindmed.com.ng/blog/${post.slug}/">
 <style>${SITE_HEAD_CSS}</style>
+${articleSchema(post, metaDescriptionPlain)}
 ${ANALYTICS_SNIPPET}
 </head>
 <body>
 ${siteHeader()}
-<article class="post reveal">
+<article class="post">
 <a class="back-link" href="/blog/">\u2190 Back to all articles</a>
 ${post.image ? `<img class="hero" src="${escapeHtml(post.image)}" alt="${title}">` : ''}
 <span class="tag">${escapeHtml(post.pillar || 'MindMed')}</span>
@@ -187,14 +186,13 @@ ${post.image ? `<img class="hero" src="${escapeHtml(post.image)}" alt="${title}"
 </div>
 </article>
 ${siteFooter()}
-${REVEAL_SCRIPT}
 </body>
 </html>`;
 }
 
 function listingPageHtml(posts) {
   const cards = posts.map((p) => `
-<a class="blog-card reveal" href="/blog/${p.slug}/">
+<a class="blog-card" href="/blog/${p.slug}/">
 ${p.image ? `<img src="${escapeHtml(p.image)}" alt="${escapeHtml(p.title)}">` : ''}
 <div class="pad">
 <span class="tag">${escapeHtml(p.pillar || 'MindMed')}</span>
@@ -219,14 +217,13 @@ ${siteHeader()}
 <section style="max-width:1200px;margin:0 auto;padding:3rem 1.5rem 0;text-align:center;position:relative">
 <div class="orb" style="width:220px;height:220px;background:radial-gradient(circle,var(--primary-light),transparent 70%);top:-40px;left:-40px"></div>
 <div class="orb" style="width:180px;height:180px;background:radial-gradient(circle,var(--accent),transparent 70%);top:0;right:-20px"></div>
-<h1 class="reveal" style="color:var(--dark);font-size:2.2rem;position:relative;z-index:1">Mental Health Resources & Articles</h1>
-<p class="reveal" style="color:#64748b;margin-top:0.5rem;position:relative;z-index:1">Evidence-based guidance for navigating mental health in Nigeria.</p>
+<h1 style="color:var(--dark);font-size:2.2rem;position:relative;z-index:1">Mental Health Resources & Articles</h1>
+<p style="color:#64748b;margin-top:0.5rem;position:relative;z-index:1">Evidence-based guidance for navigating mental health in Nigeria.</p>
 </section>
 <div class="blog-grid">
 ${cards || '<p style="color:#64748b">New articles coming soon.</p>'}
 </div>
 ${siteFooter()}
-${REVEAL_SCRIPT}
 </body>
 </html>`;
 }
@@ -333,5 +330,3 @@ function build() {
 }
 
 build();
-
-
