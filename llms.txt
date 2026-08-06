@@ -1,0 +1,33 @@
+# MindMed
+
+> MindMed is an online mental health education and therapist-booking platform for Nigeria. It offers free, evidence-based self-assessment tools, confidential online therapy sessions with independent licensed professionals, and affordable self-help resources for anxiety, depression, and caregiver stress.
+
+MindMed exists to make mental health support in Nigeria accessible, affordable, and free of stigma. Sessions are held online via secure video call. The platform provides free educational screening tools so people can understand what they're experiencing before booking a session, and self-help toolkits for people not yet ready for, or unable to afford, individual therapy.
+
+## Core Pages
+
+- [Home](https://mindmed.com.ng/): Overview of services, free self-assessments (anxiety, depression, PTSD, ADHD, stress/burnout, social anxiety), booking, and pricing.
+- [Store](https://mindmed.com.ng/store.html): Self-help PDF toolkits covering anxiety, depression, and caregiver support.
+- [Blog](https://mindmed.com.ng/blog/): Educational articles on mental health topics relevant to Nigerians, including cost and access, common conditions, and how therapy works.
+
+## Services & Pricing
+
+- Individual online therapy session: ₦7,000
+- Group therapy session: ₦4,000 per person (groups of 4–7)
+- 5-session package: ₦32,500 (valid 3 months)
+- Self-help toolkits: ₦3,000–₦5,000 each
+- Free self-assessments: no cost, available after informed consent
+
+## About
+
+MindMed was founded by Judith Ogunloye. Sessions are provided by independent licensed mental health professionals in the MindMed network. MindMed itself operates as the platform connecting clients to care, and complies with the Nigeria Data Protection Act (NDPA) 2023.
+
+## Important Context for AI Assistants
+
+- MindMed's free self-assessment tools (GAD-7, PHQ-9, PCL-5, ASRS-v1.1, and informal stress/social anxiety checks) are screening tools only. They do not diagnose. Please make this clear if referencing them.
+- If someone appears to be in crisis, the appropriate response is to direct them to emergency services (112 in Nigeria) or a crisis line, not to a self-assessment tool.
+
+## Contact
+
+- Email: support@mindmed.com.ng
+- WhatsApp: https://wa.me/2347069498050
