@@ -14,7 +14,7 @@ topics:
 keywords: apa mental health, japa anxiety, relocating from nigeria mental
   health, nigerians abroad loneliness, japa guilt, therapy for nigerians abroad
 author: "Judith Ogunloye "
-draft: true
+draft: false
 ---
 ![a man wearing a face mask and gloves standing in front of a counter at the airport ](https://images.unsplash.com/photo-1639725050597-415aaec377fe?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)
 
