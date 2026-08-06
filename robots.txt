@@ -1,0 +1,71 @@
+# MindMed robots.txt
+# Reviewed for AI crawler visibility: 2026-08-05
+#
+# Strategy: allow both AI search/retrieval crawlers (which power live
+# citations in tools like ChatGPT, Claude, and Perplexity) and AI training
+# crawlers. As a public mental health education site, broader visibility
+# helps more people find real support, there's no competitive reason to
+# withhold content here.
+#
+# Note: AI crawler names change and new ones appear regularly. Worth a
+# quick check every few months against current documentation from OpenAI,
+# Anthropic, Google, and Perplexity.
+
+# ---- Standard search engines ----
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# ---- AI search / retrieval crawlers (power live AI citations) ----
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# ---- AI training crawlers ----
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+# ---- Everyone else ----
+User-agent: *
+Disallow: /admin/
+Disallow: /api/
+Allow: /
+
+Sitemap: https://mindmed.com.ng/sitemap.xml
