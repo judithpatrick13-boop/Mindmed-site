@@ -62,8 +62,16 @@ This is not a willpower issue.
 
 Gambling apps use the same psychology as TikTok and slot machines:
 
-Add stress, loneliness, or depression and it gets worse. Many people are gambling to numb something else.
+**• Near wins** — “You almost won 500k!” keeps you hooked
 
+**• Dopamine** — even losing gives a rush
+
+**• The “cashout” button** — gives an illusion of control
+
+**• Bonuses** — free bet leads to a debt cycle
+
+Add stress, loneliness, or depression and it gets worse. Many people are gambling to numb something else.
+\
 So “just stop” doesn’t work. You need new tools and real support.
 
 ## How Gambling Affects Your Mental Health, Money & Relationships
