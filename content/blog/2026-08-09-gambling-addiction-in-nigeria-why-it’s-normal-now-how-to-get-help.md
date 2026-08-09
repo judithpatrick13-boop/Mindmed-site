@@ -50,7 +50,19 @@ That’s the trap. Normal does not mean safe.
 
 Be honest. This isn’t to shame you. It’s to help you see clearly.
 
-clearly.
+**1. Chasing losses** — “I just need to recover 20k”
+
+**2. Lying or hiding** — deleting app history, lying about where money went
+
+**3. Borrowing to bet** — loan apps, salary advance, “I’ll pay after this win”
+
+**4. Can’t focus** — checking odds during work, class, or meetings
+
+**5. Irritable when you stop** — anxious, angry, restless
+
+**6. Using it to cope** — bad day, heartbreak, stress means “let me play”
+
+**7. Bills vs. bets** — rent is due but you deposited 10k “to try luck”
 
 If you tick four or more, it’s not just a habit anymore. Your brain has learned gambling means relief.
 
@@ -110,7 +122,7 @@ Online. Private. ₦7,000 per session.
 
 If low mood has crept in alongside this, our guide on [understanding depression](https://mindmed.com.ng/blog/What-is-depression-signs-nigerians-ignorewh/) is worth a read too.
 
-You Can Recover, Even If “Everyone Is Doing It”
+## You Can Recover, Even If “Everyone Is Doing It”
 
 Just because it’s normal doesn’t mean it’s healthy. Just because your friends do it doesn’t mean you have to.
 
