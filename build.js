@@ -264,6 +264,47 @@ function injectHomepageResources(homepageHtml, posts) {
   return result;
 }
 
+function slugifyTopic(t) {
+  return String(t || '').toLowerCase().trim().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+}
+
+function topicListingPageHtml(topicName, posts) {
+  const cards = posts.map((p) => `
+<a class="blog-card" href="/blog/${p.slug}/">
+${p.image ? `<img src="${escapeHtml(p.image)}" alt="${escapeHtml(p.title)}">` : ''}
+<div class="pad">
+<span class="tag">${escapeHtml(topicName)}</span>
+<h3>${escapeHtml(p.title)}</h3>
+<div class="excerpt">${formatDate(p.date)}</div>
+</div>
+</a>`).join('\n');
+
+  return `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>${escapeHtml(topicName)} Articles | MindMed Blog</title>
+<meta name="description" content="Articles about ${escapeHtml(topicName)} from MindMed, evidence-based mental health guidance for Nigerians.">
+<link rel="canonical" href="https://mindmed.com.ng/blog/topic/${slugifyTopic(topicName)}/">
+<style>${SITE_HEAD_CSS}</style>
+${ANALYTICS_SNIPPET}
+</head>
+<body>
+${siteHeader()}
+<section style="max-width:1200px;margin:0 auto;padding:3rem 1.5rem 0;text-align:center">
+<a class="back-link" href="/blog/">\u2190 Back to all articles</a>
+<h1 style="color:var(--dark);font-size:2.2rem">${escapeHtml(topicName)}</h1>
+<p style="color:#64748b;margin-top:0.5rem">${posts.length} article${posts.length === 1 ? '' : 's'} on this topic.</p>
+</section>
+<div class="blog-grid">
+${cards}
+</div>
+${siteFooter()}
+</body>
+</html>`;
+}
+
 function build() {
   rmrf(OUT);
   fs.mkdirSync(OUT, { recursive: true });
@@ -300,6 +341,7 @@ function build() {
         keywords: data.keywords,
         author: data.author,
         image: data.image,
+        topics: Array.isArray(data.topics) ? data.topics : (data.topics ? [data.topics] : []),
         body: match[2],
       });
     }
@@ -316,6 +358,19 @@ function build() {
   fs.mkdirSync(path.join(OUT, 'blog'), { recursive: true });
   fs.writeFileSync(path.join(OUT, 'blog', 'index.html'), listingPageHtml(posts));
 
+  const topicMap = {};
+  posts.forEach((post) => {
+    (post.topics || []).forEach((topic) => {
+      if (!topicMap[topic]) topicMap[topic] = [];
+      topicMap[topic].push(post);
+    });
+  });
+  for (const topicName of Object.keys(topicMap)) {
+    const dir = path.join(OUT, 'blog', 'topic', slugifyTopic(topicName));
+    fs.mkdirSync(dir, { recursive: true });
+    fs.writeFileSync(path.join(dir, 'index.html'), topicListingPageHtml(topicName, topicMap[topicName]));
+  }
+
   const homepageSrc = path.join(ROOT, 'index.html');
   if (fs.existsSync(homepageSrc)) {
     const rawHomepage = fs.readFileSync(homepageSrc, 'utf8');
@@ -330,3 +385,4 @@ function build() {
 }
 
 build();
+
