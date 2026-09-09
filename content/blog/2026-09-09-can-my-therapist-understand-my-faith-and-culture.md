@@ -13,7 +13,7 @@ topics:
 keywords: christian therapist Nigeria, muslim therapist Nigeria, faith based
   therapy Nigeria, culturally competent therapist
 author: "Judith Ogunloye "
-draft: true
+draft: false
 ---
 ![God is Faithful signage with leaved background](https://images.unsplash.com/photo-1535440216424-0e374e613ee5?q=80&w=1333&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)
 
