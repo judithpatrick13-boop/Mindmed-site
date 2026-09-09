@@ -106,6 +106,8 @@ function siteHeader() {
 <a href="/#pricing">Pricing</a>
 <a href="/store.html">Store</a>
 <a href="/#contact">Contact</a>
+<a href="testimonials.html">Testimonials</a>
+
 <a href="/#contact" class="btn-primary">Book Appointment</a>
 </div>
 </nav>
