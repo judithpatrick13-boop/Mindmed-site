@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Testimonials | MindMed | Real Stories From Our Clients</title>
+<meta name="description" content="Read real stories from MindMed clients on how online therapy helped them with anxiety, depression, relationships, and burnout in Nigeria.">
+<link rel="canonical" href="https://mindmed.com.ng/testimonials.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
+<style>
+:root{
+  --primary:#1e4d3a;
+  --primary-light:#2d6b52;
+  --accent:#f59e0b;
+  --dark:#0f172a;
+  --light:#f8fafc;
+  --text:#334155;
+  --card-radius:20px;
+}
+*{margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
+html{scroll-behavior:smooth}
+body{color:var(--text);line-height:1.65;background:#fff;overflow-x:hidden}
+
+header{background:rgba(255,255,255,0.85);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid #e2e8f0;position:sticky;top:0;z-index:50}
+nav{max-width:1200px;margin:0 auto;padding:1rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+nav a{color:var(--dark);text-decoration:none;margin-left:1rem;font-weight:500;font-size:0.9rem;white-space:nowrap;transition:color 0.2s ease}
+nav a:hover{color:var(--primary)}
+nav a.active{color:var(--primary);font-weight:700}
+.logo-wrap{display:flex;align-items:center;gap:0.6rem}
+.logo-icon{animation:floatLogo 4s ease-in-out infinite}
+@keyframes floatLogo{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-4px) rotate(-3deg)}}
+.logo-text{font-size:1.3rem;font-weight:700;color:var(--primary)}
+.btn-primary{background:var(--primary);color:#fff;padding:0.7rem 1.2rem;border-radius:8px;text-decoration:none;font-weight:600;display:inline-flex;align-items:center;gap:0.5rem;border:none;cursor:pointer;transition:transform 0.2s ease, box-shadow 0.2s ease}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(30,77,58,0.3)}
+
+.hero{position:relative;max-width:1200px;margin:0 auto;padding:5rem 1rem 3rem;text-align:center;overflow:hidden}
+.orb{position:absolute;border-radius:50%;filter:blur(50px);opacity:0.3;z-index:0;animation:driftOrb 12s ease-in-out infinite}
+.orb1{width:260px;height:260px;background:radial-gradient(circle,var(--primary-light),transparent 70%);top:-70px;left:-60px;animation-delay:0s}
+.orb2{width:200px;height:200px;background:radial-gradient(circle,var(--accent),transparent 70%);top:10px;right:-30px;animation-delay:-4s}
+@keyframes driftOrb{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(20px,-25px) scale(1.08)}}
+.hero-inner{position:relative;z-index:1}
+.hero h1{font-size:2.4rem;color:var(--dark);line-height:1.2;margin-bottom:1.1rem;letter-spacing:-0.02em}
+.hero p{font-size:1.1rem;color:#475569;max-width:640px;margin:0 auto}
+
+section{max-width:1200px;margin:0 auto;padding:2.5rem 1rem 4rem}
+.grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;perspective:1200px}
+
+.testimonial-card{
+  background:linear-gradient(180deg,#ffffff 0%,#fbfdfc 100%);
+  border:1px solid #e6ebe8;
+  border-radius:var(--card-radius);
+  padding:2.2rem 2rem;
+  display:flex;flex-direction:column;
+  position:relative;
+  box-shadow:0 4px 16px rgba(15,23,42,0.05);
+  transition:box-shadow 0.35s ease, transform 0.1s ease;
+  transform-style:preserve-3d;
+}
+.testimonial-card::before{
+  content:"\201C";
+  position:absolute;top:0.8rem;left:1.4rem;
+  font-family:Georgia,serif;
+  font-size:3.5rem;
+  color:var(--accent);
+  opacity:0.35;
+  line-height:1;
+}
+.testimonial-card:hover{transform:perspective(1200px) rotateX(3deg) rotateY(-3deg) translateY(-6px);box-shadow:0 20px 40px rgba(15,23,42,0.14)}
+.testimonial-quote{font-size:1rem;color:var(--text);margin-top:1.6rem;margin-bottom:1.5rem;flex-grow:1}
+.testimonial-attribution{font-weight:700;color:var(--primary);font-size:0.95rem;border-top:1px solid #e6ebe8;padding-top:1rem}
+.testimonial-attribution span{display:block;font-weight:400;color:#64748b;font-size:0.85rem;margin-top:0.15rem}
+
+.cta-band{background:linear-gradient(180deg,#f8fafc 0%,#eef2f0 100%);border-radius:24px;padding:3rem 2rem;text-align:center;margin-top:1rem}
+.cta-band h2{font-size:1.7rem;color:var(--dark);margin-bottom:0.8rem}
+.cta-band p{color:#64748b;max-width:520px;margin:0 auto 1.5rem}
+.mini-disclaimer{font-size:0.8rem;color:#94a3b8;margin-top:2rem;text-align:center}
+
+footer{background:var(--dark);color:#cbd5e1;padding:3rem 1rem;margin-top:2rem;text-align:center}
+footer a{color:#94a3b8;text-decoration:none;transition:color 0.2s ease}
+footer a:hover{color:#fff}
+
+@media(max-width:768px){.grid-3{grid-template-columns:1fr}nav{justify-content:center}.hero h1{font-size:1.8rem}.testimonial-card:hover{transform:translateY(-4px)}}
+</style>
+</head>
+<body>
+
+<header>
+<nav>
+<div class="logo-wrap">
+<svg class="logo-icon" width="34" height="34" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0"><path d="M9 2a5 5 0 0 0-5 5c0 .34.03.67.08 1A4 4 0 0 0 2 11.5 4 4 0 0 0 4.5 15c-.17.5-.27 1-.27 1.5A4.5 4.5 0 0 0 9 21h1V8.5A4.5 4.5 0 0 0 9 2Z" fill="#10b981"/><path d="M15 2a5 5 0 0 1 5 5c0 .34-.03.67-.08 1A4 4 0 0 1 22 11.5 4 4 0 0 1 19.5 15c.17.5.27 1 .27 1.5A4.5 4.5 0 0 1 15 21h-1V8.5A4.5 4.5 0 0 1 15 2Z" fill="#1e4d3a"/></svg>
+<span style="display:flex;flex-direction:column;line-height:1.15">
+<span class="logo-text"><span style="color:#1e4d3a">Mind</span><span style="color:#10b981">Med</span></span>
+<span style="font-size:0.65rem;font-weight:400;color:#64748b;letter-spacing:0.02em">Mind. Health. You.</span>
+</span>
+</div>
+<div style="display:flex;align-items:center;flex-wrap:wrap">
+<a href="index.html">Home</a>
+<a href="index.html#resources">Resources</a>
+<a href="index.html#self-tests">Free Tests</a>
+<a href="index.html#about">About</a>
+<a href="index.html#pricing">Pricing</a>
+<a href="store.html">Store</a>
+<a href="testimonials.html" class="active">Testimonials</a>
+<a href="index.html#contact" class="btn-primary">Book Appointment</a>
+</div>
+</nav>
+</header>
+
+<div class="hero">
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+<div class="hero-inner">
+<h1>Real stories from real clients.</h1>
+<p>These are shared with permission, and shown here only with initials and general location to protect everyone's privacy.</p>
+</div>
+</div>
+
+<section>
+<div class="grid-3">
+
+<div class="testimonial-card">
+<p class="testimonial-quote">I have been battling with social anxiety for a while now. I didn't even know there was a name for it until I took the free test. My counselor helped me and now I feel much better than I was before my counselling.</p>
+<div class="testimonial-attribution">A.K<span>Ogbomosho</span></div>
+</div>
+
+<div class="testimonial-card">
+<p class="testimonial-quote">My partner and I were going through a difficult phase in our relationship until we took a leap of faith with MindMed. Now, we can communicate well without hurting each other.</p>
+<div class="testimonial-attribution">D.S<span>Awka</span></div>
+</div>
+
+<div class="testimonial-card">
+<p class="testimonial-quote">I reached out to MindMed during a difficult time in my life. I was experiencing burnout, anxiety, and depression. Therapy helped a lot, I'm not completely fine but getting there.</p>
+<div class="testimonial-attribution">C.A<span>Ibadan</span></div>
+</div>
+
+<div class="testimonial-card">
+<p class="testimonial-quote">I just tried therapy for fun, I didn't expect it to help me sort out some of my issues.</p>
+<div class="testimonial-attribution">M.A<span>Lagos</span></div>
+</div>
+
+<div class="testimonial-card">
+<p class="testimonial-quote">I wasn't too keen about therapy at first but I was blown away by the CBT treatment. I have my emotions, feelings, and thoughts in check after just 3 sessions thanks to MindMed.</p>
+<div class="testimonial-attribution">F.D<span>Ilorin</span></div>
+</div>
+
+</div>
+
+<div class="cta-band">
+<h2>Ready to write your own story?</h2>
+<p>Every session is confidential, online, and built around you. Your first step doesn't have to be a big one.</p>
+<a href="index.html#contact" class="btn-primary">Book a Session</a>
+<p class="mini-disclaimer">Testimonials reflect individual experiences. Results vary from person to person.</p>
+</div>
+</section>
+
+<footer>
+<p><span style="color:#10b981;font-weight:700">Mind</span><span style="font-weight:700">Med</span> &nbsp;·&nbsp; Mind. Health. You.</p>
+<p style="margin-top:0.8rem;font-size:0.9rem">
+<a href="index.html">Home</a> &nbsp;·&nbsp;
+<a href="store.html">Store</a> &nbsp;·&nbsp;
+<a href="testimonials.html">Testimonials</a> &nbsp;·&nbsp;
+<a href="index.html#contact">Contact</a> &nbsp;·&nbsp;
+<a href="https://wa.me/2347069498050" target="_blank" rel="noopener">WhatsApp</a>
+</p>
+<p style="margin-top:1rem;font-size:0.8rem;color:#64748b">© MindMed. Educational and therapeutic support only.</p>
+</footer>
+
+</body>
+</html>
