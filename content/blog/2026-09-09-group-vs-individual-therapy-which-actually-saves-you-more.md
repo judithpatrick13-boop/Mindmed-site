@@ -16,7 +16,7 @@ keywords: group vs individual therapy Nigeria, therapy price Nigeria, online
   benefits, MindMed therapy, affordable therapy Nigeria, psychologist Nigeria
   price
 author: "Judith Ogunloye "
-draft: true
+draft: false
 ---
 ![Therapy spelled with scrabble block and a key on a white surface ](https://images.unsplash.com/photo-1620924701256-1c6f1103ebdf?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)
 
