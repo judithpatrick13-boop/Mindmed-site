@@ -105,6 +105,20 @@ footer a:hover{color:#fff}
 #mmChatInput{flex:1;padding:0.6rem;border-radius:8px;border:1px solid #cbd5e1;font-size:0.9rem}
 #mmChatDisclaimer{font-size:0.7rem;color:#94a3b8;padding:0 0.75rem 0.5rem;text-align:center}
 #mmHumanCta{display:none;margin:0 0.75rem 0.75rem;text-align:center}
+.nav-links{display:flex;align-items:center;flex-wrap:wrap}
+.nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:0.5rem;flex-direction:column;gap:5px;z-index:60}
+.nav-toggle span{width:26px;height:2.5px;background:var(--dark);border-radius:2px;transition:transform 0.25s ease, opacity 0.25s ease}
+.nav-toggle.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.nav-toggle.open span:nth-child(2){opacity:0}
+.nav-toggle.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+@media(max-width:860px){
+  .nav-toggle{display:flex}
+  #navLinks{display:none;width:100%;flex-direction:column;align-items:flex-start;gap:0.25rem;padding-top:1rem}
+  #navLinks.open{display:flex}
+  #navLinks a{margin-left:0;padding:0.6rem 0;width:100%;border-bottom:1px solid #f1f5f9}
+  #navLinks a.btn-primary{margin-top:0.5rem;justify-content:center;border-bottom:none}
+}
+
 </style>
 </head>
 <body>
@@ -112,7 +126,11 @@ footer a:hover{color:#fff}
 <header>
 <nav>
 <div class="logo"><svg class="logo-icon" width="34" height="34" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0"><path d="M9 2a5 5 0 0 0-5 5c0 .34.03.67.08 1A4 4 0 0 0 2 11.5 4 4 0 0 0 4.5 15c-.17.5-.27 1-.27 1.5A4.5 4.5 0 0 0 9 21h1V8.5A4.5 4.5 0 0 0 9 2Z" fill="#10b981"/><path d="M15 2a5 5 0 0 1 5 5c0 .34-.03.67-.08 1A4 4 0 0 1 22 11.5 4 4 0 0 1 19.5 15c.17.5.27 1 .27 1.5A4.5 4.5 0 0 1 15 21h-1V8.5A4.5 4.5 0 0 1 15 2Z" fill="#1e4d3a"/></svg><span style="display:flex;flex-direction:column;line-height:1.15"><span><span style="color:#1e4d3a">Mind</span><span style="color:#10b981">Med</span></span><span style="font-size:0.65rem;font-weight:400;color:#64748b;letter-spacing:0.02em">Mind. Health. You.</span></span></div>
-<div style="display:flex;align-items:center;flex-wrap:wrap">
+<button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+<span></span><span></span><span></span>
+</button>
+<div id="navLinks" class="nav-links">
+
 <a href="#">Home</a>
 <a href="#resources">Resources</a>
 <a href="#self-tests">Free Tests</a>
@@ -889,5 +907,7 @@ Connect on LinkedIn
   });
 })();
 </script>
+<script>(function(){var t=document.getElementById('navToggle'),l=document.getElementById('navLinks');if(t&&l){t.addEventListener('click',function(){var o=l.classList.toggle('open');t.classList.toggle('open',o);t.setAttribute('aria-expanded',o);});}})();</script>
+
 </body>
 </html>
