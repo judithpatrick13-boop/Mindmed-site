@@ -80,6 +80,20 @@ footer a{color:#94a3b8;text-decoration:none;transition:color 0.2s ease}
 footer a:hover{color:#fff}
 
 @media(max-width:768px){.grid-3{grid-template-columns:1fr}nav{justify-content:center}.hero h1{font-size:1.8rem}.testimonial-card:hover{transform:translateY(-4px)}}
+.nav-links{display:flex;align-items:center;flex-wrap:wrap}
+.nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:0.5rem;flex-direction:column;gap:5px;z-index:60}
+.nav-toggle span{width:26px;height:2.5px;background:var(--dark);border-radius:2px;transition:transform 0.25s ease, opacity 0.25s ease}
+.nav-toggle.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.nav-toggle.open span:nth-child(2){opacity:0}
+.nav-toggle.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+@media(max-width:860px){
+  .nav-toggle{display:flex}
+  #navLinks{display:none;width:100%;flex-direction:column;align-items:flex-start;gap:0.25rem;padding-top:1rem}
+  #navLinks.open{display:flex}
+  #navLinks a{margin-left:0;padding:0.6rem 0;width:100%;border-bottom:1px solid #f1f5f9}
+  #navLinks a.btn-primary{margin-top:0.5rem;justify-content:center;border-bottom:none}
+}
+
 </style>
 </head>
 <body>
@@ -93,7 +107,11 @@ footer a:hover{color:#fff}
 <span style="font-size:0.65rem;font-weight:400;color:#64748b;letter-spacing:0.02em">Mind. Health. You.</span>
 </span>
 </div>
-<div style="display:flex;align-items:center;flex-wrap:wrap">
+<button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+<span></span><span></span><span></span>
+</button>
+<div id="navLinks" class="nav-links">
+
 <a href="index.html">Home</a>
 <a href="index.html#resources">Resources</a>
 <a href="index.html#self-tests">Free Tests</a>
@@ -164,6 +182,8 @@ footer a:hover{color:#fff}
 </p>
 <p style="margin-top:1rem;font-size:0.8rem;color:#64748b">© MindMed. Educational and therapeutic support only.</p>
 </footer>
+
+<script>(function(){var t=document.getElementById('navToggle'),l=document.getElementById('navLinks');if(t&&l){t.addEventListener('click',function(){var o=l.classList.toggle('open');t.classList.toggle('open',o);t.setAttribute('aria-expanded',o);});}})();</script>
 
 </body>
 </html>
