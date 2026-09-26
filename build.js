@@ -62,6 +62,19 @@ nav a:hover{color:var(--primary)}
 .logo-icon{animation:floatLogo 4s ease-in-out infinite;flex-shrink:0}
 @keyframes floatLogo{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-4px) rotate(-3deg)}}
 .logo-text{font-size:1.2rem;font-weight:700;color:var(--primary)}
+.nav-links{display:flex;align-items:center;flex-wrap:wrap}
+.nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:0.5rem;flex-direction:column;gap:5px;z-index:60}
+.nav-toggle span{width:26px;height:2.5px;background:var(--dark);border-radius:2px;transition:transform 0.25s ease, opacity 0.25s ease}
+.nav-toggle.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.nav-toggle.open span:nth-child(2){opacity:0}
+.nav-toggle.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+@media(max-width:860px){
+  .nav-toggle{display:flex}
+  #navLinks{display:none;width:100%;flex-direction:column;align-items:flex-start;gap:0.25rem;padding-top:1rem}
+  #navLinks.open{display:flex}
+  #navLinks a{margin-left:0;padding:0.6rem 0;width:100%;border-bottom:1px solid #f1f5f9}
+  #navLinks a.btn-primary{margin-top:0.5rem;justify-content:center;border-bottom:none}
+}
 .btn-primary{background:var(--primary);color:#fff;padding:0.7rem 1.2rem;border-radius:8px;text-decoration:none;font-weight:600;display:inline-flex;align-items:center;gap:0.5rem;border:none;cursor:pointer;transition:transform 0.2s ease, box-shadow 0.2s ease}
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(30,77,58,0.3)}
 .post{max-width:760px;margin:0 auto;padding:3rem 1.5rem;position:relative}
@@ -97,7 +110,10 @@ function siteHeader() {
   return `<header>
 <nav>
 <a class="logo-wrap" href="/"><svg class="logo-icon" width="30" height="30" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 2a5 5 0 0 0-5 5c0 .34.03.67.08 1A4 4 0 0 0 2 11.5 4 4 0 0 0 4.5 15c-.17.5-.27 1-.27 1.5A4.5 4.5 0 0 0 9 21h1V8.5A4.5 4.5 0 0 0 9 2Z" fill="#10b981"/><path d="M15 2a5 5 0 0 1 5 5c0 .34-.03.67-.08 1A4 4 0 0 1 22 11.5 4 4 0 0 1 19.5 15c.17.5.27 1 .27 1.5A4.5 4.5 0 0 1 15 21h-1V8.5A4.5 4.5 0 0 1 15 2Z" fill="#1e4d3a"/></svg><span class="logo-text">MindMed</span></a>
-<div style="display:flex;align-items:center;flex-wrap:wrap">
+<button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+<span></span><span></span><span></span>
+</button>
+<div id="navLinks" class="nav-links">
 <a href="/">Home</a>
 <a href="/blog/">Blog</a>
 <a href="/#resources">Resources</a>
@@ -105,9 +121,8 @@ function siteHeader() {
 <a href="/#about">About</a>
 <a href="/#pricing">Pricing</a>
 <a href="/store.html">Store</a>
+<a href="/testimonials.html">Testimonials</a>
 <a href="/#contact">Contact</a>
-<a href="testimonials.html">Testimonials</a>
-
 <a href="/#contact" class="btn-primary">Book Appointment</a>
 </div>
 </nav>
@@ -188,6 +203,7 @@ ${post.image ? `<img class="hero" src="${escapeHtml(post.image)}" alt="${title}"
 </div>
 </article>
 ${siteFooter()}
+<script>(function(){var t=document.getElementById('navToggle'),l=document.getElementById('navLinks');if(t&&l){t.addEventListener('click',function(){var o=l.classList.toggle('open');t.classList.toggle('open',o);t.setAttribute('aria-expanded',o);});}})();</script>
 </body>
 </html>`;
 }
@@ -226,6 +242,7 @@ ${siteHeader()}
 ${cards || '<p style="color:#64748b">New articles coming soon.</p>'}
 </div>
 ${siteFooter()}
+<script>(function(){var t=document.getElementById('navToggle'),l=document.getElementById('navLinks');if(t&&l){t.addEventListener('click',function(){var o=l.classList.toggle('open');t.classList.toggle('open',o);t.setAttribute('aria-expanded',o);});}})();</script>
 </body>
 </html>`;
 }
@@ -303,6 +320,7 @@ ${siteHeader()}
 ${cards}
 </div>
 ${siteFooter()}
+<script>(function(){var t=document.getElementById('navToggle'),l=document.getElementById('navLinks');if(t&&l){t.addEventListener('click',function(){var o=l.classList.toggle('open');t.classList.toggle('open',o);t.setAttribute('aria-expanded',o);});}})();</script>
 </body>
 </html>`;
 }
@@ -387,3 +405,4 @@ function build() {
 }
 
 build();
+
