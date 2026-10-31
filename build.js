@@ -15,6 +15,17 @@ function escapeHtml(str) {
   }[c]));
 }
 
+
+const PILLAR_LABELS = {
+  'Pillar 1: Cost + Access': 'Cost & Access',
+  'Pillar 2: Problems People Search': 'Common Struggles',
+  'Pillar 3: How Therapy Works / E-E-A-T': 'How Therapy Works'
+};
+
+function pillarLabel(p) {
+  return PILLAR_LABELS[p] || p || 'MindMed';
+}
+
 function rmrf(p) {
   if (fs.existsSync(p)) fs.rmSync(p, { recursive: true, force: true });
 }
@@ -190,7 +201,7 @@ ${siteHeader()}
 <article class="post">
 <a class="back-link" href="/blog/">\u2190 Back to all articles</a>
 ${post.image ? `<img class="hero" src="${escapeHtml(post.image)}" alt="${title}">` : ''}
-<span class="tag">${escapeHtml(post.pillar || 'MindMed')}</span>
+<span class="tag">${escapeHtml(pillarLabel(post.pillar))}</span>
 <h1>${title}</h1>
 <div class="meta">${escapeHtml(post.author || 'MindMed Team')} &nbsp;\u2022&nbsp; ${formatDate(post.date)}</div>
 <div class="post-body">${bodyHtml}</div>
@@ -213,7 +224,7 @@ function listingPageHtml(posts) {
 <a class="blog-card" href="/blog/${p.slug}/">
 ${p.image ? `<img src="${escapeHtml(p.image)}" alt="${escapeHtml(p.title)}">` : ''}
 <div class="pad">
-<span class="tag">${escapeHtml(p.pillar || 'MindMed')}</span>
+<span class="tag">${escapeHtml(pillarLabel(p.pillar))}</span>
 <h3>${escapeHtml(p.title)}</h3>
 <div class="excerpt">${formatDate(p.date)}</div>
 </div>
@@ -251,7 +262,7 @@ function homepageCardHtml(p) {
   return `<div class="article-card" style="opacity:1">
 <a href="/blog/${p.slug}/" style="text-decoration:none;color:inherit">
 ${p.image ? `<img src="${escapeHtml(p.image)}" alt="${escapeHtml(p.title)}">` : ''}
-<div><span class="tag">${escapeHtml((p.pillar || 'MindMed').split(':')[0].toUpperCase())}</span><h4 style="margin:0.5rem 0">${escapeHtml(p.title)}</h4><p style="font-size:0.85rem;color:#64748b">${formatDate(p.date)}</p></div>
+<div><span class="tag">${escapeHtml(pillarLabel(p.pillar).toUpperCase())}</span><h4 style="margin:0.5rem 0">${escapeHtml(p.title)}</h4><p style="font-size:0.85rem;color:#64748b">${formatDate(p.date)}</p></div>
 </a>
 </div>`;
 }
@@ -325,6 +336,43 @@ ${siteFooter()}
 </html>`;
 }
 
+
+function isoDay(d) {
+  try { return new Date(d).toISOString().slice(0, 10); } catch (e) { return null; }
+}
+
+function buildSitemapXml(posts) {
+  const SITE = 'https://mindmed.com.ng';
+  const entries = [
+    { loc: `${SITE}/`, changefreq: 'weekly', priority: '1.0' },
+    { loc: `${SITE}/blog/`, changefreq: 'weekly', priority: '0.9', lastmod: posts[0] ? isoDay(posts[0].date) : null }
+  ];
+  for (const extra of ['store.html', 'testimonials.html']) {
+    if (fs.existsSync(path.join(ROOT, extra))) {
+      entries.push({ loc: `${SITE}/${extra}`, changefreq: 'monthly', priority: '0.6' });
+    }
+  }
+  for (const post of posts) {
+    entries.push({
+      loc: `${SITE}/blog/${encodeURIComponent(post.slug)}/`,
+      changefreq: 'monthly',
+      priority: '0.8',
+      lastmod: isoDay(post.date)
+    });
+  }
+  const body = entries.map((e) => `  <url>
+    <loc>${e.loc}</loc>${e.lastmod ? `
+    <lastmod>${e.lastmod}</lastmod>` : ''}
+    <changefreq>${e.changefreq}</changefreq>
+    <priority>${e.priority}</priority>
+  </url>`).join('\n');
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${body}
+</urlset>
+`;
+}
+
 function build() {
   rmrf(OUT);
   fs.mkdirSync(OUT, { recursive: true });
@@ -390,6 +438,8 @@ function build() {
     fs.mkdirSync(dir, { recursive: true });
     fs.writeFileSync(path.join(dir, 'index.html'), topicListingPageHtml(topicName, topicMap[topicName]));
   }
+
+  fs.writeFileSync(path.join(OUT, 'sitemap.xml'), buildSitemapXml(posts));
 
   const homepageSrc = path.join(ROOT, 'index.html');
   if (fs.existsSync(homepageSrc)) {
