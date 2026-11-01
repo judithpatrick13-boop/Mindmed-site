@@ -10,13 +10,16 @@ topics:
   - Depression
   - Relationships
 keywords: men’s mental health nigeria, male depression signs nigeria, nigerian
-  men therapy, why men don’t go to therapy, man up nigeria
+  men therapy, why men don’t go to therapy, man up nigeria, international men’s
+  day nigeria
 author: "Judith Ogunloye "
 draft: false
 ---
 ![a man is holding his hand to his mouth](https://images.unsplash.com/photo-1673114091701-47b186e25265?q=80&w=1335&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)
 
-4 min read
+5 min read
+
+*Updated 1 November 2026, ahead of International Men’s Day on 19 November. This year’s global theme is “The Future Is Everyone.” This post is for the man carrying it, and for the people who love him.*
 
 “Man up.”
 
@@ -46,17 +49,17 @@ Put all of that together, and you get a lot of men carrying a lot, alone, with n
 
 Struggling doesn’t always look like sadness. In men, it often shows up sideways.
 
-1.	**Irritability and anger:** Snapping at your wife, your kids, your staff, over things that didn’t used to bother you
+1. **Irritability and anger:** Snapping at your wife, your kids, your staff, over things that didn’t used to bother you
 
-2.	**Overworking:** Using the office as an escape from everything else, staying “busy” so you don’t have to feel
+2. **Overworking:** Using the office as an escape from everything else, staying “busy” so you don’t have to feel
 
-3.	**Drinking more than usual:** Using alcohol to switch off at the end of the day, and needing more of it over time
+3. **Drinking more than usual:** Using alcohol to switch off at the end of the day, and needing more of it over time
 
-4.	**Withdrawing:** Going quiet, skipping hangouts, feeling like you have nothing left to give anyone
+4. **Withdrawing:** Going quiet, skipping hangouts, feeling like you have nothing left to give anyone
 
-5.	**Risk-taking:** Reckless spending, reckless driving, affairs, things that create a rush or a distraction
+5. **Risk-taking:** Reckless spending, reckless driving, affairs, things that create a rush or a distraction
 
-6.	**Physical complaints:** Chest tightness, headaches, stomach issues, sleep problems, with no clear medical cause
+6. **Physical complaints:** Chest tightness, headaches, stomach issues, sleep problems, with no clear medical cause
 
 If you recognized yourself in more than one of these, that’s worth sitting with, not brushing off.
 
@@ -80,17 +83,33 @@ The men who eventually do get support usually say the same thing afterward: they
 
 **Watch the coping habits**. If alcohol, overworking, or withdrawal have quietly become your main way of managing stress, that’s worth addressing directly, not just managing around.
 
+## If You Love A Man Who’s Struggling
+
+You might be his wife, sister, friend, colleague or son. You’ve noticed he’s different and you don’t know what to say. A few things help.
+
+**Say what you’ve noticed, not what you’ve decided.** “You’ve been very quiet lately and I’m worried about you” lands better than “What’s wrong with you?”
+
+**Pick a calm moment.** Not in the middle of an argument and not in front of other people. A drive, a walk, or sitting together with the TV on often works better than a formal sit-down.
+
+**Skip the lines that shut him down.** “Man up,” “Others have it worse,” “Just pray about it” and “You’re the head of the house” all tell him to keep hiding.
+
+**Don’t rush to fix it.** Sometimes he needs one person to say “I’m here” and mean it.
+
+**Make the next step easy.** Offer to help him book a session, or sit with him while he does it. A private online session feels less scary than walking into a hospital.
+
+**Take warning signs seriously.** If he talks about not wanting to be here or ending his life, don’t wait for a better time. Stay with him and take him to the nearest hospital emergency unit. For more on supporting someone through a hard season, read [how to support someone through grief or depression](https://mindmed.com.ng/blog/how-to-support-someone-grief-depression-nigeria/).
+
 ## When To See A Therapist
 
 Consider booking a session if:
 
-•	You’ve been more irritable or angry than usual for weeks, and can’t quite say why
+- You’ve been more irritable or angry than usual for weeks, and can’t quite say why
 
-•	You’re relying on alcohol, work, or distraction just to get through the day
+- You’re relying on alcohol, work, or distraction just to get through the day
 
-•	People close to you have said you seem different, and part of you knows they’re right
+- People close to you have said you seem different, and part of you knows they’re right
 
-•	You feel like you have to hold everything together, with no space to fall apart, even briefly
+- You feel like you have to hold everything together, with no space to fall apart, even briefly
 
 At MindMed, you don’t have to perform anything. No judgment, no lecture, no “just pray about it.” Just a space to actually say what’s going on.
 
@@ -98,7 +117,7 @@ Online. Private. ₦7,000 per session.
 
 [Book a Session](https://mindmed.com.ng/#contact) or message us directly on [WhatsApp](https://wa.me/2347069498050).
 
-Strength Was Never The Problem
+## Strength Was Never The Problem
 
 You were never wrong for trying to be strong for the people who depend on you.
 
