@@ -1,15 +1,14 @@
 ---
 title: "First Therapy Session: What to Expect + How to Prepare"
-meta_title: "First Therapy Session: What to Expect in Nigeria 2026"
+meta_title: "How To Prepare For Your First Therapy Session | MindMed Nigeria"
 date: 2026-07-30T22:19:00.000+01:00
 slug: first-therapy-session-what-to-expect
 meta_description: >
-  Nervous about your first therapy session? Here’s exactly what happens at
-  MindMed. ₦7k individual, ₦4k group. How to prepare + what to expect.
-image: https://images.unsplash.com/photo-1620148222862-b95cf7405a7b?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+  Nervous about your first therapy session? Here is how to prepare, what happens
+  at MindMed, and what it costs: ₦7,000 individual, ₦4,000 group.
 pillar: "Pillar 1: Cost + Access"
-keywords: first therapy session what to expect, first therapy session nigeria,
-  mindmed first session, how therapy works nigeria, online therapy first time
+keywords: how to prepare for first therapy session, mindmed first session, first
+  therapy session cost nigeria, group therapy nigeria, online therapy first time
 author: Judith Ogunloye
 draft: false
 ---
@@ -268,3 +267,4 @@ Ready to take the first step?
 [Book Your First Session ](https://www.mindmed.com.ng/#contact)
 
 Take the [Free 2-minute Screening](https://www.mindmed.com.ng/#self-tests)
+
