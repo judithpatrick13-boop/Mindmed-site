@@ -26,6 +26,21 @@ function pillarLabel(p) {
   return PILLAR_LABELS[p] || p || 'MindMed';
 }
 
+
+// Cards use the front-matter image, or the first image pasted into the post body.
+function firstBodyImage(md) {
+  const m = String(md || '').match(/!\[[^\]]*\]\((\S+?)(?:\s+"[^"]*")?\)/);
+  return m ? m[1] : null;
+}
+
+// Posts that cover close topics point readers to each other (by slug).
+const RELATED = {
+  'First-therapy-session-nigeria-2026': ['first-therapy-session-what-to-expect'],
+  'first-therapy-session-what-to-expect': ['First-therapy-session-nigeria-2026'],
+  'japa-mental-health-nigeria': ['career-anxiety-japa-pressure-nigeria'],
+  'career-anxiety-japa-pressure-nigeria': ['japa-mental-health-nigeria']
+};
+
 function rmrf(p) {
   if (fs.existsSync(p)) fs.rmSync(p, { recursive: true, force: true });
 }
@@ -101,7 +116,7 @@ nav a:hover{color:var(--primary)}
 .post-body img{width:100%;border-radius:12px;margin:1.5rem 0}
 .post-body strong{color:var(--dark)}
 .post-cta{background:linear-gradient(180deg,#f8fafc 0%,#eef2f0 100%);border-radius:18px;padding:2.2rem;text-align:center;margin-top:3rem}
-.back-link{display:inline-block;margin-bottom:2rem;color:var(--primary);text-decoration:none;font-weight:600}
+.related{margin-top:2.5rem;padding:1.4rem 1.5rem;background:#f8fafc;border:1px solid #e6ebe8;border-radius:12px}\n.related h3{color:var(--dark);font-size:1.05rem;margin-bottom:0.6rem}\n.related a{color:var(--primary);font-weight:600;text-decoration:none}\n.related li{margin-bottom:0.4rem;margin-left:1.2rem}\n.back-link{display:inline-block;margin-bottom:2rem;color:var(--primary);text-decoration:none;font-weight:600}
 .blog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;max-width:1200px;margin:0 auto;padding:3rem 1.5rem;perspective:1200px}
 .blog-card{background:linear-gradient(180deg,#ffffff 0%,#fbfdfc 100%);border:1px solid #e6ebe8;border-radius:var(--card-radius);overflow:hidden;text-decoration:none;color:inherit;display:block;box-shadow:0 4px 16px rgba(15,23,42,0.05);transition:transform 0.3s ease, box-shadow 0.3s ease}
 .blog-card:hover{transform:perspective(1200px) rotateX(2deg) rotateY(-2deg) translateY(-6px);box-shadow:0 20px 40px rgba(15,23,42,0.14)}
@@ -172,8 +187,15 @@ function articleSchema(post, metaDescriptionPlain) {
     "datePublished": new Date(post.date).toISOString(),
     "mainEntityOfPage": `https://mindmed.com.ng/blog/${post.slug}/`
   };
-  if (post.image) data.image = post.image;
+  if (post.thumb) data.image = post.thumb;
   return `<script type="application/ld+json">${JSON.stringify(data)}</script>`;
+}
+
+
+function relatedHtml(post) {
+  if (!post.related || post.related.length === 0) return '';
+  const items = post.related.map((r) => `<li><a href="/blog/${r.slug}/">${escapeHtml(r.title)}</a></li>`).join('');
+  return `<div class="related"><h3>Keep reading</h3><ul>${items}</ul></div>`;
 }
 
 function postPageHtml(post) {
@@ -205,6 +227,7 @@ ${post.image ? `<img class="hero" src="${escapeHtml(post.image)}" alt="${title}"
 <h1>${title}</h1>
 <div class="meta">${escapeHtml(post.author || 'MindMed Team')} &nbsp;\u2022&nbsp; ${formatDate(post.date)}</div>
 <div class="post-body">${bodyHtml}</div>
+${relatedHtml(post)}
 <div class="post-cta">
 <h3>Ready to speak with a therapist?</h3>
 <p>Book a confidential online session today.</p>
@@ -222,7 +245,7 @@ ${siteFooter()}
 function listingPageHtml(posts) {
   const cards = posts.map((p) => `
 <a class="blog-card" href="/blog/${p.slug}/">
-${p.image ? `<img src="${escapeHtml(p.image)}" alt="${escapeHtml(p.title)}">` : ''}
+${p.thumb ? `<img src="${escapeHtml(p.thumb)}" alt="${escapeHtml(p.title)}">` : ''}
 <div class="pad">
 <span class="tag">${escapeHtml(pillarLabel(p.pillar))}</span>
 <h3>${escapeHtml(p.title)}</h3>
@@ -261,7 +284,7 @@ ${siteFooter()}
 function homepageCardHtml(p) {
   return `<div class="article-card" style="opacity:1">
 <a href="/blog/${p.slug}/" style="text-decoration:none;color:inherit">
-${p.image ? `<img src="${escapeHtml(p.image)}" alt="${escapeHtml(p.title)}">` : ''}
+${p.thumb ? `<img src="${escapeHtml(p.thumb)}" alt="${escapeHtml(p.title)}">` : ''}
 <div><span class="tag">${escapeHtml(pillarLabel(p.pillar).toUpperCase())}</span><h4 style="margin:0.5rem 0">${escapeHtml(p.title)}</h4><p style="font-size:0.85rem;color:#64748b">${formatDate(p.date)}</p></div>
 </a>
 </div>`;
@@ -301,7 +324,7 @@ function slugifyTopic(t) {
 function topicListingPageHtml(topicName, posts) {
   const cards = posts.map((p) => `
 <a class="blog-card" href="/blog/${p.slug}/">
-${p.image ? `<img src="${escapeHtml(p.image)}" alt="${escapeHtml(p.title)}">` : ''}
+${p.thumb ? `<img src="${escapeHtml(p.thumb)}" alt="${escapeHtml(p.title)}">` : ''}
 <div class="pad">
 <span class="tag">${escapeHtml(topicName)}</span>
 <h3>${escapeHtml(p.title)}</h3>
@@ -409,6 +432,7 @@ function build() {
         keywords: data.keywords,
         author: data.author,
         image: data.image,
+        thumb: data.image || firstBodyImage(match[2]),
         topics: Array.isArray(data.topics) ? data.topics : (data.topics ? [data.topics] : []),
         body: match[2],
       });
@@ -416,6 +440,10 @@ function build() {
   }
 
   posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+  const bySlug = {};
+  posts.forEach((p) => { bySlug[p.slug] = p; });
+  posts.forEach((p) => { p.related = (RELATED[p.slug] || []).map((sl) => bySlug[sl]).filter(Boolean); });
 
   for (const post of posts) {
     const dir = path.join(OUT, 'blog', post.slug);
