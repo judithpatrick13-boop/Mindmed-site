@@ -1,19 +1,24 @@
 ---
-title: "Alcohol, Tramadol And Codeine In Nigeria: When “Just To Cope” Becomes A Problem"
+title: "Alcohol, Tramadol And Codeine In Nigeria: When “Just To Cope” Becomes A
+  Problem"
 meta_title: "Tramadol, Codeine + Alcohol Addiction Nigeria: Signs + Help"
-date: 2026-11-02T09:00:00.000+01:00
+date: 2026-11-03T09:21:00.000+01:00
 slug: alcohol-tramadol-addiction-nigeria
-meta_description: Using alcohol, tramadol or codeine to cope, work or sleep? Learn
-  the warning signs, why quitting alone can be dangerous, and how to get help in
-  Nigeria.
+meta_description: Using alcohol, tramadol or codeine to cope, work or sleep?
+  Learn the warning signs, why quitting alone can be dangerous, and how to get
+  help in Nigeria.
+image: https://images.unsplash.com/photo-1622700950970-e82a3df61a89?q=80&w=1212&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D
 pillar: "Pillar 2: Problems People Search"
 topics:
   - Addiction
-keywords: tramadol addiction nigeria, alcohol addiction nigeria, codeine addiction
-  nigeria, how to stop tramadol, signs of drug addiction nigeria, drug rehab nigeria
+keywords: tramadol addiction nigeria, alcohol addiction nigeria, codeine
+  addiction nigeria, how to stop tramadol, signs of drug addiction nigeria, drug
+  rehab nigeria
 author: Judith Ogunloye
-draft: true
+draft: false
 ---
+![marijuana, weed, working desk, and computer table](https://images.unsplash.com/photo-1622700950970-e82a3df61a89?q=80&w=1212&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D "Drug Abuse ")
+
 6 min read
 
 You took one tramadol to push through a 14-hour shift. It worked.
@@ -28,10 +33,10 @@ Nobody wakes up planning to depend on something. It starts as a way to cope, wor
 
 A few things make it easier here than it should be.
 
-- **It’s cheap and close.** NAFDAC has said tramadol and codeine are the most abused drugs in the country, and news reports describe tramadol sold in strips for as little as ₦500 and codeine syrup for under ₦1,000, often without a prescription.
-- **Stronger doses are circulating.** NAFDAC has warned that 200mg and 225mg tramadol, far higher than the 50mg and 100mg strengths regulated here, have found their way into the market.
-- **Everyone is tired.** Long hours, hard commutes, money pressure, grief nobody gave you time for. A pill or a bottle looks like relief.
-- **Alcohol is normal.** Owambe, after-work drinks, “let’s go and relax.” Nobody asks questions until it’s late.
+* **It’s cheap and close.** NAFDAC has said tramadol and codeine are the most abused drugs in the country, and news reports describe tramadol sold in strips for as little as ₦500 and codeine syrup for under ₦1,000, often without a prescription.
+* **Stronger doses are circulating.** NAFDAC has warned that 200mg and 225mg tramadol, far higher than the 50mg and 100mg strengths regulated here, have found their way into the market.
+* **Everyone is tired.** Long hours, hard commutes, money pressure, grief nobody gave you time for. A pill or a bottle looks like relief.
+* **Alcohol is normal.** Owambe, after-work drinks, “let’s go and relax.” Nobody asks questions until it’s late.
 
 A national drug use survey released in 2019 found that about 14 in every 100 Nigerians aged 15 to 64 had used drugs in the past year. So if you’re struggling with this, you are far from the only one.
 
@@ -71,8 +76,8 @@ So the safe first step is not “I’ll stop tomorrow.” It is “I’ll speak 
 
 Two more things:
 
-- Don’t use another drug or alcohol to ease withdrawal. That just trades one problem for another.
-- Go to the nearest hospital emergency unit if there is a seizure, confusion, seeing or hearing things that aren’t there, very slow or shallow breathing, or the person can’t be woken.
+* Don’t use another drug or alcohol to ease withdrawal. That just trades one problem for another.
+* Go to the nearest hospital emergency unit if there is a seizure, confusion, seeing or hearing things that aren’t there, very slow or shallow breathing, or the person can’t be woken.
 
 ## What Real Help Looks Like
 
@@ -88,11 +93,11 @@ If low mood or stress is behind it, these may help: [signs you need therapy but 
 
 ## If You’re Worried About Someone Else
 
-- Talk when they’re sober and calm. Not in the middle of an argument and not in front of other people.
-- Say what you’ve seen: “You’ve been sleeping badly and I’m worried.” Skip “You’re destroying your life.”
-- Don’t try to force them to stop overnight. See a doctor first.
-- Don’t wait for them to “hit rock bottom.” Earlier is easier.
-- Look after yourself too. You can support someone without carrying them.
+* Talk when they’re sober and calm. Not in the middle of an argument and not in front of other people.
+* Say what you’ve seen: “You’ve been sleeping badly and I’m worried.” Skip “You’re destroying your life.”
+* Don’t try to force them to stop overnight. See a doctor first.
+* Don’t wait for them to “hit rock bottom.” Earlier is easier.
+* Look after yourself too. You can support someone without carrying them.
 
 More on this in [how to support someone who is struggling](https://www.mindmed.com.ng/blog/how-to-support-someone-grief-depression-nigeria/).
 
