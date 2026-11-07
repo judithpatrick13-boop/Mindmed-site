@@ -1,20 +1,24 @@
 ---
 title: "Burnout And Insomnia In Nigeria: Why You’re Exhausted But Can’t Sleep"
 meta_title: "Burnout + Insomnia Nigeria: Tired But Can’t Sleep"
-date: 2026-11-02T09:30:00.000+01:00
+date: 2026-11-07T15:04:00.000+01:00
 slug: burnout-insomnia-nigeria
 meta_description: Exhausted all day but wide awake at 3am? Learn the signs of
-  burnout and insomnia in Nigeria, why they feed each other, and what actually helps.
+  burnout and insomnia in Nigeria, why they feed each other, and what actually
+  helps.
+image: https://images.unsplash.com/photo-1546617956-17c132905cab?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D
 pillar: "Pillar 2: Problems People Search"
 topics:
   - Workplace Mental Health
   - Self-Care
-keywords: burnout nigeria, insomnia nigeria, can’t sleep nigeria, workplace burnout
-  lagos, how to sleep better nigeria, tired all the time
+keywords: burnout nigeria, insomnia nigeria, can’t sleep nigeria, workplace
+  burnout lagos, how to sleep better nigeria, tired all the time
 author: Judith Ogunloye
-draft: true
+draft: false
 ---
-6 min read
+![Crumpled blanket on a sofa](https://images.unsplash.com/photo-1546617956-17c132905cab?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D "Insomnia ")
+
+6min read
 
 It’s 3am. The generator has finally gone off, or it hasn’t. Your body is wrecked, but your mind is running tomorrow’s meeting, the rent, the message your boss sent at 11pm.
 
@@ -42,26 +46,28 @@ Then it loops. You sleep badly, so you feel worse the next day. You start worryi
 
 Add the Nigerian extras:
 
-- A 4am wake-up to beat traffic
-- Doing two people’s jobs because colleagues have left (more on that in [career anxiety and JAPA pressure](https://www.mindmed.com.ng/blog/career-anxiety-japa-pressure-nigeria/))
-- Work WhatsApp messages that arrive at all hours
-- Side hustles on top of the main job
-- Heat, mosquitoes, power cuts and generator noise
+* A 4am wake-up to beat traffic
+* Doing two people’s jobs because colleagues have left (more on that in [career anxiety and JAPA pressure](https://www.mindmed.com.ng/blog/career-anxiety-japa-pressure-nigeria/))
+* Work WhatsApp messages that arrive at all hours
+* Side hustles on top of the main job
+* Heat, mosquitoes, power cuts and generator noise
 
 ## Signs To Watch For
 
 **Burnout**
-- Dreading Monday from Saturday
-- Irritable with colleagues, family, even strangers
-- Can’t concentrate, making silly mistakes
-- Headaches, stomach issues, frequent sickness
-- Feeling like nothing you do at work matters
+
+* Dreading Monday from Saturday
+* Irritable with colleagues, family, even strangers
+* Can’t concentrate, making silly mistakes
+* Headaches, stomach issues, frequent sickness
+* Feeling like nothing you do at work matters
 
 **Insomnia**
-- Takes a long time to fall asleep
-- Waking at 2am or 3am and can’t get back to sleep
-- Sleeping a full night and still waking up tired
-- Needing three cups of coffee to function
+
+* Takes a long time to fall asleep
+* Waking at 2am or 3am and can’t get back to sleep
+* Sleeping a full night and still waking up tired
+* Needing three cups of coffee to function
 
 When trouble sleeping happens at least three nights a week for three months or more, doctors call it chronic insomnia. It’s common, and it’s treatable.
 
@@ -91,10 +97,10 @@ Not a fancy routine. Small, boring habits that you repeat.
 
 Sleep habits help, but if the job itself is draining you, you can’t sleep your way out of it. Ask yourself:
 
-- Is my workload realistic for one person?
-- Can I talk to my manager about priorities?
-- Is this a bad season, or has it become the norm?
-- Is my boss part of the problem? See [toxic boss and workplace bullying](https://www.mindmed.com.ng/blog/toxic-boss-workplace-bullying-nigeria/).
+* Is my workload realistic for one person?
+* Can I talk to my manager about priorities?
+* Is this a bad season, or has it become the norm?
+* Is my boss part of the problem? See [toxic boss and workplace bullying](https://www.mindmed.com.ng/blog/toxic-boss-workplace-bullying-nigeria/).
 
 Sometimes the answer is a conversation. Sometimes it’s boundaries. Sometimes it’s a plan to leave. All three are valid.
 
@@ -102,12 +108,12 @@ Sometimes the answer is a conversation. Sometimes it’s boundaries. Sometimes i
 
 See a doctor or therapist if:
 
-- Poor sleep has lasted more than a month and is getting worse
-- You dread bedtime
-- You feel hopeless, panicky, or can’t enjoy anything
-- You’re using alcohol or pills to get through the day or night
-- You snore loudly and wake up gasping. That can be a physical sleep problem and needs a doctor
-- You have thoughts of not wanting to be here. Please talk to someone today
+* Poor sleep has lasted more than a month and is getting worse
+* You dread bedtime
+* You feel hopeless, panicky, or can’t enjoy anything
+* You’re using alcohol or pills to get through the day or night
+* You snore loudly and wake up gasping. That can be a physical sleep problem and needs a doctor
+* You have thoughts of not wanting to be here. Please talk to someone today
 
 For long-term insomnia, therapy that targets sleep, called CBT-I, is usually recommended before sleeping tablets. It teaches you how to retrain your sleep, and it works for many people.
 
