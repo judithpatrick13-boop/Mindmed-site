@@ -1,19 +1,24 @@
 ---
 title: "December Pressure In Nigeria: How To Cope With Money, Family And Loneliness"
 meta_title: "December Pressure Nigeria: Money, Family + Loneliness"
-date: 2026-11-03T09:00:00.000+01:00
+date: 2026-11-11T18:42:00.000+01:00
 slug: december-pressure-nigeria
 meta_description: Dreading December? Learn why the festive season brings money
-  stress, nosy family questions and loneliness in Nigeria, and how to get through it.
+  stress, nosy family questions and loneliness in Nigeria, and how to get
+  through it.
+image: https://images.unsplash.com/photo-1771199303520-a1765c8ce1dc?q=80&w=1348&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D
 pillar: "Pillar 2: Problems People Search"
 topics:
   - Anxiety
   - Self-Care
-keywords: december pressure nigeria, ember months anxiety, christmas stress nigeria,
-  festive season loneliness nigeria, family pressure december, money stress december
+keywords: december pressure nigeria, ember months anxiety, christmas stress
+  nigeria, festive season loneliness nigeria, family pressure december, money
+  stress december
 author: Judith Ogunloye
-draft: true
+draft: false
 ---
+![December 2026 calendar ](https://images.unsplash.com/photo-1771199303520-a1765c8ce1dc?q=80&w=1348&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D)
+
 6 min read
 
 It’s only November and the messages have started.
@@ -40,22 +45,23 @@ If your chest tightened reading that, you’re not being dramatic. December is t
 
 ## Signs It’s More Than Stress
 
-- Dreading the month weeks before it starts
-- Short temper, snapping at people you love
-- Trouble sleeping, or sleeping all day
-- Drinking more than usual, or spending to feel better
-- Crying out of nowhere
-- Avoiding calls, invitations, or going home
-- Headaches, tight chest, stomach problems
+* Dreading the month weeks before it starts
+* Short temper, snapping at people you love
+* Trouble sleeping, or sleeping all day
+* Drinking more than usual, or spending to feel better
+* Crying out of nowhere
+* Avoiding calls, invitations, or going home
+* Headaches, tight chest, stomach problems
 
 ## How To Get Through It
 
 **1. Set your December number now.** Decide what you can spend on travel, gifts and contributions before anyone asks. Write it down. When someone asks for more, say: “This is what I can do this year.” Then stop talking. Giving beyond your means isn’t generosity, it’s debt with a smile. See [money anxiety in Nigeria](https://www.mindmed.com.ng/blog/money-anxiety-nigeria/).
 
 **2. Prepare your answers.** You don’t owe anyone a full update on your life. Have two or three lines ready:
-- “I’ll let you know when there’s news.”
-- “Thank you for caring. How is your business?”
-- “I’d rather not talk about that today.”
+
+* “I’ll let you know when there’s news.”
+* “Thank you for caring. How is your business?”
+* “I’d rather not talk about that today.”
 
 Smile, redirect, and go and eat.
 
@@ -81,11 +87,11 @@ You’re allowed to skip it. If a relative belittles you, hurts you, or going ho
 
 Please reach out if:
 
-- Low mood or numbness lasts most of the day for two weeks or more
-- You can’t sleep for days
-- You’re having panic attacks
-- You’re using alcohol or drugs to get through the day
-- You’re having thoughts of not wanting to be here. Please talk to someone today
+* Low mood or numbness lasts most of the day for two weeks or more
+* You can’t sleep for days
+* You’re having panic attacks
+* You’re using alcohol or drugs to get through the day
+* You’re having thoughts of not wanting to be here. Please talk to someone today
 
 At MindMed, we understand the pressure of Nigerian family, money and expectations. No lectures. No “just pray.”
 
