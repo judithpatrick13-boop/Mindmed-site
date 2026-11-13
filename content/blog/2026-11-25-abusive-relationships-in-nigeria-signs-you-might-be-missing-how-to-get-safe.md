@@ -1,20 +1,24 @@
 ---
-title: "Abusive Relationships In Nigeria: Signs You Might Be Missing + How To Get Safe"
+title: "Abusive Relationships In Nigeria: Signs You Might Be Missing + How To
+  Get Safe"
 meta_title: "Domestic Violence Nigeria: Signs of Abuse + How To Get Help"
 date: 2026-11-25T09:00:00.000+01:00
 slug: domestic-violence-abusive-relationship-nigeria
 meta_description: Is it abuse? Learn the signs of domestic violence in Nigeria,
   why people stay, how to plan for safety, and who to call for help.
+image: https://images.unsplash.com/photo-1600106622040-908ed99571eb?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D
 pillar: "Pillar 2: Problems People Search"
 topics:
   - Relationships
   - Trauma
-keywords: domestic violence nigeria, signs of abusive relationship nigeria, emotional
-  abuse marriage nigeria, how to leave abusive husband, domestic violence helpline
-  nigeria, 16 days of activism
+keywords: domestic violence nigeria, signs of abusive relationship nigeria,
+  emotional abuse marriage nigeria, how to leave abusive husband, domestic
+  violence helpline nigeria, 16 days of activism
 author: Judith Ogunloye
-draft: true
+draft: false
 ---
+![https://images.unsplash.com/photo-1600106622040-908ed99571eb?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D]( "A person covering a woman’s mouth and eyes from behind ")
+
 7 min read
 
 *Trigger warning: this article discusses abuse and violence.*
@@ -31,25 +35,25 @@ If this sounds familiar, this article is for you. It’s also for the friend or 
 
 Abuse isn’t just physical. It can look like:
 
-- **Physical:** hitting, pushing, choking, throwing things, locking you in or out
-- **Emotional:** insults, humiliation in front of others, threats, silent treatment, making you doubt your own memory
-- **Sexual:** forcing sex, or sex you agreed to because refusing meant a fight. Being married doesn’t cancel your right to say no
-- **Financial:** taking your salary, stopping you from working, giving you “allowances,” hiding money, running up debts in your name
-- **Controlling:** checking your phone, tracking where you go, deciding who you can see
-- **Isolation:** cutting you off from family and friends until you have no one left to tell
-- **Spiritual:** using religion or tradition to keep you silent or obedient
+* **Physical:** hitting, pushing, choking, throwing things, locking you in or out
+* **Emotional:** insults, humiliation in front of others, threats, silent treatment, making you doubt your own memory
+* **Sexual:** forcing sex, or sex you agreed to because refusing meant a fight. Being married doesn’t cancel your right to say no
+* **Financial:** taking your salary, stopping you from working, giving you “allowances,” hiding money, running up debts in your name
+* **Controlling:** checking your phone, tracking where you go, deciding who you can see
+* **Isolation:** cutting you off from family and friends until you have no one left to tell
+* **Spiritual:** using religion or tradition to keep you silent or obedient
 
 The 2018 Nigeria Demographic and Health Survey found that about 1 in 3 married women had experienced physical, sexual or emotional violence from a spouse. Men are abused too, and they are even less likely to say so, because they’re afraid nobody will believe them.
 
 ## Signs To Take Seriously
 
-- You’re afraid of how they’ll react to ordinary things
-- You apologise often, even when you did nothing wrong
-- They check your phone, follow you, or get angry when you’re with friends
-- They control the money
-- They threaten to hurt you, take the children, ruin your name, or harm themselves if you leave
-- They embarrass you in front of others and call it “just a joke”
-- After an outburst they’re sweet and sorry, and you hope that was the last time
+* You’re afraid of how they’ll react to ordinary things
+* You apologise often, even when you did nothing wrong
+* They check your phone, follow you, or get angry when you’re with friends
+* They control the money
+* They threaten to hurt you, take the children, ruin your name, or harm themselves if you leave
+* They embarrass you in front of others and call it “just a joke”
+* After an outburst they’re sweet and sorry, and you hope that was the last time
 
 That last one is a cycle: tension, an explosion, apologies and gifts, calm, and then tension again. It rarely stops on its own.
 
@@ -57,12 +61,12 @@ That last one is a cycle: tension, an explosion, apologies and gifts, calm, and 
 
 If someone you love is staying, please don’t say “Why don’t you just leave?” There are real reasons:
 
-- **Money.** No income, no savings, no place to go
-- **Children.** “I can’t break their home”
-- **Family and church pressure.** “Endure.” “All marriages have problems.” “What will people say?”
-- **Fear.** Leaving can make things worse, and it is often the most dangerous time
-- **Shame.** Not wanting anyone to know
-- **Love.** The person can also be kind sometimes, and you hope the kind one will win
+* **Money.** No income, no savings, no place to go
+* **Children.** “I can’t break their home”
+* **Family and church pressure.** “Endure.” “All marriages have problems.” “What will people say?”
+* **Fear.** Leaving can make things worse, and it is often the most dangerous time
+* **Shame.** Not wanting anyone to know
+* **Love.** The person can also be kind sometimes, and you hope the kind one will win
 
 You can respect your faith and your family, and still refuse to be hurt.
 
@@ -90,22 +94,22 @@ You don’t have to decide anything today. A few steps can protect you whatever 
 
 Numbers can change, so if one doesn’t connect, try the next.
 
-- **Emergency:** [112](tel:112), or [767](tel:767) in Lagos
-- **Lagos State Domestic and Sexual Violence Agency (DSVA):** [0800 033 3333](tel:08000333333), toll-free, 24 hours. They help with medical care, legal help and reporting in Lagos
-- **WARIF 24-hour helpline:** [0809 210 0009](tel:08092100009), for sexual and gender-based violence (Lagos)
-- **Mirabel Centre (LASUTH, Lagos):** [0815 577 0000](tel:08155770000), free medical care and counselling after sexual assault
-- **She Writes Woman:** [0800 800 2000](tel:08008002000), toll-free, 24 hours, anywhere in Nigeria
+* **Emergency:** [112](tel:112), or [767](tel:767) in Lagos
+* **Lagos State Domestic and Sexual Violence Agency (DSVA):** [0800 033 3333](tel:08000333333), toll-free, 24 hours. They help with medical care, legal help and reporting in Lagos
+* **WARIF 24-hour helpline:** [0809 210 0009](tel:08092100009), for sexual and gender-based violence (Lagos)
+* **Mirabel Centre (LASUTH, Lagos):** [0815 577 0000](tel:08155770000), free medical care and counselling after sexual assault
+* **She Writes Woman:** [0800 800 2000](tel:08008002000), toll-free, 24 hours, anywhere in Nigeria
 
 Nigeria has laws against domestic violence. The federal VAPP Act of 2015 covers Abuja, and several states, including Lagos, have their own laws. Police response can be uneven, which is why many people start with a service like the DSVA that can help you report and get support.
 
 ## If You’re Worried About Someone
 
-- **Believe them.** Say “I believe you” before anything else.
-- **Don’t ask why they’re still there.** Ask “What do you need?”
-- **Don’t confront the abuser.** It can make things more dangerous for them.
-- **Stay in touch.** Isolation is the abuser’s tool. Be the person who keeps calling.
-- **Don’t push them to reconcile or to leave on your timeline.** Help them plan and stay safe.
-- **If you think they’re in immediate danger,** call 112.
+* **Believe them.** Say “I believe you” before anything else.
+* **Don’t ask why they’re still there.** Ask “What do you need?”
+* **Don’t confront the abuser.** It can make things more dangerous for them.
+* **Stay in touch.** Isolation is the abuser’s tool. Be the person who keeps calling.
+* **Don’t push them to reconcile or to leave on your timeline.** Help them plan and stay safe.
+* **If you think they’re in immediate danger,** call 112.
 
 ## Where Therapy Fits
 
