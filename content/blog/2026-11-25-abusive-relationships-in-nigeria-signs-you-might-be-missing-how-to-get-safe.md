@@ -2,7 +2,7 @@
 title: "Abusive Relationships In Nigeria: Signs You Might Be Missing + How To
   Get Safe"
 meta_title: "Domestic Violence Nigeria: Signs of Abuse + How To Get Help"
-date: 2026-11-25T09:00:00.000+01:00
+date: 2026-11-16T20:44:00.000+01:00
 slug: domestic-violence-abusive-relationship-nigeria
 meta_description: Is it abuse? Learn the signs of domestic violence in Nigeria,
   why people stay, how to plan for safety, and who to call for help.
