@@ -3,8 +3,7 @@ title: "Tired, Guilty, and Alone: The Mental Health Struggle of Parents of
   Special Needs Children in Nigeria"
 meta_title: Special Needs Parents Mental Health in Nigeria | Burnout
 date: 2026-07-20T21:19:00.000+01:00
-slug: "Tired, Guilty, and Alone: The Mental Health Struggle of Parents of
-  Special Needs Children in Nigeria"
+slug: caregiver-burnout
 meta_description: Tired, guilty, and alone? Learn how to cope with caregiver
   burnout as a parent of a special needs child in Nigeria + get support and
   therapy.
