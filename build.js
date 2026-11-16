@@ -199,7 +199,7 @@ function relatedHtml(post) {
 }
 
 function postPageHtml(post) {
-  const bodyHtml = marked.parse(post.body || '');
+  const bodyHtml = marked.parse(post.body || '').replace(/https?:\/\/www\.mindmed\.com\.ng/gi, 'https://mindmed.com.ng');
   const title = escapeHtml(post.title);
   const metaTitle = escapeHtml(post.meta_title && post.meta_title.trim() ? post.meta_title.trim() : `${post.title} | MindMed`);
   const metaDescriptionPlain = post.meta_description && post.meta_description.trim()
