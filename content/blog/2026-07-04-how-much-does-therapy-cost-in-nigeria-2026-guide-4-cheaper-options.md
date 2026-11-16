@@ -118,7 +118,7 @@ A: No office rent, no NEPA bill, therapist sees more clients. You save on transp
 
 **Q: Is ₦3k/session therapy “low quality”?**
 
-A: No. Newer therapists charge less to build experience. They’re still NPA/MDCN licensed. Check credentials like we taught in “[how to find licensed therapist 2026](https://www.mindmed.com.ng/blog/Find-licensed-therapist-Nigeria-2026-NPA-MDCN-verification/)”.
+A: No. Newer therapists charge less to build experience. They’re still NPA/MDCN licensed. Check credentials like we taught in “[how to find licensed therapist 2026](https://mindmed.com.ng/blog/Find-licensed-therapist-Nigeria-2026-NPA-MDCN-verification/)”.
 
 **Q: How many sessions will I need?**
 
@@ -132,7 +132,7 @@ A: Yes. Tell your therapist. Good ones will give you coping tools to use until y
 
 **Therapy in Nigeria 2026 is no longer ₦50k + stigma.** It’s flexible. It’s private. It’s accessible.
 
-Take the [free test](https://www.mindmed.com.ng/#self-tests) → [Book](https://www.mindmed.com.ng/#contact) your first session → See how you feel. You can always stop. But most people wish they had started earlier.
+Take the [free test](https://mindmed.com.ng/#self-tests) → [Book](https://mindmed.com.ng/#contact) your first session → See how you feel. You can always stop. But most people wish they had started earlier.
 
 Can’t afford it yet? Use the free resources above. When you’re ready, **MindMed makes therapy accessible** with flexible payment and affordable rates.
 
