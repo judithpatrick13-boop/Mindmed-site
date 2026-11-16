@@ -161,7 +161,7 @@ Not for your child. For you.
 
 To cry. To be angry. To not have to be strong.
 
-\[MindMed has mental health practitioners](/book) who understand caregiver stress. You can do it from home after they sleep. 50 minutes that are just yours.
+[MindMed has mental health practitioners](https://mindmed.com.ng/#contact) who understand caregiver stress. You can do it from home after they sleep. 50 minutes that are just yours.
 
 ## 2. Find Your People
 
@@ -207,7 +207,7 @@ You don’t have to do this alone.
 
 **If You Need To Talk Now**:
 
-She Writes Woman: [0800 800 2000](08008002000) — Free, 24/7
+She Writes Woman: [0800 800 2000](tel:08008002000) — Free, 24/7
 
 **Last Thing**
 
