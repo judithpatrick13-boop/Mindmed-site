@@ -12,10 +12,16 @@
 # Anthropic, Google, and Perplexity.
 
 # ---- Standard search engines ----
+# A bot with its own group ignores the "*" group below, so /admin/ and /api/
+# must be blocked inside each group.
 User-agent: Googlebot
+Disallow: /admin/
+Disallow: /api/
 Allow: /
 
 User-agent: Bingbot
+Disallow: /admin/
+Disallow: /api/
 Allow: /
 
 # ---- AI search / retrieval crawlers (power live AI citations) ----
